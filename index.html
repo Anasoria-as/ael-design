@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ana Soria Ael · Web Designer & Frontend Developer</title>
+<meta name="description" content="Portfolio de Ana Soria Ael (ael-design): diseño web UX/UI en Figma, frontend con HTML, CSS y JavaScript, e-commerce e IA generativa. Madrid.">
+<meta name="theme-color" content="#F8E006">
+<meta property="og:title" content="Ana Soria Ael · ael-design">
+<meta property="og:description" content="Web Designer & Frontend Developer en Madrid.">
+<meta property="og:image" content="https://anasoriaael.com/assets/img/logo-ael.png">
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=JetBrains+Mono:wght@400;500&family=Poppins:wght@300;400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/css/style.css">
+<script>
+  /* Aplica tema e idioma guardados antes de pintar, para evitar parpadeos */
+  (function () {
+    var d = document.documentElement;
+    try {
+      var t = localStorage.getItem('ael-theme');
+      if (t === 'light' || t === 'dark') d.setAttribute('data-theme', t);
+      var l = localStorage.getItem('ael-lang');
+      if (l === 'es' || l === 'en') d.setAttribute('lang', l);
+    } catch (e) {}
+  })();
+</script>
+</head>
+<body>
+<!--AEL:BODY-->
+<a class="skip" href="#app">Saltar al contenido</a>
+
+<header class="topbar" id="topbar">
+  <div class="wrap topbar-in">
+    <a class="brand" href="#inicio" aria-label="ael-design, inicio">
+      <img src="assets/img/logo-ael.png" alt="" width="40" height="40">
+      <span class="brand-txt">ael-design</span>
+    </a>
+
+    <nav class="nav" id="nav" aria-label="Principal">
+      <a href="#proyectos" data-route="proyectos" data-i18n="nav_projects">Proyectos</a>
+      <a href="#sobre-mi" data-route="sobre-mi" data-i18n="nav_about">Sobre mí</a>
+      <a href="#contacto" data-route="contacto" data-i18n="nav_contact">Contacto</a>
+    </nav>
+
+    <div class="controls">
+      <div class="seg" role="group" aria-label="Idioma / Language">
+        <button type="button" id="lang-es" data-lang="es" aria-pressed="true">ES</button>
+        <button type="button" id="lang-en" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <div class="seg seg-icons" role="group" aria-label="Tema">
+        <button type="button" id="theme-light" data-theme-btn="light" aria-pressed="false" data-i18n-label="theme_light" aria-label="Claro">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg>
+        </button>
+        <button type="button" id="theme-dark" data-theme-btn="dark" aria-pressed="false" data-i18n-label="theme_dark" aria-label="Oscuro">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 14.6A8.4 8.4 0 0 1 9.4 3.8a8.4 8.4 0 1 0 10.8 10.8Z"/></svg>
+        </button>
+      </div>
+      <button type="button" class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="nav">
+        <span class="bars" aria-hidden="true"></span><span class="sr" data-i18n="menu">Menú</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="app" tabindex="-1">
+  <noscript><p class="wrap" style="padding-block:4rem">Esta web necesita JavaScript. Escríbeme a anasoria.as@gmail.com.</p></noscript>
+</main>
+
+<footer class="footer" id="footer"></footer>
+
+<div class="cursor-glow" aria-hidden="true"></div>
+<div class="cursor-ring" aria-hidden="true"><span></span></div>
+<div class="cursor-dot" aria-hidden="true"></div>
+
+<script src="assets/js/app.js"></script>
+<!--/AEL:BODY-->
+</body>
+</html>

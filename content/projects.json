@@ -1,0 +1,181 @@
+[
+  {
+    "slug": "vaukura",
+    "featured": true,
+    "art": "yellow",
+    "art_word": "vaukura",
+    "cover": "",
+    "gallery": [],
+    "link": "https://www.vaukura.com",
+    "year": "2021 — 2026",
+    "client": "Vaukura · Grupo Herme",
+    "title": { "es": "Vaukura, tienda online de mobiliario", "en": "Vaukura, furniture online store" },
+    "kind": { "es": "Diseño web · UX/UI", "en": "Web design · UX/UI" },
+    "summary": {
+      "es": "Diseño desde cero, en Figma, de la tienda online de mobiliario de diseño: estructura, navegación e interfaz. Es la web que está publicada hoy.",
+      "en": "Designed from scratch in Figma: the structure, navigation and interface of a design-furniture online store. It's the site that is live today."
+    },
+    "role": { "es": "Diseño UX/UI y coordinación con desarrollo", "en": "UX/UI design and coordination with development" },
+    "tools": ["Figma", "Photoshop", "Lightroom", "SEO on-page"],
+    "tags": ["Figma", "UX/UI", "E-commerce", "~400 productos"],
+    "sections": [
+      {
+        "title": { "es": "Contexto", "en": "Context" },
+        "text": {
+          "es": "Vaukura vende online mobiliario, iluminación y decoración de estilo nórdico e industrial, con un catálogo de unos 400 productos. El objetivo era una web más visual y atractiva, en la que el producto fuera el protagonista.",
+          "en": "Vaukura sells Nordic and industrial-style furniture, lighting and decor online, with a catalogue of around 400 products. The goal was a more visual and appealing site where the product takes centre stage."
+        }
+      },
+      {
+        "title": { "es": "Mi papel", "en": "My role" },
+        "text": {
+          "es": "Diseñé en Figma la estructura y la interfaz completas de la web y coordiné su implementación con el equipo de desarrollo externo. En el día a día decidía cómo se presentaba cada producto: el orden de las fotos, qué cualidades destacar y el SEO on-page de cada ficha.",
+          "en": "I designed the full structure and interface of the site in Figma and coordinated its implementation with the external development team. Day to day, I decided how each product was presented: photo order, which qualities to highlight and the on-page SEO of each listing."
+        }
+      },
+      {
+        "title": { "es": "Proceso", "en": "Process" },
+        "list": {
+          "es": ["Estructura y navegación del catálogo", "Diseño de la interfaz en Figma", "Fichas de producto: orden de fotos y atributos clave", "Seguimiento de la implementación con desarrollo"],
+          "en": ["Catalogue structure and navigation", "Interface design in Figma", "Product pages: photo order and key attributes", "Following up the build with development"]
+        }
+      },
+      {
+        "title": { "es": "Resultado", "en": "Outcome" },
+        "text": {
+          "es": "Es la web publicada hoy en vaukura.com. Las ventas empezaron a subir a medida que la tienda se volvía más visual y atractiva.",
+          "en": "It's the site live today at vaukura.com. Sales started to rise as the store became more visual and appealing."
+        }
+      }
+    ]
+  },
+  {
+    "slug": "books-ia",
+    "featured": false,
+    "art": "magenta",
+    "art_word": "ai",
+    "cover": "",
+    "gallery": [],
+    "link": "",
+    "year": "2021 — 2026",
+    "client": "Vaukura · Grupo Herme",
+    "title": { "es": "Books de producto con IA", "en": "AI product photo books" },
+    "kind": { "es": "Dirección de arte · IA generativa", "en": "Art direction · Generative AI" },
+    "summary": {
+      "es": "Sin estudio de fotografía y sin presupuesto para montar ambientes, usé la IA para crear books de looks de mobiliario, con la dirección de arte siempre en mis manos.",
+      "en": "With no photo studio and no budget to stage rooms, I used AI to create furniture lookbooks, keeping art direction in my own hands."
+    },
+    "role": { "es": "Dirección de arte y generación de imágenes", "en": "Art direction and image generation" },
+    "tools": ["Gemini", "ChatGPT", "Claude"],
+    "tags": ["Gemini", "AI-First", "Dirección de arte"],
+    "sections": [
+      {
+        "title": { "es": "Contexto", "en": "Context" },
+        "text": {
+          "es": "La tienda necesitaba fotos de ambiente para enseñar los muebles en espacios reales, pero no había recursos para un estudio de fotos ni para montar entornos con mobiliario diverso.",
+          "en": "The store needed room shots to show the furniture in real spaces, but there were no resources for a photo studio or for staging varied furniture sets."
+        }
+      },
+      {
+        "title": { "es": "Cómo lo resolví", "en": "How I solved it" },
+        "text": {
+          "es": "Usé Gemini para generar books de looks de mobiliario. Nunca dejé que la IA decidiera: partía de una idea clara de cada ambiente y revisaba cada imagen antes de usarla. ChatGPT me ayudaba con tareas básicas y Claude con la automatización de tareas repetitivas.",
+          "en": "I used Gemini to generate furniture lookbooks. I never let the AI decide: I started from a clear idea of each room and reviewed every image before using it. ChatGPT helped with basic tasks and Claude with automating repetitive ones."
+        }
+      },
+      {
+        "title": { "es": "Proceso", "en": "Process" },
+        "list": {
+          "es": ["Definir la idea y el estilo de cada ambiente", "Generar las imágenes con Gemini", "Revisar y seleccionar: nada se publica sin supervisión"],
+          "en": ["Define the idea and style of each room", "Generate the images with Gemini", "Review and select: nothing goes live without supervision"]
+        }
+      },
+      {
+        "title": { "es": "Resultado", "en": "Outcome" },
+        "text": {
+          "es": "Imágenes de ambiente para la web, banners y contenido, sin coste de estudio y con una estética coherente con la marca.",
+          "en": "Room imagery for the website, banners and content, with no studio costs and a look consistent with the brand."
+        }
+      }
+    ]
+  },
+  {
+    "slug": "ecommerce-mobiliario",
+    "featured": false,
+    "art": "black",
+    "art_word": "</>",
+    "cover": "",
+    "gallery": [],
+    "link": "https://anasoria-as.github.io/mi-pagina-web/",
+    "year": "",
+    "client": { "es": "Proyecto propio", "en": "Personal project" },
+    "title": { "es": "E-commerce de mobiliario", "en": "Furniture e-commerce" },
+    "kind": { "es": "Diseño + código", "en": "Design + code" },
+    "summary": {
+      "es": "Una tienda online responsive diseñada y maquetada por mí desde cero, publicada en GitHub Pages.",
+      "en": "A responsive online store I designed and built from scratch, published on GitHub Pages."
+    },
+    "role": { "es": "Diseño y maquetación", "en": "Design and front-end build" },
+    "tools": ["HTML", "CSS", "VS Code", "GitHub Pages"],
+    "tags": ["HTML", "CSS", "Responsive"],
+    "sections": [
+      {
+        "title": { "es": "Qué es", "en": "What it is" },
+        "text": {
+          "es": "Un proyecto personal para llevar un diseño de tienda online hasta el código, de principio a fin y sin plantillas.",
+          "en": "A personal project to take an online store design all the way to code, end to end and without templates."
+        }
+      },
+      {
+        "title": { "es": "Qué incluye", "en": "What's inside" },
+        "list": {
+          "es": ["Portada de bienvenida", "Catálogo con doble imagen por producto", "Materiales y características", "Planes de envío", "Valoraciones y formulario de contacto"],
+          "en": ["Welcome hero", "Catalogue with two images per product", "Materials and features", "Shipping plans", "Reviews and contact form"]
+        }
+      },
+      {
+        "title": { "es": "Resultado", "en": "Outcome" },
+        "text": {
+          "es": "Una web responsive publicada con GitHub Pages que puedes visitar ahora mismo.",
+          "en": "A responsive site published with GitHub Pages that you can visit right now."
+        }
+      }
+    ]
+  },
+  {
+    "slug": "cashdisplay",
+    "featured": false,
+    "art": "white",
+    "art_word": "cash",
+    "cover": "",
+    "gallery": [],
+    "link": "https://www.cashdisplay.com",
+    "year": "2021 — 2026",
+    "client": "Cashdisplay · Grupo Herme",
+    "title": { "es": "Cashdisplay, tienda online B2B", "en": "Cashdisplay, B2B online store" },
+    "kind": { "es": "Diseño web · E-commerce", "en": "Web design · E-commerce" },
+    "summary": {
+      "es": "Diseño y contenido para la tienda online de displays y comunicación visual para punto de venta, ferias y hostelería.",
+      "en": "Design and content for the online store of displays and visual communication for retail, trade fairs and hospitality."
+    },
+    "role": { "es": "Diseño web, contenido y SEO", "en": "Web design, content and SEO" },
+    "tools": ["Figma", "Photoshop", "SEO on-page", "Mailchimp"],
+    "tags": ["E-commerce", "B2B", "SEO"],
+    "sections": [
+      {
+        "title": { "es": "Contexto", "en": "Context" },
+        "text": {
+          "es": "Cashdisplay vende roll-ups, expositores, señalética y material para punto de venta. Es un catálogo técnico y muy amplio, pensado para empresas.",
+          "en": "Cashdisplay sells roll-ups, stands, signage and point-of-sale material. It's a broad, technical catalogue aimed at businesses."
+        }
+      },
+      {
+        "title": { "es": "Mi papel", "en": "My role" },
+        "text": {
+          "es": "Llevé las decisiones de diseño de la web igual que en Vaukura: la presentación de cada producto, el orden de las imágenes, las newsletters, las redes y el SEO on-page. Una web menos vistosa, pero a la que dediqué muchas horas.",
+          "en": "I led the website's design decisions just as at Vaukura: how each product was presented, image order, newsletters, social media and on-page SEO. A less showy site, but one I put many hours into."
+        }
+      }
+    ]
+  }
+]
