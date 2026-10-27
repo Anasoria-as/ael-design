@@ -160,12 +160,12 @@
       '<section class="wrap page-head">' +
         '<h1 class="page-title">' + esc(ui('about_title')) + '<span class="sq" aria-hidden="true"></span></h1>' +
       '</section>' +
-      '<section class="wrap">' +
-        '<div class="cv-banner"><div><h2>' + esc(ui('cv_title')) + '</h2><p>' + esc(ui('cv_note')) + '</p></div>' + cvButtons() + '</div>' +
-      '</section>' +
-      '<section class="section wrap">' +
+      '<section class="section wrap about-main">' +
         '<div class="about-body">' +
-          '<div class="portrait">' + photo + '</div>' +
+          // columna izquierda: foto y, debajo, la caja para descargar el CV
+          '<div class="portrait">' + photo +
+            '<div class="cv-banner"><div><h2>' + esc(ui('cv_title')) + '</h2><p>' + esc(ui('cv_note')) + '</p></div>' + cvButtons() + '</div>' +
+          '</div>' +
           '<div class="about-text">' + arr(a.paragraphs).map(function (p) { return '<p>' + esc(p) + '</p>'; }).join('') +
             (t(a.quote) ? '<p class="about-quote">' + esc(t(a.quote)) + '</p>' : '') +
             (t(a.signature) ? '<p class="about-sign">' + esc(t(a.signature)) + '</p>' : '') +
