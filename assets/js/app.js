@@ -35,6 +35,8 @@
   }
   // Devuelve siempre una lista (vacía si falta), para que la web no falle si se vacía un campo
   function arr(v) { var x = t(v); return Array.isArray(x) ? x : []; }
+  // Texto con **negritas**: se escapa y luego se convierten los ** en <strong>
+  function rich(s) { return esc(s).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>'); }
   function ui(key) { return (SITE && SITE.ui[lang] && SITE.ui[lang][key]) || key; }
 
   var ICON_DL = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10.5l5 5 5-5M5 20h14"/></svg>';
@@ -166,7 +168,7 @@
           '<div class="portrait">' + photo +
             '<div class="cv-banner"><div><h2>' + esc(ui('cv_title')) + '</h2><p>' + esc(ui('cv_note')) + '</p></div>' + cvButtons() + '</div>' +
           '</div>' +
-          '<div class="about-text">' + (t(a.title) ? '<h2 class="about-title">' + esc(t(a.title)) + '</h2>' : '') + arr(a.paragraphs).map(function (p) { return '<p>' + esc(p) + '</p>'; }).join('') +
+          '<div class="about-text">' + (t(a.title) ? '<h2 class="about-title">' + esc(t(a.title)) + '</h2>' : '') + arr(a.paragraphs).map(function (p) { return '<p>' + rich(p) + '</p>'; }).join('') +
             (t(a.quote) ? '<p class="about-quote">' + esc(t(a.quote)) + '</p>' : '') +
             (t(a.signature) ? '<p class="about-sign">' + esc(t(a.signature)) + '</p>' : '') +
           '</div>' +

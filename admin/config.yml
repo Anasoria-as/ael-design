@@ -480,6 +480,7 @@ singletons:
           name: item
           label: párrafo
           widget: text
+      hint: Escribe **así** las palabras que quieras en negrita.
     - name: quote
       label: Frase destacada
       widget: object
