@@ -74,17 +74,17 @@
   }
 
   function contactSection() {
+    // Rejilla de 2 columnas: título y texto a la izquierda; email y botones a la derecha,
+    // con el email en la misma línea base que «¿Hablamos?» y el bloque pegado al borde derecho
     return '<section class="section contact" id="contacto"><div class="wrap">' +
-      '<h2 class="contact-big">' + esc(ui('contact_kicker')) + '<span class="sq" aria-hidden="true"></span></h2>' +
       '<div class="contact-grid">' +
-        '<p>' + esc(ui('contact_text')) + '</p>' +
-        '<div>' +
-          '<div class="mail-row"><a class="mail" href="mailto:' + esc(SITE.email) + '">' + esc(SITE.email) + '</a>' +
+        '<h2 class="contact-big">' + esc(ui('contact_kicker')) + '<span class="sq" aria-hidden="true"></span></h2>' +
+        '<div class="mail-row"><a class="mail" href="mailto:' + esc(SITE.email) + '">' + esc(SITE.email) + '</a>' +
           '<button type="button" class="copy-btn" id="copy-mail" data-copy="' + esc(SITE.email) + '">' + esc(ui('copy')) + '</button></div>' +
-          '<div class="contact-links">' +
-            '<a class="btn btn-ghost btn-sm" href="' + esc(SITE.linkedin) + '" target="_blank" rel="noopener">LinkedIn <span class="arr">↗</span></a>' +
-            '<a class="btn btn-ghost btn-sm" href="' + esc(SITE.cv[lang]) + '" download>CV · ' + lang.toUpperCase() + ' <span class="arr">↓</span></a>' +
-          '</div>' +
+        '<p class="contact-text">' + esc(ui('contact_text')) + '</p>' +
+        '<div class="contact-links">' +
+          '<a class="btn btn-ghost btn-sm" href="' + esc(SITE.linkedin) + '" target="_blank" rel="noopener">LinkedIn <span class="arr">↗</span></a>' +
+          '<a class="btn btn-ghost btn-sm" href="' + esc(SITE.cv[lang]) + '" download>CV · ' + lang.toUpperCase() + ' <span class="arr">↓</span></a>' +
         '</div>' +
       '</div></div></section>';
   }
