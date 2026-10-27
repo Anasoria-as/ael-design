@@ -27,8 +27,10 @@
       "see_projects": "Ver proyectos",
       "view": "Ver",
       "projects_title": "Proyectos",
-      "projects_intro": "Diseño web, e-commerce y contenido visual. Pulsa un proyecto para ver el caso completo.",
+      "projects_intro": "Diseño web, e-commerce y contenido visual.",
+      "projects_hint": "Pulsa un proyecto para ver el caso completo.",
       "featured": "Destacado",
+      "case_study": "Caso de estudio",
       "strengths_title": "Lo que aporto",
       "skills_title": "Herramientas",
       "contact_kicker": "¿Hablamos?",
@@ -67,8 +69,10 @@
       "see_projects": "See projects",
       "view": "View",
       "projects_title": "Projects",
-      "projects_intro": "Web design, e-commerce and visual content. Tap a project to see the full case study.",
+      "projects_intro": "Web design, e-commerce and visual content.",
+      "projects_hint": "Tap a project to see the full case study.",
       "featured": "Featured",
+      "case_study": "Case study",
       "strengths_title": "What I bring",
       "skills_title": "Tools",
       "contact_kicker": "Let's talk",
@@ -119,6 +123,20 @@
     "SEO",
     "Responsive"
   ],
+  "stat": {
+    "label": {
+      "es": "E-commerce",
+      "en": "E-commerce"
+    },
+    "value": {
+      "es": "+5 años",
+      "en": "+5 years"
+    },
+    "text": {
+      "es": "Diseñando y haciendo crecer tiendas online",
+      "en": "Designing and growing online stores"
+    }
+  },
   "strengths": [
     {
       "tag": "figma",

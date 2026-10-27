@@ -69,7 +69,7 @@ singletons:
       widget: boolean
       required: false
       default: false
-      hint: Sale grande y el primero de la lista. Marca solo uno.
+      hint: Sale el primero de la lista. Marca solo uno.
     - name: kind
       label: Tipo de proyecto
       widget: object
@@ -83,7 +83,7 @@ singletons:
         label: English
         widget: string
         required: false
-      hint: 'Va encima del título. Ejemplo: Diseño web · UX/UI'
+      hint: 'Sale en rosa bajo el título de la tarjeta. Ejemplo: Diseño web · UX/UI'
     - name: summary
       label: Resumen
       widget: object
@@ -97,7 +97,7 @@ singletons:
         label: English
         widget: text
         required: false
-      hint: Sale en la tarjeta y al principio del caso.
+      hint: Sale al principio de la página del caso.
     - name: cover
       label: Imagen de portada
       widget: image
@@ -173,10 +173,10 @@ singletons:
       required: false
       hint: Una por línea. Salen en la ficha del caso.
     - name: tags
-      label: Etiquetas de la tarjeta
+      label: Etiquetas
       widget: list
       required: false
-      hint: Una por línea.
+      hint: Una por línea. Ahora mismo no se muestran en la web.
     - name: sections
       label: Secciones del caso
       widget: list
@@ -328,6 +328,49 @@ singletons:
     widget: list
     required: false
     hint: Las palabras que pasan en la cinta amarilla. Una por línea.
+  - name: stat
+    label: Cifra destacada (Proyectos)
+    widget: object
+    collapsed: false
+    hint: La tarjeta grande con la cifra que sale encima de los proyectos.
+    fields:
+    - name: label
+      label: Texto pequeño de arriba
+      widget: object
+      collapsed: false
+      fields:
+      - name: es
+        label: Español
+        widget: string
+        required: false
+      - name: en
+        label: English
+        widget: string
+        required: false
+    - name: value
+      label: Cifra
+      widget: object
+      collapsed: false
+      fields:
+      - name: es
+        label: Español
+        widget: string
+      - name: en
+        label: English
+        widget: string
+    - name: text
+      label: Frase de abajo
+      widget: object
+      collapsed: false
+      fields:
+      - name: es
+        label: Español
+        widget: text
+        required: false
+      - name: en
+        label: English
+        widget: text
+        required: false
   - name: strengths
     label: Lo que aporto
     widget: list
@@ -621,10 +664,16 @@ singletons:
         label: Título de Proyectos
         widget: string
       - name: projects_intro
-        label: Introducción de Proyectos
+        label: Frase grande junto a la cifra (Proyectos)
+        widget: text
+      - name: projects_hint
+        label: Frase pequeña bajo la frase grande (Proyectos)
         widget: text
       - name: featured
         label: Etiqueta Destacado
+        widget: string
+      - name: case_study
+        label: Pastilla de las tarjetas (Caso de estudio)
         widget: string
       - name: strengths_title
         label: Título de Lo que aporto
@@ -740,10 +789,16 @@ singletons:
         label: Título de Proyectos
         widget: string
       - name: projects_intro
-        label: Introducción de Proyectos
+        label: Frase grande junto a la cifra (Proyectos)
+        widget: text
+      - name: projects_hint
+        label: Frase pequeña bajo la frase grande (Proyectos)
         widget: text
       - name: featured
         label: Etiqueta Destacado
+        widget: string
+      - name: case_study
+        label: Pastilla de las tarjetas (Caso de estudio)
         widget: string
       - name: strengths_title
         label: Título de Lo que aporto

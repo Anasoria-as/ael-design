@@ -55,22 +55,31 @@
       '<span class="word">' + esc(p.art_word || p.slug) + '</span><span class="dot"></span></div>';
   }
 
-  function tags(list) {
-    if (!list || !list.length) return '';
-    return '<ul class="tags">' + list.map(function (x) { return '<li>' + esc(t(x)) + '</li>'; }).join('') + '</ul>';
-  }
-
+  // Tarjeta de proyecto: imagen grande, título + pastilla, tipo y cliente/año
   function projectCard(p) {
-    var feat = p.featured;
-    return '<a class="card' + (feat ? ' feat' : '') + '" href="#p-' + esc(p.slug) + '" data-cursor="view">' +
+    var sub = [t(p.client), p.year].filter(Boolean).join(' · ');
+    return '<a class="card" href="#p-' + esc(p.slug) + '" data-cursor="view">' +
       '<div class="cover">' + art(p) + '</div>' +
       '<div class="card-meta">' +
-        (feat ? '<span class="feat-badge">' + esc(ui('featured')) + '</span>' : '') +
-        '<span class="card-kind mono slash">' + esc(t(p.kind)) + '</span>' +
-        '<h3>' + esc(t(p.title)) + '</h3>' +
-        '<p>' + esc(t(p.summary)) + '</p>' +
-        tags(p.tags) +
+        '<div class="card-row"><h3>' + esc(t(p.title)) + '</h3>' +
+        '<span class="pill"><span class="pill-star" aria-hidden="true">✱</span>' + esc(ui('case_study')) + '</span></div>' +
+        '<p class="card-kind">' + esc(t(p.kind)) + '</p>' +
+        (sub ? '<p class="card-sub">' + esc(sub) + '</p>' : '') +
       '</div></a>';
+  }
+
+  // Cifra destacada (+5 años) y frase de introducción, encima de los proyectos
+  function projectsIntro() {
+    var s = SITE.stat || {};
+    return '<div class="bento">' +
+      (s.value ? '<div class="stat-card">' +
+        (t(s.label) ? '<span class="stat-label">' + esc(t(s.label)) + '</span>' : '') +
+        '<strong class="stat-value">' + esc(t(s.value)) + '</strong>' +
+        (t(s.text) ? '<p class="stat-text">' + esc(t(s.text)) + '</p>' : '') +
+      '</div>' : '') +
+      '<div class="intro-card"><p class="intro-big">' + esc(ui('projects_intro')).replace(/(\w)-(\w)/g, '$1&#8209;$2') + '</p>' +   // guion que no parte la palabra
+        '<p class="intro-small mono">' + esc(ui('projects_hint')) + ' ↓</p></div>' +
+    '</div>';
   }
 
   function contactSection() {
@@ -117,8 +126,8 @@
       '</section>' +
       '<div class="tape" aria-hidden="true"><div class="tape-track">' + marquee + '</div></div>' +
       '<section class="section wrap" id="proyectos">' +
-        '<div class="sec-head"><h2 class="h2">' + esc(ui('projects_title')) + '<sup>(' + count + ')</sup></h2>' +
-        '<p>' + esc(ui('projects_intro')) + '</p></div>' +
+        '<div class="sec-head"><h2 class="h2">' + esc(ui('projects_title')) + '<sup>(' + count + ')</sup></h2></div>' +
+        projectsIntro() +
         '<div class="projects">' + featured.concat(rest).map(projectCard).join('') + '</div>' +
       '</section>' +
       '<section class="section wrap" id="aporto" style="padding-top:0">' +
@@ -213,7 +222,8 @@
 
     var gallery = (p.gallery && p.gallery.length)
       ? '<div class="gallery">' + p.gallery.map(function (g) {
-          return '<img src="' + esc(g.src || g) + '" alt="' + esc(t(g.alt) || t(p.title)) + '" loading="lazy">';
+          // las imágenes apaisadas ocupan las dos columnas
+          return '<img src="' + esc(g.src || g) + '" alt="' + esc(t(g.alt) || t(p.title)) + '" loading="lazy" onload="if(this.naturalWidth/this.naturalHeight>1.1)this.classList.add(\'wide\')">';
         }).join('') + '</div>'
       : '';
 
