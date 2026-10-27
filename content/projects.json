@@ -41,21 +41,22 @@
       "en": "Vaukura"
     },
     "kind": {
-      "es": "Rediseño de marca · Web · RRSS",
-      "en": "Brand redesign · Web · Social media"
+      "es": "Dirección de arte · Branding · E-commerce",
+      "en": "Art direction · Branding · E-commerce"
     },
     "summary": {
-      "es": "Rediseño integral de la marca de mobiliario de diseño: identidad corporativa, tienda online y redes sociales. La web que diseñé en Figma es la que está publicada hoy.",
-      "en": "A full redesign of the design-furniture brand: corporate identity, online store and social media. The site I designed in Figma is the one live today."
+      "es": "Dirección de arte y rediseño integral de la marca de mobiliario: identidad visual, tienda online, piezas impresas y digitales, redes sociales y fotografía. La web que diseñé en Figma es la que está publicada hoy.",
+      "en": "Art direction and a full redesign of the furniture brand: visual identity, online store, print and digital pieces, social media and photography. The site I designed in Figma is the one live today."
     },
     "role": {
-      "es": "Rediseño de marca, diseño UX/UI y redes sociales",
-      "en": "Brand redesign, UX/UI design and social media"
+      "es": "Directora de Arte & Diseñadora Gráfica Senior",
+      "en": "Art Director & Senior Graphic Designer"
     },
     "tools": [
       "Figma",
       "Photoshop",
       "Lightroom",
+      "Nano Banana",
       "SEO on-page"
     ],
     "tags": [
@@ -77,22 +78,22 @@
       },
       {
         "title": {
-          "es": "Mi papel",
-          "en": "My role"
+          "es": "Estrategia y dirección visual",
+          "en": "Strategy and visual direction"
         },
         "text": {
-          "es": "Diseñé en Figma la estructura y la interfaz completas de la web y coordiné su implementación con el equipo de desarrollo externo. En el día a día decidía cómo se presentaba cada producto: el orden de las fotos, qué cualidades destacar y el SEO on-page de cada ficha.",
-          "en": "I designed the full structure and interface of the site in Figma and coordinated its implementation with the external development team. Day to day, I decided how each product was presented: photo order, which qualities to highlight and the on-page SEO of each listing."
+          "es": "Me ocupé de la gestión integral de la identidad visual de Vaukura. Rediseñé la marca con una estrategia clara: un universo visual limpio, sofisticado y de estética nórdica, pensado para que la tienda online convierta.",
+          "en": "I managed Vaukura’s visual identity end to end. I redesigned the brand with a clear strategy: a clean, sophisticated, Nordic-inspired visual world built to make the online store convert."
         }
       },
       {
         "title": {
-          "es": "Identidad y redes",
-          "en": "Identity and social media"
+          "es": "Web y e-commerce",
+          "en": "Website and e-commerce"
         },
         "text": {
-          "es": "Rediseñé la identidad corporativa de la marca y la llevé a todos sus canales: la tienda online, las redes sociales y toda la parte visual del feed de Instagram, con una misma línea visual.",
-          "en": "I redesigned the brand’s corporate identity and carried it across every channel: the online store, social media and the whole visual side of the Instagram feed, with one consistent look."
+          "es": "Diseñé en Figma la estructura y la interfaz completas de la web y coordiné su implementación con el equipo de desarrollo externo. En el día a día decidía cómo se presentaba cada producto: el orden de las fotos, qué cualidades destacar y el SEO on-page de cada ficha.",
+          "en": "I designed the full structure and interface of the site in Figma and coordinated its implementation with the external development team. Day to day, I decided how each product was presented: photo order, which qualities to highlight and the on-page SEO of each listing."
         }
       },
       {
@@ -107,12 +108,40 @@
       },
       {
         "title": {
-          "es": "Fotografía de producto",
-          "en": "Product photography"
+          "es": "Diseño editorial y piezas 360°",
+          "en": "Editorial design and 360° pieces"
+        },
+        "list": {
+          "es": [
+            "Maquetación de catálogos promocionales impresos",
+            "Campañas de newsletters informativas",
+            "Creatividades digitales para varias plataformas: banners y publicidad"
+          ],
+          "en": [
+            "Layout of printed promotional catalogues",
+            "Informative newsletter campaigns",
+            "Digital creatives across platforms: banners and advertising"
+          ]
+        }
+      },
+      {
+        "title": {
+          "es": "Redes sociales",
+          "en": "Social media"
         },
         "text": {
-          "es": "Las fotos de producto con fondo blanco salen de sesiones de fotos reales que edité yo. Definí una forma de editar común para todo el catálogo: fondo blanco, pero con una sombra muy suave del producto en el suelo, para que nada pareciera recortado y toda la tienda se viera igual.",
-          "en": "The white-background product photos come from real photo shoots that I edited. I set one editing style for the whole catalogue: a white background, but with a very soft shadow of the product on the floor, so nothing looked cut out and the whole store felt consistent."
+          "es": "Llevé la dirección visual del canal de Instagram (@vaukura), cuidando la coherencia cromática y compositiva de todo el feed para que se viera como una sola marca.",
+          "en": "I led the visual direction of the Instagram channel (@vaukura), keeping the colour palette and composition consistent across the whole feed so it reads as one brand."
+        }
+      },
+      {
+        "title": {
+          "es": "Fotografía y sets",
+          "en": "Photography and sets"
+        },
+        "text": {
+          "es": "Ideé la estética de los sets de fotografía de producto y dirigí el estilo de las sesiones. Edité yo las fotos de producto con fondo blanco, con una forma de editar común para todo el catálogo: fondo blanco, pero con una sombra muy suave del producto en el suelo, para que nada pareciera recortado. Además, incorporé la IA generativa (Nano Banana) para crear espacios e imágenes de ambiente.",
+          "en": "I conceived the look of the product photo sets and directed the style of the shoots. I edited the white-background product photos myself with one style for the whole catalogue: a white background, but with a very soft shadow of the product on the floor, so nothing looked cut out. I also brought in generative AI (Nano Banana) to create rooms and lifestyle images."
         }
       },
       {
@@ -183,27 +212,29 @@
       "en": "Cashdisplay"
     },
     "kind": {
-      "es": "Diseño web · E-commerce",
-      "en": "Web design · E-commerce"
+      "es": "Dirección de arte · Catálogo · E-commerce",
+      "en": "Art direction · Catalogue · E-commerce"
     },
     "summary": {
-      "es": "Diseño y contenido para la tienda online de displays y comunicación visual para punto de venta, ferias y hostelería.",
-      "en": "Design and content for the online store of displays and visual communication for retail, trade fairs and hospitality."
+      "es": "Dirección de arte de Cashdisplay: catálogo impreso, web y e-commerce, y una nueva línea visual para redes sociales.",
+      "en": "Art direction for Cashdisplay: printed catalogue, website and e-commerce, and a new visual line for social media."
     },
     "role": {
-      "es": "Diseño web, contenido y SEO",
-      "en": "Web design, content and SEO"
+      "es": "Directora de Arte & Responsable de Diseño",
+      "en": "Art Director & Head of Design"
     },
     "tools": [
       "Figma",
       "Photoshop",
+      "InDesign",
       "SEO on-page",
-      "Mailchimp"
+      "Mailchimp",
+      "Amazon Seller"
     ],
     "tags": [
+      "Dirección de arte",
       "E-commerce",
-      "B2B",
-      "SEO"
+      "Catálogo"
     ],
     "sections": [
       {
@@ -212,18 +243,38 @@
           "en": "Context"
         },
         "text": {
-          "es": "Cashdisplay vende roll-ups, expositores, señalética y material para punto de venta. Es un catálogo técnico y muy amplio, pensado para empresas.",
-          "en": "Cashdisplay sells roll-ups, stands, signage and point-of-sale material. It's a broad, technical catalogue aimed at businesses."
+          "es": "Cashdisplay es una firma referente en soportes publicitarios, expositores y equipamiento para retail y eventos: roll-ups, expositores, señalética y material para punto de venta. Un catálogo técnico y muy amplio, pensado para empresas.",
+          "en": "Cashdisplay is a leading brand in advertising displays, stands and equipment for retail and events: roll-ups, stands, signage and point-of-sale material. A broad, technical catalogue aimed at businesses."
         }
       },
       {
         "title": {
-          "es": "Mi papel",
-          "en": "My role"
+          "es": "Dirección visual y catálogo impreso",
+          "en": "Visual direction and printed catalogue"
         },
         "text": {
-          "es": "Llevé las decisiones de diseño de la web igual que en Vaukura: la presentación de cada producto, el orden de las imágenes, las newsletters, las redes y el SEO on-page. Una web menos vistosa, pero a la que dediqué muchas horas.",
-          "en": "I led the website's design decisions just as at Vaukura: how each product was presented, image order, newsletters, social media and on-page SEO. A less showy site, but one I put many hours into."
+          "es": "Llevé la dirección de arte y la maquetación editorial del catálogo impreso de productos de Cashdisplay.",
+          "en": "I led the art direction and editorial layout of Cashdisplay’s printed product catalogue."
+        }
+      },
+      {
+        "title": {
+          "es": "Web y e-commerce",
+          "en": "Website and e-commerce"
+        },
+        "text": {
+          "es": "Me encargué de la gestión integral y el mantenimiento visual de la web corporativa: la presentación de cada producto, el orden de las imágenes, los banners, las newsletters y el SEO on-page. También supervisaba el catálogo de producto en Amazon Seller.",
+          "en": "I handled the end-to-end management and visual upkeep of the corporate website: how each product was presented, image order, banners, newsletters and on-page SEO. I also oversaw the product catalogue on Amazon Seller."
+        }
+      },
+      {
+        "title": {
+          "es": "Estrategia de redes sociales",
+          "en": "Social media strategy"
+        },
+        "text": {
+          "es": "Ideé y desarrollé la estrategia visual y la propuesta gráfica para redes sociales. Definí la nueva línea estética de la marca en el entorno digital, con un sistema de plantillas, guías de contenido y dirección de arte para dar más presencia y coherencia visual a Cashdisplay.",
+          "en": "I conceived and developed the visual strategy and graphic proposal for social media. I defined the brand’s new aesthetic line in the digital space, with a template system, content guidelines and art direction to give Cashdisplay more presence and visual consistency."
         }
       }
     ]
