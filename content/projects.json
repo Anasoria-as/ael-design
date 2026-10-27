@@ -6,6 +6,10 @@
     "art_word": "vaukura",
     "cover": "assets/img/proyectos/vaukura.jpg",
     "gallery": [
+      "assets/img/proyectos/vaukura-logo-construccion.jpg",
+      "assets/img/proyectos/vaukura-logo-v.jpg",
+      "assets/img/proyectos/vaukura-logo-colores.jpg",
+      "assets/img/proyectos/vaukura-producto.jpg",
       "assets/img/proyectos/vaukura-novedades.jpg",
       "assets/img/proyectos/vaukura-categorias.jpg",
       "assets/img/proyectos/vaukura-instagram.jpg",
@@ -74,6 +78,26 @@
         "text": {
           "es": "Rediseñé la identidad corporativa de la marca y la llevé a todos sus canales: la tienda online, las redes sociales y toda la parte visual del feed de Instagram, con una misma línea visual.",
           "en": "I redesigned the brand’s corporate identity and carried it across every channel: the online store, social media and the whole visual side of the Instagram feed, with one consistent look."
+        }
+      },
+      {
+        "title": {
+          "es": "Logotipo",
+          "en": "Logo"
+        },
+        "text": {
+          "es": "Creé el logotipo de Vaukura: un logotipo tipográfico en minúsculas, con una v construida con tres piezas. Es el que hoy firma la web y las redes de la marca.",
+          "en": "I created the Vaukura logo: a lowercase wordmark with a v built from three pieces. It is the one that signs the brand’s website and social media today."
+        }
+      },
+      {
+        "title": {
+          "es": "Fotografía de producto",
+          "en": "Product photography"
+        },
+        "text": {
+          "es": "Las fotos de producto con fondo blanco salen de sesiones de fotos reales que edité yo. Definí una forma de editar común para todo el catálogo: fondo blanco, pero con una sombra muy suave del producto en el suelo, para que nada pareciera recortado y toda la tienda se viera igual.",
+          "en": "The white-background product photos come from real photo shoots that I edited. I set one editing style for the whole catalogue: a white background, but with a very soft shadow of the product on the floor, so nothing looked cut out and the whole store felt consistent."
         }
       },
       {
@@ -340,8 +364,12 @@
     "featured": false,
     "art": "magenta",
     "art_word": "ai",
-    "cover": "",
-    "gallery": [],
+    "cover": "assets/img/proyectos/books-ia.jpg",
+    "gallery": [
+      "assets/img/proyectos/books-ia-cala.jpg",
+      "assets/img/proyectos/books-ia-gara.jpg",
+      "assets/img/proyectos/books-ia-averly.jpg"
+    ],
     "link": "",
     "year": "2021 — 2026",
     "client": {
@@ -357,20 +385,20 @@
       "en": "Art direction · Generative AI"
     },
     "summary": {
-      "es": "Sin estudio de fotografía y sin presupuesto para montar ambientes, usé la IA para crear books de looks de mobiliario, con la dirección de arte siempre en mis manos.",
-      "en": "With no photo studio and no budget to stage rooms, I used AI to create furniture lookbooks, keeping art direction in my own hands."
+      "es": "Sin estudio de fotografía ni presupuesto para montar ambientes, creé con IA (Nano Banana) las fotos de ambiente de vaukura.com, con la dirección de arte siempre en mis manos.",
+      "en": "With no photo studio and no budget to stage rooms, I created vaukura.com’s room photos with AI (Nano Banana), keeping art direction in my own hands."
     },
     "role": {
       "es": "Dirección de arte y generación de imágenes",
       "en": "Art direction and image generation"
     },
     "tools": [
-      "Gemini",
+      "Nano Banana (Gemini)",
       "ChatGPT",
       "Claude"
     ],
     "tags": [
-      "Gemini",
+      "Nano Banana",
       "AI-First",
       "Dirección de arte"
     ],
@@ -391,8 +419,18 @@
           "en": "How I solved it"
         },
         "text": {
-          "es": "Usé Gemini para generar books de looks de mobiliario. Nunca dejé que la IA decidiera: partía de una idea clara de cada ambiente y revisaba cada imagen antes de usarla. ChatGPT me ayudaba con tareas básicas y Claude con la automatización de tareas repetitivas.",
-          "en": "I used Gemini to generate furniture lookbooks. I never let the AI decide: I started from a clear idea of each room and reviewed every image before using it. ChatGPT helped with basic tasks and Claude with automating repetitive ones."
+          "es": "Usé Nano Banana, el modelo de imagen de Gemini, para crear las fotos de ambiente de cada producto. Nunca dejé que la IA decidiera: partía de una idea clara de cada ambiente y revisaba cada imagen antes de usarla. ChatGPT me ayudaba con tareas básicas y Claude con la automatización de tareas repetitivas.",
+          "en": "I used Nano Banana, Gemini’s image model, to create the room photos for each product. I never let the AI decide: I started from a clear idea of each room and reviewed every image before using it. ChatGPT helped with basic tasks and Claude with automating repetitive ones."
+        }
+      },
+      {
+        "title": {
+          "es": "Del estudio al ambiente",
+          "en": "From studio to room"
+        },
+        "text": {
+          "es": "En las imágenes ves cada silla dos veces: a la izquierda, la foto de estudio con fondo blanco; a la derecha, la misma silla en su ambiente creado con IA.",
+          "en": "In the images you see each chair twice: on the left, the white-background studio photo; on the right, the same chair in its AI-created room."
         }
       },
       {
@@ -403,12 +441,12 @@
         "list": {
           "es": [
             "Definir la idea y el estilo de cada ambiente",
-            "Generar las imágenes con Gemini",
+            "Generar las imágenes con Nano Banana (Gemini)",
             "Revisar y seleccionar: nada se publica sin supervisión"
           ],
           "en": [
             "Define the idea and style of each room",
-            "Generate the images with Gemini",
+            "Generate the images with Nano Banana (Gemini)",
             "Review and select: nothing goes live without supervision"
           ]
         }
@@ -419,8 +457,8 @@
           "en": "Outcome"
         },
         "text": {
-          "es": "Imágenes de ambiente para la web, banners y contenido, sin coste de estudio y con una estética coherente con la marca.",
-          "en": "Room imagery for the website, banners and content, with no studio costs and a look consistent with the brand."
+          "es": "Las fotos de ambiente de vaukura.com están hechas así: sin coste de estudio y con una estética coherente con la marca.",
+          "en": "The room photos on vaukura.com are made this way: no studio costs and a look consistent with the brand."
         }
       }
     ]
