@@ -1,0 +1,833 @@
+# =========================================================
+#  ael-design · configuración del panel (Sveltia CMS)
+#  El panel está en https://anasoriaael.com/admin/
+#  Edita content/projects.json y content/site.json sin tocar código.
+#  Cada vez que guardas en el panel se hace un commit en GitHub
+#  y GitHub Pages publica el cambio en uno o dos minutos.
+# =========================================================
+
+backend:
+  name: github
+  repo: Anasoria-as/ael-design
+  branch: main
+  auth_methods:
+  - token
+  commit_messages:
+    create: Crear {{collection}} desde el panel
+    update: Actualizar {{collection}} desde el panel
+    delete: Borrar {{collection}} desde el panel
+    uploadMedia: Subir {{path}} desde el panel
+    deleteMedia: Borrar {{path}} desde el panel
+app_title: ael-design · Panel
+site_url: https://anasoriaael.com
+logo:
+  src: /assets/img/logo-ael.png
+media_folder: assets/img/proyectos
+public_folder: /assets/img/proyectos
+editor:
+  preview: false
+output:
+  omit_empty_optional_fields: true
+singletons:
+- name: proyectos
+  label: Proyectos
+  icon: photo_library
+  file: content/projects.json
+  format: json
+  fields:
+  - name: projects
+    label: Proyectos
+    widget: list
+    root: true
+    label_singular: proyecto
+    collapsed: true
+    summary: '{{fields.title.es}}'
+    thumbnail: cover
+    hint: El orden de la lista es el orden en la web (el destacado siempre va primero).
+    fields:
+    - name: title
+      label: Título
+      widget: object
+      collapsed: false
+      fields:
+      - name: es
+        label: Español
+        widget: string
+      - name: en
+        label: English
+        widget: string
+    - name: slug
+      label: Identificador
+      widget: string
+      pattern:
+      - ^[a-z0-9-]+$
+      - Solo minúsculas, números y guiones, sin espacios.
+      hint: Va en el enlace del proyecto (anasoriaael.com/#p-identificador). Si lo cambias, cambia el
+        enlace.
+    - name: featured
+      label: Destacado
+      widget: boolean
+      required: false
+      default: false
+      hint: Sale grande y el primero de la lista. Marca solo uno.
+    - name: kind
+      label: Tipo de proyecto
+      widget: object
+      collapsed: false
+      fields:
+      - name: es
+        label: Español
+        widget: string
+        required: false
+      - name: en
+        label: English
+        widget: string
+        required: false
+      hint: 'Va encima del título. Ejemplo: Diseño web · UX/UI'
+    - name: summary
+      label: Resumen
+      widget: object
+      collapsed: false
+      fields:
+      - name: es
+        label: Español
+        widget: text
+        required: false
+      - name: en
+        label: English
+        widget: text
+        required: false
+      hint: Sale en la tarjeta y al principio del caso.
+    - name: cover
+      label: Imagen de portada
+      widget: image
+      required: false
+      hint: Unos 1600 × 1000 px. Si la dejas vacía, sale una portada de color con una palabra.
+    - name: art
+      label: Color de la portada sin imagen
+      widget: select
+      required: false
+      default: yellow
+      options:
+      - label: Amarillo
+        value: yellow
+      - label: Magenta
+        value: magenta
+      - label: Negro
+        value: black
+      - label: Blanco
+        value: white
+    - name: art_word
+      label: Palabra de la portada sin imagen
+      widget: string
+      required: false
+      hint: Si lo dejas vacío, se usa el identificador.
+    - name: gallery
+      label: Galería
+      widget: list
+      required: false
+      label_singular: imagen
+      hint: Imágenes extra que salen al final del caso.
+      field:
+        name: image
+        label: Imagen
+        widget: image
+    - name: link
+      label: Enlace a la web publicada
+      widget: string
+      required: false
+      hint: Déjalo vacío si no hay web que enseñar.
+    - name: year
+      label: Año
+      widget: string
+      required: false
+    - name: client
+      label: Cliente
+      widget: object
+      collapsed: false
+      fields:
+      - name: es
+        label: Español
+        widget: string
+        required: false
+      - name: en
+        label: English
+        widget: string
+        required: false
+    - name: role
+      label: Mi rol
+      widget: object
+      collapsed: false
+      fields:
+      - name: es
+        label: Español
+        widget: string
+        required: false
+      - name: en
+        label: English
+        widget: string
+        required: false
+    - name: tools
+      label: Herramientas
+      widget: list
+      required: false
+      hint: Una por línea. Salen en la ficha del caso.
+    - name: tags
+      label: Etiquetas de la tarjeta
+      widget: list
+      required: false
+      hint: Una por línea.
+    - name: sections
+      label: Secciones del caso
+      widget: list
+      required: false
+      collapsed: true
+      label_singular: sección
+      summary: '{{fields.title.es}}'
+      hint: Cada sección lleva un texto o una lista. Si rellenas la lista, se muestra la lista.
+      fields:
+      - name: title
+        label: Título de la sección
+        widget: object
+        collapsed: false
+        fields:
+        - name: es
+          label: Español
+          widget: string
+        - name: en
+          label: English
+          widget: string
+      - name: text
+        label: Texto
+        widget: object
+        collapsed: false
+        fields:
+        - name: es
+          label: Español
+          widget: text
+          required: false
+        - name: en
+          label: English
+          widget: text
+          required: false
+      - name: list
+        label: Lista
+        widget: object
+        fields:
+        - name: es
+          label: Español
+          widget: list
+          required: false
+          label_singular: punto
+          field:
+            name: item
+            label: punto
+            widget: text
+        - name: en
+          label: English
+          widget: list
+          required: false
+          label_singular: punto
+          field:
+            name: item
+            label: punto
+            widget: text
+- name: textos
+  label: Textos de la web
+  icon: article
+  file: content/site.json
+  format: json
+  fields:
+  - name: name
+    label: Nombre
+    widget: string
+  - name: brand
+    label: Marca
+    widget: string
+  - name: email
+    label: Email de contacto
+    widget: string
+  - name: linkedin
+    label: Enlace de LinkedIn
+    widget: string
+  - name: location
+    label: Ubicación
+    widget: object
+    collapsed: false
+    fields:
+    - name: es
+      label: Español
+      widget: string
+    - name: en
+      label: English
+      widget: string
+  - name: cv
+    label: CV en PDF
+    widget: object
+    collapsed: false
+    hint: Sube el PDF nuevo aquí. Se guarda en la carpeta cv/.
+    fields:
+    - name: es
+      label: CV en español
+      widget: file
+      accept: application/pdf
+      media_folder: /cv
+      public_folder: /cv
+      choose_url: false
+    - name: en
+      label: CV en inglés
+      widget: file
+      accept: application/pdf
+      media_folder: /cv
+      public_folder: /cv
+      choose_url: false
+  - name: hero
+    label: Portada
+    widget: object
+    collapsed: false
+    fields:
+    - name: role
+      label: Rol (subrayado en amarillo)
+      widget: object
+      collapsed: false
+      fields:
+      - name: es
+        label: Español
+        widget: string
+      - name: en
+        label: English
+        widget: string
+    - name: status
+      label: Estado (con el punto verde)
+      widget: object
+      collapsed: false
+      fields:
+      - name: es
+        label: Español
+        widget: string
+        required: false
+      - name: en
+        label: English
+        widget: string
+        required: false
+    - name: intro
+      label: Presentación
+      widget: object
+      collapsed: false
+      fields:
+      - name: es
+        label: Español
+        widget: text
+        required: false
+      - name: en
+        label: English
+        widget: text
+        required: false
+  - name: coffee
+    label: Nota del café
+    widget: object
+    collapsed: false
+    fields:
+    - name: es
+      label: Español
+      widget: text
+      required: false
+    - name: en
+      label: English
+      widget: text
+      required: false
+    hint: La frase con fondo de nota que sale en la portada y en Sobre mí.
+  - name: marquee
+    label: Cinta de palabras
+    widget: list
+    required: false
+    hint: Las palabras que pasan en la cinta amarilla. Una por línea.
+  - name: strengths
+    label: Lo que aporto
+    widget: list
+    required: false
+    collapsed: true
+    label_singular: punto fuerte
+    summary: '{{fields.title.es}}'
+    fields:
+    - name: tag
+      label: Etiqueta pequeña
+      widget: string
+      required: false
+      hint: 'Por ejemplo: figma, html/css/js, ai-first'
+    - name: title
+      label: Título
+      widget: object
+      collapsed: false
+      fields:
+      - name: es
+        label: Español
+        widget: string
+      - name: en
+        label: English
+        widget: string
+    - name: text
+      label: Texto
+      widget: object
+      collapsed: false
+      fields:
+      - name: es
+        label: Español
+        widget: text
+        required: false
+      - name: en
+        label: English
+        widget: text
+        required: false
+  - name: skills
+    label: Herramientas
+    widget: list
+    required: false
+    collapsed: true
+    label_singular: grupo
+    summary: '{{fields.group.es}}'
+    fields:
+    - name: group
+      label: Grupo
+      widget: object
+      collapsed: false
+      fields:
+      - name: es
+        label: Español
+        widget: string
+      - name: en
+        label: English
+        widget: string
+    - name: items
+      label: Herramientas del grupo
+      widget: list
+      required: false
+      hint: Una por línea.
+  - name: about
+    label: Sobre mí
+    widget: object
+    collapsed: true
+    fields:
+    - name: photo
+      label: Tu foto
+      widget: image
+      required: false
+      media_folder: /assets/img
+      public_folder: /assets/img
+      hint: Si la dejas vacía, sale el logo.
+    - name: paragraphs
+      label: Párrafos
+      widget: object
+      fields:
+      - name: es
+        label: Español
+        widget: list
+        required: false
+        label_singular: párrafo
+        field:
+          name: item
+          label: párrafo
+          widget: text
+      - name: en
+        label: English
+        widget: list
+        required: false
+        label_singular: párrafo
+        field:
+          name: item
+          label: párrafo
+          widget: text
+    - name: status
+      label: Estado (dato)
+      widget: object
+      collapsed: false
+      fields:
+      - name: es
+        label: Español
+        widget: string
+        required: false
+      - name: en
+        label: English
+        widget: string
+        required: false
+    - name: languages_short
+      label: Idiomas (resumen)
+      widget: object
+      collapsed: false
+      fields:
+      - name: es
+        label: Español
+        widget: string
+        required: false
+      - name: en
+        label: English
+        widget: string
+        required: false
+  - name: experience
+    label: Experiencia
+    widget: list
+    required: false
+    collapsed: true
+    label_singular: trabajo
+    summary: '{{fields.period}} · {{fields.org}}'
+    fields:
+    - name: period
+      label: Periodo
+      widget: string
+      hint: 'Por ejemplo: 2021 — 2026'
+    - name: role
+      label: Puesto
+      widget: object
+      collapsed: false
+      fields:
+      - name: es
+        label: Español
+        widget: string
+      - name: en
+        label: English
+        widget: string
+    - name: org
+      label: Empresa
+      widget: string
+    - name: place
+      label: Lugar
+      widget: object
+      collapsed: false
+      fields:
+      - name: es
+        label: Español
+        widget: string
+        required: false
+      - name: en
+        label: English
+        widget: string
+        required: false
+    - name: points
+      label: Funciones
+      widget: object
+      fields:
+      - name: es
+        label: Español
+        widget: list
+        required: false
+        label_singular: función
+        field:
+          name: item
+          label: función
+          widget: text
+      - name: en
+        label: English
+        widget: list
+        required: false
+        label_singular: función
+        field:
+          name: item
+          label: función
+          widget: text
+  - name: education
+    label: Formación
+    widget: list
+    required: false
+    collapsed: true
+    label_singular: estudio
+    summary: '{{fields.period}} · {{fields.school}}'
+    fields:
+    - name: period
+      label: Periodo
+      widget: string
+    - name: title
+      label: Título
+      widget: object
+      collapsed: false
+      fields:
+      - name: es
+        label: Español
+        widget: string
+      - name: en
+        label: English
+        widget: string
+    - name: school
+      label: Centro
+      widget: string
+      required: false
+  - name: languages
+    label: Idiomas
+    widget: list
+    required: false
+    collapsed: true
+    label_singular: idioma
+    summary: '{{fields.name.es}}'
+    fields:
+    - name: name
+      label: Idioma
+      widget: object
+      collapsed: false
+      fields:
+      - name: es
+        label: Español
+        widget: string
+      - name: en
+        label: English
+        widget: string
+    - name: level
+      label: Nivel
+      widget: object
+      collapsed: false
+      fields:
+      - name: es
+        label: Español
+        widget: string
+        required: false
+      - name: en
+        label: English
+        widget: string
+        required: false
+  - name: ui
+    label: Textos de la interfaz (botones, menús y títulos)
+    widget: object
+    collapsed: true
+    fields:
+    - name: es
+      label: Español
+      widget: object
+      collapsed: true
+      fields:
+      - name: nav_projects
+        label: 'Menú: Proyectos'
+        widget: string
+      - name: nav_about
+        label: 'Menú: Sobre mí'
+        widget: string
+      - name: nav_contact
+        label: 'Menú: Contacto'
+        widget: string
+      - name: theme_light
+        label: Botón tema claro
+        widget: string
+      - name: theme_dark
+        label: Botón tema oscuro
+        widget: string
+      - name: menu
+        label: Botón Menú (móvil)
+        widget: string
+      - name: close
+        label: Cerrar
+        widget: string
+      - name: cv_title
+        label: Título de la caja del CV
+        widget: string
+      - name: cv_note
+        label: Nota bajo el título del CV
+        widget: string
+      - name: cv_es
+        label: Botón CV en español
+        widget: string
+      - name: cv_en
+        label: Botón CV en inglés
+        widget: string
+      - name: see_projects
+        label: Botón Ver proyectos
+        widget: string
+      - name: view
+        label: Texto del cursor sobre un proyecto
+        widget: string
+      - name: projects_title
+        label: Título de Proyectos
+        widget: string
+      - name: projects_intro
+        label: Introducción de Proyectos
+        widget: text
+      - name: featured
+        label: Etiqueta Destacado
+        widget: string
+      - name: strengths_title
+        label: Título de Lo que aporto
+        widget: string
+      - name: skills_title
+        label: Título de Herramientas
+        widget: string
+      - name: contact_kicker
+        label: Título grande de Contacto
+        widget: string
+      - name: contact_text
+        label: Texto de Contacto
+        widget: text
+      - name: copy
+        label: Botón Copiar email
+        widget: string
+      - name: copied
+        label: Aviso Copiado
+        widget: string
+      - name: about_title
+        label: Título de Sobre mí
+        widget: string
+      - name: experience
+        label: Título de Experiencia
+        widget: string
+      - name: education
+        label: Título de Formación
+        widget: string
+      - name: languages
+        label: Título de Idiomas
+        widget: string
+      - name: facts_role
+        label: 'Dato: Perfil'
+        widget: string
+      - name: facts_location
+        label: 'Dato: Ubicación'
+        widget: string
+      - name: facts_languages
+        label: 'Dato: Idiomas'
+        widget: string
+      - name: facts_status
+        label: 'Dato: Estado'
+        widget: string
+      - name: role
+        label: 'Caso: Rol'
+        widget: string
+      - name: year
+        label: 'Caso: Año'
+        widget: string
+      - name: client
+        label: 'Caso: Cliente'
+        widget: string
+      - name: tools
+        label: 'Caso: Herramientas'
+        widget: string
+      - name: visit
+        label: 'Caso: botón Ver la web publicada'
+        widget: string
+      - name: next
+        label: 'Caso: Siguiente proyecto'
+        widget: string
+      - name: back
+        label: 'Caso: Todos los proyectos'
+        widget: string
+      - name: image_soon
+        label: Imagen pendiente
+        widget: string
+      - name: footer
+        label: Pie de página
+        widget: string
+    - name: en
+      label: English
+      widget: object
+      collapsed: true
+      fields:
+      - name: nav_projects
+        label: 'Menú: Proyectos'
+        widget: string
+      - name: nav_about
+        label: 'Menú: Sobre mí'
+        widget: string
+      - name: nav_contact
+        label: 'Menú: Contacto'
+        widget: string
+      - name: theme_light
+        label: Botón tema claro
+        widget: string
+      - name: theme_dark
+        label: Botón tema oscuro
+        widget: string
+      - name: menu
+        label: Botón Menú (móvil)
+        widget: string
+      - name: close
+        label: Cerrar
+        widget: string
+      - name: cv_title
+        label: Título de la caja del CV
+        widget: string
+      - name: cv_note
+        label: Nota bajo el título del CV
+        widget: string
+      - name: cv_es
+        label: Botón CV en español
+        widget: string
+      - name: cv_en
+        label: Botón CV en inglés
+        widget: string
+      - name: see_projects
+        label: Botón Ver proyectos
+        widget: string
+      - name: view
+        label: Texto del cursor sobre un proyecto
+        widget: string
+      - name: projects_title
+        label: Título de Proyectos
+        widget: string
+      - name: projects_intro
+        label: Introducción de Proyectos
+        widget: text
+      - name: featured
+        label: Etiqueta Destacado
+        widget: string
+      - name: strengths_title
+        label: Título de Lo que aporto
+        widget: string
+      - name: skills_title
+        label: Título de Herramientas
+        widget: string
+      - name: contact_kicker
+        label: Título grande de Contacto
+        widget: string
+      - name: contact_text
+        label: Texto de Contacto
+        widget: text
+      - name: copy
+        label: Botón Copiar email
+        widget: string
+      - name: copied
+        label: Aviso Copiado
+        widget: string
+      - name: about_title
+        label: Título de Sobre mí
+        widget: string
+      - name: experience
+        label: Título de Experiencia
+        widget: string
+      - name: education
+        label: Título de Formación
+        widget: string
+      - name: languages
+        label: Título de Idiomas
+        widget: string
+      - name: facts_role
+        label: 'Dato: Perfil'
+        widget: string
+      - name: facts_location
+        label: 'Dato: Ubicación'
+        widget: string
+      - name: facts_languages
+        label: 'Dato: Idiomas'
+        widget: string
+      - name: facts_status
+        label: 'Dato: Estado'
+        widget: string
+      - name: role
+        label: 'Caso: Rol'
+        widget: string
+      - name: year
+        label: 'Caso: Año'
+        widget: string
+      - name: client
+        label: 'Caso: Cliente'
+        widget: string
+      - name: tools
+        label: 'Caso: Herramientas'
+        widget: string
+      - name: visit
+        label: 'Caso: botón Ver la web publicada'
+        widget: string
+      - name: next
+        label: 'Caso: Siguiente proyecto'
+        widget: string
+      - name: back
+        label: 'Caso: Todos los proyectos'
+        widget: string
+      - name: image_soon
+        label: Imagen pendiente
+        widget: string
+      - name: footer
+        label: Pie de página
+        widget: string
