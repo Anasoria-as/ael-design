@@ -68,7 +68,24 @@
       '</div></a>';
   }
 
-  // Cifra destacada (+5 años) y frase de introducción, encima de los proyectos
+  // Apartado «Sobre mí» de la portada: frase grande, texto, cita y enlace a la página completa
+  function aboutHome() {
+    var a = SITE.about_home;
+    if (!a) return '';
+    return '<section class="section wrap about-home" id="sobre-mi-intro">' +
+      '<div class="sec-head"><h2 class="h2">' + esc(ui('about_title')) + '</h2></div>' +
+      '<div class="about-home-grid">' +
+        '<p class="about-home-lead">' + esc(t(a.lead)) + '</p>' +
+        '<div class="about-home-text">' +
+          arr(a.paragraphs).map(function (p) { return '<p>' + esc(p) + '</p>'; }).join('') +
+          (t(a.quote) ? '<p class="about-home-quote">' + esc(t(a.quote)) + '</p>' : '') +
+          '<a class="btn btn-ghost" href="#sobre-mi">' + esc(ui('more_about')) + ' <span class="arr">→</span></a>' +
+        '</div>' +
+      '</div>' +
+    '</section>';
+  }
+
+  // Cifra destacada (+6 años) y frase de introducción, encima de los proyectos
   function projectsIntro() {
     var s = SITE.stat || {};
     return '<div class="bento">' +
@@ -130,6 +147,7 @@
         projectsIntro() +
         '<div class="projects">' + featured.concat(rest).map(projectCard).join('') + '</div>' +
       '</section>' +
+      aboutHome() +
       '<section class="section wrap" id="aporto" style="padding-top:0">' +
         '<div class="sec-head"><h2 class="h2">' + esc(ui('strengths_title')) + '</h2></div>' +
         '<div class="strengths">' + arr(SITE.strengths).map(function (s) {

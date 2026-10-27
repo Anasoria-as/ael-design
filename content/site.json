@@ -38,6 +38,7 @@
       "copy": "Copiar",
       "copied": "Copiado",
       "about_title": "Sobre mí",
+      "more_about": "Más sobre mí",
       "experience": "Experiencia",
       "education": "Formación",
       "languages": "Idiomas",
@@ -80,6 +81,7 @@
       "copy": "Copy",
       "copied": "Copied",
       "about_title": "About me",
+      "more_about": "More about me",
       "experience": "Experience",
       "education": "Education",
       "languages": "Languages",
@@ -135,6 +137,28 @@
     "text": {
       "es": "Diseñando y haciendo crecer tiendas online",
       "en": "Designing and growing online stores"
+    }
+  },
+  "about_home": {
+    "lead": {
+      "es": "Llevo seis años trabajando en el mundo del diseño gráfico, en estudio y dentro de empresa, dando forma a marcas y tiendas online.",
+      "en": "I’ve spent six years working in graphic design, in a studio and in-house, shaping brands and online stores."
+    },
+    "paragraphs": {
+      "es": [
+        "Mi especialidad son los proyectos de branding e identidad visual, aunque también trabajo en diseño gráfico y dirección de arte.",
+        "Estos últimos años me he centrado en el diseño UX/UI. El Máster en Programación para Creativos de LABASAD hizo que me enamorara de la creación web: diseñar en Figma y llevarlo a código.",
+        "He trabajado en tiendas online con cientos de productos y en proyectos pequeños que empezaban desde cero."
+      ],
+      "en": [
+        "My specialty is branding and visual identity, though I also work on graphic design and art direction.",
+        "In recent years I’ve focused on UX/UI design. LABASAD’s Master’s in Creative Programming made me fall in love with building websites: designing in Figma and taking it to code.",
+        "I’ve worked on online stores with hundreds of products and on small projects that started from scratch."
+      ]
+    },
+    "quote": {
+      "es": "No importa el tamaño del cliente si hay ganas de hacer un buen proyecto.",
+      "en": "It doesn’t matter how big the client is, as long as there’s the will to do a good project."
     }
   },
   "strengths": [
