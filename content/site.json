@@ -42,10 +42,6 @@
       "experience": "Experiencia",
       "education": "Formación",
       "languages": "Idiomas",
-      "facts_role": "Perfil",
-      "facts_location": "Ubicación",
-      "facts_languages": "Idiomas",
-      "facts_status": "Estado",
       "role": "Rol",
       "year": "Año",
       "client": "Cliente",
@@ -85,10 +81,6 @@
       "experience": "Experience",
       "education": "Education",
       "languages": "Languages",
-      "facts_role": "Profile",
-      "facts_location": "Location",
-      "facts_languages": "Languages",
-      "facts_status": "Status",
       "role": "Role",
       "year": "Year",
       "client": "Client",
@@ -282,7 +274,7 @@
     }
   ],
   "about": {
-    "photo": "",
+    "photo": "assets/img/ana.jpg",
     "paragraphs": {
       "es": [
         "Soy Ana, diseñadora gráfica y digital en Madrid. Durante seis años me ocupé del diseño de las tiendas online de Vaukura y Cashdisplay: la web, las fotos de producto, las newsletters, las redes y el SEO.",
@@ -294,14 +286,6 @@
         "I work between design and code. I design in Figma, build in HTML and CSS, and use AI as one more tool, without letting it decide for me.",
         "Ael is my second surname and the name I sign my work with."
       ]
-    },
-    "status": {
-      "es": "Disponible",
-      "en": "Available"
-    },
-    "languages_short": {
-      "es": "Español, inglés B2",
-      "en": "Spanish, English B2"
     }
   },
   "experience": [

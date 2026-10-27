@@ -180,12 +180,6 @@
       '</section>' +
       '<section class="wrap">' +
         '<div class="cv-banner"><div><h2>' + esc(ui('cv_title')) + '</h2><p>' + esc(ui('cv_note')) + '</p></div>' + cvButtons() + '</div>' +
-        '<div class="facts">' +
-          '<div class="fact"><span class="mono">' + esc(ui('facts_role')) + '</span><b>' + esc(t(SITE.hero.role)) + '</b></div>' +
-          '<div class="fact"><span class="mono">' + esc(ui('facts_location')) + '</span><b>' + esc(t(SITE.location)) + '</b></div>' +
-          '<div class="fact"><span class="mono">' + esc(ui('facts_languages')) + '</span><b>' + esc(t(a.languages_short)) + '</b></div>' +
-          '<div class="fact"><span class="mono">' + esc(ui('facts_status')) + '</span><b>' + esc(t(a.status)) + '</b></div>' +
-        '</div>' +
       '</section>' +
       '<section class="section wrap">' +
         '<div class="about-body">' +

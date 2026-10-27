@@ -497,7 +497,7 @@ singletons:
       required: false
       media_folder: /assets/img
       public_folder: /assets/img
-      hint: Si la dejas vacía, sale el logo.
+      hint: Sale redonda en Sobre mí. Si la dejas vacía, sale el logo.
     - name: paragraphs
       label: Párrafos
       widget: object
@@ -520,32 +520,6 @@ singletons:
           name: item
           label: párrafo
           widget: text
-    - name: status
-      label: Estado (dato)
-      widget: object
-      collapsed: false
-      fields:
-      - name: es
-        label: Español
-        widget: string
-        required: false
-      - name: en
-        label: English
-        widget: string
-        required: false
-    - name: languages_short
-      label: Idiomas (resumen)
-      widget: object
-      collapsed: false
-      fields:
-      - name: es
-        label: Español
-        widget: string
-        required: false
-      - name: en
-        label: English
-        widget: string
-        required: false
   - name: experience
     label: Experiencia
     widget: list
@@ -762,18 +736,6 @@ singletons:
       - name: languages
         label: Título de Idiomas
         widget: string
-      - name: facts_role
-        label: 'Dato: Perfil'
-        widget: string
-      - name: facts_location
-        label: 'Dato: Ubicación'
-        widget: string
-      - name: facts_languages
-        label: 'Dato: Idiomas'
-        widget: string
-      - name: facts_status
-        label: 'Dato: Estado'
-        widget: string
       - name: role
         label: 'Caso: Rol'
         widget: string
@@ -889,18 +851,6 @@ singletons:
         widget: string
       - name: languages
         label: Título de Idiomas
-        widget: string
-      - name: facts_role
-        label: 'Dato: Perfil'
-        widget: string
-      - name: facts_location
-        label: 'Dato: Ubicación'
-        widget: string
-      - name: facts_languages
-        label: 'Dato: Idiomas'
-        widget: string
-      - name: facts_status
-        label: 'Dato: Estado'
         widget: string
       - name: role
         label: 'Caso: Rol'
