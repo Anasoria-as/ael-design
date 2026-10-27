@@ -223,7 +223,7 @@
     var gallery = (p.gallery && p.gallery.length)
       ? '<div class="gallery">' + p.gallery.map(function (g) {
           // las imágenes apaisadas ocupan las dos columnas
-          return '<img src="' + esc(g.src || g) + '" alt="' + esc(t(g.alt) || t(p.title)) + '" loading="lazy" onload="if(this.naturalWidth/this.naturalHeight>1.1)this.classList.add(\'wide\')">';
+          return '<img src="' + esc(g.src || g) + '" alt="' + esc(t(g.alt) || t(p.title)) + '" loading="lazy" onload="if(this.naturalWidth/this.naturalHeight>1)this.classList.add(\'wide\')">';
         }).join('') + '</div>'
       : '';
 

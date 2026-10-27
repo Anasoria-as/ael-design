@@ -8,6 +8,7 @@
     "gallery": [
       "assets/img/proyectos/vaukura-novedades.jpg",
       "assets/img/proyectos/vaukura-categorias.jpg",
+      "assets/img/proyectos/vaukura-instagram.jpg",
       "assets/img/proyectos/vaukura-movil.jpg"
     ],
     "link": "https://www.vaukura.com",
@@ -180,12 +181,13 @@
     "art_word": "cars",
     "cover": "assets/img/proyectos/coches-eventos.jpg",
     "gallery": [
+      "assets/img/proyectos/coches-eventos-flota.jpg",
+      "assets/img/proyectos/coches-eventos-detalle.jpg",
+      "assets/img/proyectos/coches-eventos-movil.jpg",
       "assets/img/proyectos/coches-eventos-1.jpg",
       "assets/img/proyectos/coches-eventos-2.jpg",
       "assets/img/proyectos/coches-eventos-3.jpg",
-      "assets/img/proyectos/coches-eventos-4.jpg",
-      "assets/img/proyectos/coches-eventos-5.jpg",
-      "assets/img/proyectos/coches-eventos-6.jpg"
+      "assets/img/proyectos/coches-eventos-4.jpg"
     ],
     "link": "",
     "year": "",
@@ -222,8 +224,8 @@
           "en": "Context"
         },
         "text": {
-          "es": "El proyecto era una web para alquilar coches clásicos y de lujo para bodas y eventos. La web ya no está en línea, pero aquí puedes ver la parte visual que creé.",
-          "en": "The project was a website to rent classic and luxury cars for weddings and events. The site is no longer online, but here you can see the visuals I created."
+          "es": "El proyecto era una web para alquilar coches clásicos y de lujo para bodas y eventos. La web ya no está en línea, así que la maqueta que ves es una recreación de cómo era, hecha con las fotos originales.",
+          "en": "The project was a website to rent classic and luxury cars for weddings and events. The site is no longer online, so the mockup you see is a recreation of how it looked, built with the original photos."
         }
       },
       {
