@@ -22,7 +22,8 @@
   --topbar-bg: rgba(255, 255, 255, .82);
   --glow: rgba(248, 224, 6, .55);
   --glow-blend: multiply;
-  --ring: #0B0B0A;
+  --ring: #E51974;          /* círculo del cursor */
+  --cursor-dot: #E51974;    /* punto del cursor */
   --shadow: 0 24px 48px -28px rgba(11, 11, 10, .35);
 
   /* Tipografía: 3 fuentes, cada una con un papel
@@ -53,6 +54,7 @@
     --glow: rgba(229, 25, 116, .42);
     --glow-blend: screen;
     --ring: #F8E006;
+    --cursor-dot: #F8E006;
     --shadow: 0 24px 48px -28px rgba(0, 0, 0, .9);
     color-scheme: dark;
   }
@@ -72,6 +74,7 @@
   --glow: rgba(229, 25, 116, .42);
   --glow-blend: screen;
   --ring: #F8E006;
+  --cursor-dot: #F8E006;
   --shadow: 0 24px 48px -28px rgba(0, 0, 0, .9);
   color-scheme: dark;
 }
@@ -451,7 +454,7 @@ ul, ol { margin: 0; padding: 0; }
 
 /* ---------- Cursor (solo con ratón) ---------- */
 .cursor-dot, .cursor-ring, .cursor-glow { position: fixed; left: 0; top: 0; pointer-events: none; opacity: 0; transition: opacity .3s; }
-.cursor-dot { z-index: 90; width: 7px; height: 7px; border-radius: 50%; background: var(--magenta); margin: -3.5px 0 0 -3.5px; }
+.cursor-dot { z-index: 90; width: 7px; height: 7px; border-radius: 50%; background: var(--cursor-dot); margin: -3.5px 0 0 -3.5px; }
 .cursor-ring {
   z-index: 89; width: 38px; height: 38px; margin: -19px 0 0 -19px; border-radius: 50%;
   border: 1.5px solid var(--ring); display: grid; place-items: center;
