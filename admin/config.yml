@@ -371,60 +371,6 @@ singletons:
         label: English
         widget: text
         required: false
-  - name: about_home
-    label: Sobre mí en la portada
-    widget: object
-    collapsed: true
-    hint: El apartado Sobre mí que sale en la portada, después de los proyectos.
-    fields:
-    - name: lead
-      label: Frase grande
-      widget: object
-      collapsed: false
-      fields:
-      - name: es
-        label: Español
-        widget: text
-        required: false
-      - name: en
-        label: English
-        widget: text
-        required: false
-    - name: paragraphs
-      label: Párrafos
-      widget: object
-      fields:
-      - name: es
-        label: Español
-        widget: list
-        required: false
-        label_singular: párrafo
-        field:
-          name: item
-          label: párrafo
-          widget: text
-      - name: en
-        label: English
-        widget: list
-        required: false
-        label_singular: párrafo
-        field:
-          name: item
-          label: párrafo
-          widget: text
-    - name: quote
-      label: Frase destacada
-      widget: object
-      collapsed: false
-      fields:
-      - name: es
-        label: Español
-        widget: text
-        required: false
-      - name: en
-        label: English
-        widget: text
-        required: false
   - name: strengths
     label: Lo que aporto
     widget: list
@@ -750,9 +696,6 @@ singletons:
       - name: about_title
         label: Título de Sobre mí
         widget: string
-      - name: more_about
-        label: Botón Más sobre mí (portada)
-        widget: string
       - name: experience
         label: Título de Experiencia
         widget: string
@@ -865,9 +808,6 @@ singletons:
         widget: string
       - name: about_title
         label: Título de Sobre mí
-        widget: string
-      - name: more_about
-        label: Botón Más sobre mí (portada)
         widget: string
       - name: experience
         label: Título de Experiencia
