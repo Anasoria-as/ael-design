@@ -520,6 +520,32 @@ singletons:
           name: item
           label: párrafo
           widget: text
+    - name: quote
+      label: Frase destacada
+      widget: object
+      collapsed: false
+      fields:
+      - name: es
+        label: Español
+        widget: text
+        required: false
+      - name: en
+        label: English
+        widget: text
+        required: false
+    - name: signature
+      label: Frase final (firma)
+      widget: object
+      collapsed: false
+      fields:
+      - name: es
+        label: Español
+        widget: text
+        required: false
+      - name: en
+        label: English
+        widget: text
+        required: false
   - name: experience
     label: Experiencia
     widget: list

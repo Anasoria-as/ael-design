@@ -277,15 +277,25 @@
     "photo": "assets/img/ana.jpg",
     "paragraphs": {
       "es": [
-        "Soy Ana, diseñadora gráfica y digital en Madrid. Durante seis años me ocupé del diseño de las tiendas online de Vaukura y Cashdisplay: la web, las fotos de producto, las newsletters, las redes y el SEO.",
-        "Me muevo entre el diseño y el código. Diseño en Figma, maqueto en HTML y CSS, y uso la IA como una herramienta más, sin dejar que decida por mí.",
-        "Ael es mi segundo apellido y el nombre con el que firmo mi trabajo."
+        "Llevo seis años trabajando en el mundo del diseño gráfico, en estudio y dentro de empresa, dando forma a marcas y tiendas online.",
+        "Mi especialidad son los proyectos de branding e identidad visual, aunque también trabajo en diseño gráfico y dirección de arte.",
+        "Me muevo entre el diseño y el código. Estos últimos años me he centrado en el diseño UX/UI. El Máster en Programación para Creativos de LABASAD hizo que me enamorara de la creación web: diseñar en Figma y llevarlo a código.",
+        "He trabajado en tiendas online con cientos de productos y en proyectos pequeños que empezaban desde cero."
       ],
       "en": [
-        "I'm Ana, a graphic and digital designer based in Madrid. For six years I took care of the design of the Vaukura and Cashdisplay online stores: the website, product photos, newsletters, social media and SEO.",
-        "I work between design and code. I design in Figma, build in HTML and CSS, and use AI as one more tool, without letting it decide for me.",
-        "Ael is my second surname and the name I sign my work with."
+        "I’ve spent six years working in graphic design, in a studio and in-house, shaping brands and online stores.",
+        "My specialty is branding and visual identity, though I also work on graphic design and art direction.",
+        "I work between design and code. In recent years I’ve focused on UX/UI design. LABASAD’s Master’s in Creative Programming made me fall in love with building websites: designing in Figma and taking it to code.",
+        "I’ve worked on online stores with hundreds of products and on small projects that started from scratch."
       ]
+    },
+    "quote": {
+      "es": "No importa el tamaño del cliente si hay ganas de hacer un buen proyecto.",
+      "en": "It doesn’t matter how big the client is, as long as there’s the will to do a good project."
+    },
+    "signature": {
+      "es": "Ael es mi segundo apellido y el nombre con el que firmo mi trabajo.",
+      "en": "Ael is my second surname and the name I sign my work with."
     }
   },
   "experience": [

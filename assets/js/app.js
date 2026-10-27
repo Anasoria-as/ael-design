@@ -184,7 +184,10 @@
       '<section class="section wrap">' +
         '<div class="about-body">' +
           '<div class="portrait">' + photo + '</div>' +
-          '<div class="about-text">' + arr(a.paragraphs).map(function (p) { return '<p>' + esc(p) + '</p>'; }).join('') + '</div>' +
+          '<div class="about-text">' + arr(a.paragraphs).map(function (p) { return '<p>' + esc(p) + '</p>'; }).join('') +
+            (t(a.quote) ? '<p class="about-home-quote">' + esc(t(a.quote)) + '</p>' : '') +
+            (t(a.signature) ? '<p class="about-sign">' + esc(t(a.signature)) + '</p>' : '') +
+          '</div>' +
         '</div>' +
       '</section>' +
       '<section class="section wrap" style="padding-top:0">' +
