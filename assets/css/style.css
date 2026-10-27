@@ -399,8 +399,16 @@ ul, ol { margin: 0; padding: 0; }
 .portrait img { width: min(100%, 250px); aspect-ratio: 1; object-fit: cover; border-radius: 50%; max-width: 100%; }
 .portrait-logo { width: min(100%, 250px); aspect-ratio: 1; display: grid; place-items: center; }
 .portrait-logo .logo { height: 62%; }
-.about-text { container-type: inline-size; display: grid; gap: 1.1rem; font-size: clamp(1.05rem, 1.6vw, 1.25rem); max-width: 60ch; }
-.about-title { font-family: var(--serif); font-style: italic; color: var(--magenta); text-align: right; white-space: nowrap; font-size: min(3.4rem, 8cqi); line-height: 1.05; letter-spacing: -.015em; margin-bottom: .3rem; }   /* en una línea: el tamaño se ajusta al ancho de la columna */
+.about-text { display: grid; gap: 1.1rem; font-size: clamp(1.05rem, 1.6vw, 1.25rem); max-width: 60ch; }
+/* Título de Sobre mí: grande, en una línea y saliéndose un poco por la derecha de la pantalla
+   (la última letra queda algo cortada a propósito) */
+.about-title {
+  font-family: var(--serif); font-style: italic; color: var(--magenta);
+  font-size: min(7.2vw, 7rem); line-height: 1.05; letter-spacing: -.015em;
+  white-space: nowrap; text-align: right;
+  margin: 0 calc(-1 * max(var(--gutter), (100vw - 1240px) / 2) - .2em) clamp(1.5rem, 3vw, 2.5rem) 0;
+}
+@media (max-width: 600px) { .about-title { font-size: 8.2vw; } }
 .about-text p:not(.about-quote) { color: var(--muted); }
 .about-text strong { color: var(--ink); font-weight: 600; }
 .about-quote { font-family: var(--serif); color: var(--ink); font-size: clamp(1.5rem, 2.4vw, 2rem); line-height: 1.2; letter-spacing: -.01em; padding-left: 1rem; border-left: 3px solid var(--magenta); margin-block: .6rem; }

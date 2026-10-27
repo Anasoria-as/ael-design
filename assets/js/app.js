@@ -163,12 +163,14 @@
         '<h1 class="page-title">' + esc(ui('about_title')) + '<span class="sq" aria-hidden="true"></span></h1>' +
       '</section>' +
       '<section class="section wrap about-main">' +
+        // título grande en rosa que se sale por la derecha de la pantalla
+        (t(a.title) ? '<h2 class="about-title">' + esc(t(a.title)) + '</h2>' : '') +
         '<div class="about-body">' +
           // columna izquierda: foto y, debajo, la caja para descargar el CV
           '<div class="portrait">' + photo +
             '<div class="cv-banner"><div><h2>' + esc(ui('cv_title')) + '</h2><p>' + esc(ui('cv_note')) + '</p></div>' + cvButtons() + '</div>' +
           '</div>' +
-          '<div class="about-text">' + (t(a.title) ? '<h2 class="about-title">' + esc(t(a.title)) + '</h2>' : '') + arr(a.paragraphs).map(function (p) { return '<p>' + rich(p) + '</p>'; }).join('') +
+          '<div class="about-text">' + arr(a.paragraphs).map(function (p) { return '<p>' + rich(p) + '</p>'; }).join('') +
             (t(a.quote) ? '<p class="about-quote">' + esc(t(a.quote)) + '</p>' : '') +
             (t(a.signature) ? '<p class="about-sign">' + esc(t(a.signature)) + '</p>' : '') +
           '</div>' +
