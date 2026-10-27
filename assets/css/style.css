@@ -25,6 +25,7 @@
   --ring: #E51974;          /* círculo del cursor */
   --cursor-dot: #E51974;    /* punto del cursor */
   --logo-dot: #000000;      /* punto del logo */
+  --ring-hover: #E51974;    /* círculo del cursor sobre enlaces y botones */
   --shadow: 0 24px 48px -28px rgba(11, 11, 10, .35);
 
   /* Tipografía: 3 fuentes, cada una con un papel
@@ -57,6 +58,7 @@
     --ring: #F8E006;
     --cursor-dot: #F8E006;
     --logo-dot: #F8E006;
+    --ring-hover: #F8E006;
     --shadow: 0 24px 48px -28px rgba(0, 0, 0, .9);
     color-scheme: dark;
   }
@@ -78,6 +80,7 @@
   --ring: #F8E006;
   --cursor-dot: #F8E006;
   --logo-dot: #F8E006;
+  --ring-hover: #F8E006;
   --shadow: 0 24px 48px -28px rgba(0, 0, 0, .9);
   color-scheme: dark;
 }
@@ -469,7 +472,7 @@ ul, ol { margin: 0; padding: 0; }
   transition: opacity .3s, width .35s var(--ease), height .35s var(--ease), margin .35s var(--ease), background-color .3s, border-color .3s;
 }
 .cursor-ring span { font-family: var(--mono); font-size: .68rem; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; color: #000; opacity: 0; transition: opacity .2s; }
-.cursor-ring.hover { width: 56px; height: 56px; margin: -28px 0 0 -28px; background: rgba(248, 224, 6, .25); border-color: var(--magenta); }
+.cursor-ring.hover { width: 56px; height: 56px; margin: -28px 0 0 -28px; background: rgba(248, 224, 6, .25); border-color: var(--ring-hover); }
 .cursor-ring.view { width: 84px; height: 84px; margin: -42px 0 0 -42px; background: var(--yellow); border-color: var(--yellow); }
 .cursor-ring.view span { opacity: 1; }
 .cursor-glow {

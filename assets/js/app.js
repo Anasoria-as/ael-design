@@ -242,8 +242,7 @@
 
   function renderFooter() {
     footer.innerHTML = '<div class="wrap footer-in">' +
-      '<span>© ' + new Date().getFullYear() + ' Ana Soria Ael · ael-design</span>' +
-      '<span>' + esc(ui('footer')) + '</span>' +
+      '<span>© ' + new Date().getFullYear() + ' Ana Soria Ael</span>' +
       '<span><a href="' + esc(SITE.linkedin) + '" target="_blank" rel="noopener">LinkedIn</a> · <a href="mailto:' + esc(SITE.email) + '">Email</a></span>' +
       '</div>';
   }

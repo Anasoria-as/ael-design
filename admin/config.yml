@@ -692,9 +692,6 @@ singletons:
       - name: image_soon
         label: Imagen pendiente
         widget: string
-      - name: footer
-        label: Pie de página
-        widget: string
     - name: en
       label: English
       widget: object
@@ -813,7 +810,4 @@ singletons:
         widget: string
       - name: image_soon
         label: Imagen pendiente
-        widget: string
-      - name: footer
-        label: Pie de página
         widget: string

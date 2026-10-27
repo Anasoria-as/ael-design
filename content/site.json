@@ -50,8 +50,7 @@
       "visit": "Ver la web publicada",
       "next": "Siguiente proyecto",
       "back": "Todos los proyectos",
-      "image_soon": "Imagen del proyecto pendiente",
-      "footer": "Diseñado y maquetado por mí."
+      "image_soon": "Imagen del proyecto pendiente"
     },
     "en": {
       "nav_projects": "Projects",
@@ -91,8 +90,7 @@
       "visit": "Visit the live site",
       "next": "Next project",
       "back": "All projects",
-      "image_soon": "Project image coming soon",
-      "footer": "Designed and built by me."
+      "image_soon": "Project image coming soon"
     }
   },
   "hero": {
