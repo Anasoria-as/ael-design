@@ -143,9 +143,10 @@
 
   function viewAbout() {
     var a = SITE.about;
+    var logo = document.querySelector('.brand .logo');   // mismo logo SVG de la cabecera
     var photo = a.photo
       ? '<img src="' + esc(a.photo) + '" alt="Ana Soria Ael">'
-      : '<img src="assets/img/logo-ael.png" alt="ael-design">';
+      : '<div class="portrait-logo">' + (logo ? logo.outerHTML : '') + '</div>';
     return '' +
       '<section class="wrap page-head">' +
         '<h1 class="page-title">' + esc(ui('about_title')) + '<span class="sq" aria-hidden="true"></span></h1>' +

@@ -21,7 +21,7 @@ backend:
 app_title: ael-design · Panel
 site_url: https://anasoriaael.com
 logo:
-  src: /assets/img/logo-ael.png
+  src: /assets/img/logo-ael.svg
 media_folder: assets/img/proyectos
 public_folder: /assets/img/proyectos
 editor:
