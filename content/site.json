@@ -251,6 +251,10 @@
   ],
   "about": {
     "photo": "assets/img/ana.jpg",
+    "title": {
+      "es": "Just another creative human",
+      "en": "Just another creative human"
+    },
     "paragraphs": {
       "es": [
         "Puede que parezca que voy a contracorriente: mientras muchos diseñadores se alejan del código, yo me apunté a un máster de programación y acabé enamorándome de crear webs.",

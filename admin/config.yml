@@ -444,6 +444,20 @@ singletons:
       media_folder: /assets/img
       public_folder: /assets/img
       hint: Sale redonda en Sobre mí. Si la dejas vacía, sale el logo.
+    - name: title
+      label: Título del texto
+      widget: object
+      collapsed: false
+      fields:
+      - name: es
+        label: Español
+        widget: string
+        required: false
+      - name: en
+        label: English
+        widget: string
+        required: false
+      hint: 'Sale en grande encima del texto. Ejemplo: Just another creative human'
     - name: paragraphs
       label: Párrafos
       widget: object

@@ -166,7 +166,7 @@
           '<div class="portrait">' + photo +
             '<div class="cv-banner"><div><h2>' + esc(ui('cv_title')) + '</h2><p>' + esc(ui('cv_note')) + '</p></div>' + cvButtons() + '</div>' +
           '</div>' +
-          '<div class="about-text">' + arr(a.paragraphs).map(function (p) { return '<p>' + esc(p) + '</p>'; }).join('') +
+          '<div class="about-text">' + (t(a.title) ? '<h2 class="about-title">' + esc(t(a.title)) + '</h2>' : '') + arr(a.paragraphs).map(function (p) { return '<p>' + esc(p) + '</p>'; }).join('') +
             (t(a.quote) ? '<p class="about-quote">' + esc(t(a.quote)) + '</p>' : '') +
             (t(a.signature) ? '<p class="about-sign">' + esc(t(a.signature)) + '</p>' : '') +
           '</div>' +
