@@ -200,6 +200,32 @@
       contactSection();
   }
 
+  // Ventana de navegador con la web real capturada: se hace scroll dentro y se cambia entre escritorio y móvil
+  function webPreview(p) {
+    var w = p.web_preview;
+    if (!w || !arr(w.desktop).length) return '';
+    function shots(list, label) {
+      return arr(list).map(function (src, i) {
+        return '<img src="' + esc(src) + '" alt="' + (i ? '' : esc(label)) + '"' + (i < 2 ? '' : ' loading="lazy"') + ' decoding="async">';
+      }).join('');
+    }
+    var hasMobile = arr(w.mobile).length > 0;
+    var start = (hasMobile && window.matchMedia && matchMedia('(max-width: 700px)').matches) ? 'mobile' : 'desktop';
+    return '<div class="webview" data-mode="' + start + '">' +
+      '<div class="webview-bar">' +
+        '<span class="webview-dots" aria-hidden="true"><i></i><i></i><i></i></span>' +
+        '<span class="webview-url">' + esc(w.url || '') + '</span>' +
+        (hasMobile ? '<div class="seg webview-toggle" role="group" aria-label="' + esc(ui('webview_label')) + '">' +
+          '<button type="button" data-view="desktop" aria-pressed="' + (start === 'desktop') + '">' + esc(ui('view_desktop')) + '</button>' +
+          '<button type="button" data-view="mobile" aria-pressed="' + (start === 'mobile') + '">' + esc(ui('view_mobile')) + '</button>' +
+        '</div>' : '') +
+      '</div>' +
+      '<div class="webview-screen webview-desktop" tabindex="0" aria-label="' + esc(ui('webview_hint')) + '">' + shots(w.desktop, w.url) + '</div>' +
+      (hasMobile ? '<div class="webview-phone"><div class="webview-screen webview-mobile" tabindex="0" aria-label="' + esc(ui('webview_hint')) + '">' + shots(w.mobile, w.url) + '</div></div>' : '') +
+    '</div>' +
+    '<p class="webview-hint mono">↕ ' + esc(ui('webview_hint')) + '</p>';
+  }
+
   function viewProject(slug) {
     var i = PROJECTS.findIndex(function (p) { return p.slug === slug; });
     if (i < 0) return viewHome();
@@ -240,7 +266,7 @@
             return '<div><span class="mono muted">' + esc(m[0]) + '</span><b>' + esc(m[1]) + '</b></div>';
           }).join('') + '</div>' +
         '</header>' +
-        '<div class="case-cover">' + art(p) + '</div>' +
+        (p.web_preview && arr(p.web_preview.desktop).length ? webPreview(p) : '<div class="case-cover">' + art(p) + '</div>') +
         '<div class="case-sections">' + sections + '</div>' +
         gallery +
         '<a class="next" href="#p-' + esc(next.slug) + '" data-cursor="view">' +
@@ -361,6 +387,17 @@
   function onScroll() { topbar.classList.toggle('scrolled', window.scrollY > 8); }
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
+
+  /* ---------- ventana de la web: escritorio / móvil ---------- */
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest('.webview-toggle [data-view]');
+    if (!b) return;
+    var box = b.closest('.webview');
+    box.setAttribute('data-mode', b.getAttribute('data-view'));
+    box.querySelectorAll('.webview-toggle [data-view]').forEach(function (x) {
+      x.setAttribute('aria-pressed', String(x === b));
+    });
+  });
 
   /* ---------- copiar email ---------- */
   document.addEventListener('click', function (e) {

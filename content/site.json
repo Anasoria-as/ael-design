@@ -46,6 +46,10 @@
       "client": "Cliente",
       "tools": "Herramientas",
       "visit": "Ver la web publicada",
+      "view_desktop": "Escritorio",
+      "view_mobile": "Móvil",
+      "webview_hint": "Haz scroll dentro de la ventana para recorrer la web",
+      "webview_label": "Vista",
       "next": "Siguiente proyecto",
       "back": "Todos los proyectos",
       "image_soon": "Imagen del proyecto pendiente"
@@ -84,6 +88,10 @@
       "client": "Client",
       "tools": "Tools",
       "visit": "Visit the live site",
+      "view_desktop": "Desktop",
+      "view_mobile": "Mobile",
+      "webview_hint": "Scroll inside the window to explore the site",
+      "webview_label": "View",
       "next": "Next project",
       "back": "All projects",
       "image_soon": "Project image coming soon"

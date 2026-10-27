@@ -5,15 +5,30 @@
     "art": "yellow",
     "art_word": "vaukura",
     "cover": "assets/img/proyectos/vaukura.jpg",
+    "web_preview": {
+      "url": "vaukura.com",
+      "desktop": [
+        "assets/img/proyectos/web/vaukura-web-escritorio-01.jpg",
+        "assets/img/proyectos/web/vaukura-web-escritorio-02.jpg",
+        "assets/img/proyectos/web/vaukura-web-escritorio-03.jpg",
+        "assets/img/proyectos/web/vaukura-web-escritorio-04.jpg",
+        "assets/img/proyectos/web/vaukura-web-escritorio-05.jpg"
+      ],
+      "mobile": [
+        "assets/img/proyectos/web/vaukura-web-movil-01.jpg",
+        "assets/img/proyectos/web/vaukura-web-movil-02.jpg",
+        "assets/img/proyectos/web/vaukura-web-movil-03.jpg",
+        "assets/img/proyectos/web/vaukura-web-movil-04.jpg",
+        "assets/img/proyectos/web/vaukura-web-movil-05.jpg",
+        "assets/img/proyectos/web/vaukura-web-movil-06.jpg"
+      ]
+    },
     "gallery": [
       "assets/img/proyectos/vaukura-logo-construccion.jpg",
       "assets/img/proyectos/vaukura-logo-v.jpg",
       "assets/img/proyectos/vaukura-logo-colores.jpg",
       "assets/img/proyectos/vaukura-producto.jpg",
-      "assets/img/proyectos/vaukura-novedades.jpg",
-      "assets/img/proyectos/vaukura-categorias.jpg",
-      "assets/img/proyectos/vaukura-instagram.jpg",
-      "assets/img/proyectos/vaukura-movil.jpg"
+      "assets/img/proyectos/vaukura-instagram.jpg"
     ],
     "link": "https://www.vaukura.com",
     "year": "2021 — 2026",

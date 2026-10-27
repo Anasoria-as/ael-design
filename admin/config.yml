@@ -122,6 +122,41 @@ singletons:
       widget: string
       required: false
       hint: Si lo dejas vacío, se usa el identificador.
+    - name: web_preview
+      label: Web navegable
+      widget: object
+      required: false
+      collapsed: true
+      hint: Capturas largas de la web que se recorren con scroll dentro de una ventana. Si las rellenas,
+        sustituyen a la portada en la página del caso.
+      fields:
+      - name: url
+        label: Dirección que sale en la barra
+        widget: string
+        required: false
+        hint: 'Por ejemplo: vaukura.com'
+      - name: desktop
+        label: Capturas de escritorio (en orden, de arriba abajo)
+        widget: list
+        required: false
+        label_singular: tira
+        field:
+          name: image
+          label: Tira
+          widget: image
+          media_folder: /assets/img/proyectos/web
+          public_folder: /assets/img/proyectos/web
+      - name: mobile
+        label: Capturas de móvil (en orden, de arriba abajo)
+        widget: list
+        required: false
+        label_singular: tira
+        field:
+          name: image
+          label: Tira
+          widget: image
+          media_folder: /assets/img/proyectos/web
+          public_folder: /assets/img/proyectos/web
     - name: gallery
       label: Galería
       widget: list
@@ -735,6 +770,18 @@ singletons:
       - name: visit
         label: 'Caso: botón Ver la web publicada'
         widget: string
+      - name: view_desktop
+        label: 'Ventana de la web: botón Escritorio'
+        widget: string
+      - name: view_mobile
+        label: 'Ventana de la web: botón Móvil'
+        widget: string
+      - name: webview_hint
+        label: 'Ventana de la web: texto de ayuda'
+        widget: string
+      - name: webview_label
+        label: 'Ventana de la web: nombre del selector'
+        widget: string
       - name: next
         label: 'Caso: Siguiente proyecto'
         widget: string
@@ -847,6 +894,18 @@ singletons:
         widget: string
       - name: visit
         label: 'Caso: botón Ver la web publicada'
+        widget: string
+      - name: view_desktop
+        label: 'Ventana de la web: botón Escritorio'
+        widget: string
+      - name: view_mobile
+        label: 'Ventana de la web: botón Móvil'
+        widget: string
+      - name: webview_hint
+        label: 'Ventana de la web: texto de ayuda'
+        widget: string
+      - name: webview_label
+        label: 'Ventana de la web: nombre del selector'
         widget: string
       - name: next
         label: 'Caso: Siguiente proyecto'
