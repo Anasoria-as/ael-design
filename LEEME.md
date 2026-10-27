@@ -14,10 +14,33 @@ Portfolio de Ana Soria Ael. HTML, CSS y JavaScript sin librerías ni instalacion
 | `assets/img/` | Logo, favicon y la carpeta `proyectos/` para las imágenes. |
 | `cv/` | Los dos PDF del CV que se descargan desde la web. |
 | `CNAME` | Le dice a GitHub que la web va en anasoriaael.com. No lo borres. |
+| `admin/` | El panel para editar textos y proyectos sin tocar código (Sveltia CMS). |
 
-## Cambiar contenido
+## Panel de edición · anasoriaael.com/admin/
 
-Todo el texto está en los dos archivos de `content/`. Cada texto tiene su versión `"es"` y `"en"`.
+Desde el panel puedes cambiar todos los textos, añadir o reordenar proyectos, subir imágenes y sustituir los CV, en español e inglés. Cada vez que pulsas **Guardar**, el panel hace un commit en GitHub y la web se actualiza sola en uno o dos minutos.
+
+**Primera vez: crea tu llave de acceso (token)**
+
+1. Entra en GitHub y abre <https://github.com/settings/personal-access-tokens/new> (es *Settings → Developer settings → Personal access tokens → Fine-grained tokens → Generate new token*).
+2. **Token name:** `Panel ael-design`. **Expiration:** la que prefieras (por ejemplo, 1 año).
+3. **Repository access:** *Only select repositories* → `Anasoria-as/ael-design`.
+4. **Permissions → Repository permissions → Contents:** *Read and write*. No hace falta nada más.
+5. Pulsa **Generate token** y copia el código (empieza por `github_pat_`). GitHub solo te lo enseña una vez.
+6. Abre <https://anasoriaael.com/admin/>, pulsa **Iniciar sesión con un token de acceso** y pégalo.
+
+El navegador recuerda la sesión. En otro ordenador o navegador vuelve a pegar el token (o crea uno nuevo si no lo guardaste). El token es como una contraseña: no lo compartas ni lo subas a ningún archivo. Si caduca o lo pierdes, borra el viejo en esa misma página de GitHub y crea otro.
+
+**Qué hay en el panel**
+
+- **Proyectos:** la lista de proyectos. Ábrelos con la flecha, arrástralos para cambiar el orden y usa *Agregar proyecto* para crear uno nuevo. Para sustituir una imagen o un CV, pulsa *Reemplazar*. Las imágenes que subas se guardan en `assets/img/proyectos/`.
+- **Textos de la web:** portada, cinta de palabras, lo que aporto, herramientas, sobre mí (y tu foto), experiencia, formación, idiomas, los dos CV y, al final, los textos de botones y menús.
+
+**Importante:** cuando uses el panel, los archivos de `content/` en GitHub serán más nuevos que los de tu Mac. Si subes archivos a mano, no subas `content/` desde una copia antigua o borrarías lo que hayas cambiado en el panel. Para tener la copia al día, descarga el repositorio desde GitHub (*Code → Download ZIP*).
+
+## Cambiar contenido a mano
+
+Si prefieres no usar el panel, todo el texto está en los dos archivos de `content/`. Cada texto tiene su versión `"es"` y `"en"`.
 
 **Añadir la imagen de un proyecto:** guarda la imagen en `assets/img/proyectos/` (por ejemplo `vaukura.jpg`, 1600 × 1000 px aprox.) y escribe su ruta en el campo `"cover"` del proyecto:
 

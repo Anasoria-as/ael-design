@@ -8,7 +8,7 @@
     "gallery": [],
     "link": "https://www.vaukura.com",
     "year": "2021 — 2026",
-    "client": "Vaukura · Grupo Herme",
+    "client": { "es": "Vaukura · Grupo Herme", "en": "Vaukura · Grupo Herme" },
     "title": { "es": "Vaukura, tienda online de mobiliario", "en": "Vaukura, furniture online store" },
     "kind": { "es": "Diseño web · UX/UI", "en": "Web design · UX/UI" },
     "summary": {
@@ -58,7 +58,7 @@
     "gallery": [],
     "link": "",
     "year": "2021 — 2026",
-    "client": "Vaukura · Grupo Herme",
+    "client": { "es": "Vaukura · Grupo Herme", "en": "Vaukura · Grupo Herme" },
     "title": { "es": "Books de producto con IA", "en": "AI product photo books" },
     "kind": { "es": "Dirección de arte · IA generativa", "en": "Art direction · Generative AI" },
     "summary": {
@@ -151,7 +151,7 @@
     "gallery": [],
     "link": "https://www.cashdisplay.com",
     "year": "2021 — 2026",
-    "client": "Cashdisplay · Grupo Herme",
+    "client": { "es": "Cashdisplay · Grupo Herme", "en": "Cashdisplay · Grupo Herme" },
     "title": { "es": "Cashdisplay, tienda online B2B", "en": "Cashdisplay, B2B online store" },
     "kind": { "es": "Diseño web · E-commerce", "en": "Web design · E-commerce" },
     "summary": {

@@ -33,6 +33,8 @@
     if (typeof v === 'string' || Array.isArray(v)) return v;
     return v[lang] != null ? v[lang] : (v.es != null ? v.es : '');
   }
+  // Devuelve siempre una lista (vacía si falta), para que la web no falle si se vacía un campo
+  function arr(v) { var x = t(v); return Array.isArray(x) ? x : []; }
   function ui(key) { return (SITE && SITE.ui[lang] && SITE.ui[lang][key]) || key; }
 
   var ICON_DL = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10.5l5 5 5-5M5 20h14"/></svg>';
@@ -90,7 +92,7 @@
   /* ---------- vistas ---------- */
   function viewHome() {
     var h = SITE.hero;
-    var marquee = SITE.marquee.concat(SITE.marquee).map(function (m) { return '<span>' + esc(m) + '</span>'; }).join('');
+    var marquee = arr(SITE.marquee).concat(arr(SITE.marquee)).map(function (m) { return '<span>' + esc(m) + '</span>'; }).join('');
     var featured = PROJECTS.filter(function (p) { return p.featured; });
     var rest = PROJECTS.filter(function (p) { return !p.featured; });
     var count = String(PROJECTS.length).padStart(2, '0');
@@ -100,7 +102,6 @@
         '<div class="hero-top"><span class="status"><i aria-hidden="true"></i>' + esc(t(h.status)) + '</span>' +
         '<span class="mono muted">' + esc(t(SITE.location)) + '</span></div>' +
         '<h1 class="hero-name"><span class="l1">Ana Soria</span><span class="l2">Ael<span class="sq" aria-hidden="true"></span></span></h1>' +
-        '<p class="note">' + esc(t(SITE.coffee)) + '</p>' +
         '<div class="hero-grid">' +
           '<div>' +
             '<p class="role"><mark>' + esc(t(h.role)) + '</mark></p>' +
@@ -122,7 +123,7 @@
       '</section>' +
       '<section class="section wrap" id="aporto" style="padding-top:0">' +
         '<div class="sec-head"><h2 class="h2">' + esc(ui('strengths_title')) + '</h2></div>' +
-        '<div class="strengths">' + SITE.strengths.map(function (s) {
+        '<div class="strengths">' + arr(SITE.strengths).map(function (s) {
           return '<article class="strength"><span class="mono slash">' + esc(s.tag) + '</span><h3>' + esc(t(s.title)) + '</h3><p>' + esc(t(s.text)) + '</p></article>';
         }).join('') + '</div>' +
       '</section>' +
@@ -134,9 +135,9 @@
   }
 
   function skillsBlock() {
-    return '<div class="skills">' + SITE.skills.map(function (g) {
+    return '<div class="skills">' + arr(SITE.skills).map(function (g) {
       return '<div class="skill-row"><span class="mono slash">' + esc(t(g.group)) + '</span><div class="chips">' +
-        g.items.map(function (i) { return '<span class="chip">' + esc(i) + '</span>'; }).join('') + '</div></div>';
+        arr(g.items).map(function (i) { return '<span class="chip">' + esc(i) + '</span>'; }).join('') + '</div></div>';
     }).join('') + '</div>';
   }
 
@@ -160,24 +161,24 @@
       '</section>' +
       '<section class="section wrap">' +
         '<div class="about-body">' +
-          '<div class="portrait">' + photo + '<p class="note">' + esc(t(SITE.coffee)) + '</p></div>' +
-          '<div class="about-text">' + t(a.paragraphs).map(function (p) { return '<p>' + esc(p) + '</p>'; }).join('') + '</div>' +
+          '<div class="portrait">' + photo + '</div>' +
+          '<div class="about-text">' + arr(a.paragraphs).map(function (p) { return '<p>' + esc(p) + '</p>'; }).join('') + '</div>' +
         '</div>' +
       '</section>' +
       '<section class="section wrap" style="padding-top:0">' +
         '<div class="sec-head"><h2 class="h2">' + esc(ui('experience')) + '</h2></div>' +
-        '<div class="timeline">' + SITE.experience.map(function (x) {
+        '<div class="timeline">' + arr(SITE.experience).map(function (x) {
           return '<article class="tl-item"><div class="tl-period">' + esc(x.period) + '<small>' + esc(t(x.place)) + '</small></div>' +
             '<div><h3 class="tl-role">' + esc(t(x.role)) + '</h3><p class="tl-org">' + esc(x.org) + '</p>' +
-            '<ul class="bullets">' + t(x.points).map(function (b) { return '<li>' + esc(b) + '</li>'; }).join('') + '</ul></div></article>';
+            '<ul class="bullets">' + arr(x.points).map(function (b) { return '<li>' + esc(b) + '</li>'; }).join('') + '</ul></div></article>';
         }).join('') + '</div>' +
       '</section>' +
       '<section class="section wrap" style="padding-top:0">' +
         '<div class="two-col">' +
-          '<div><h2 class="h3">' + esc(ui('education')) + '</h2><div class="timeline">' + SITE.education.map(function (x) {
+          '<div><h2 class="h3">' + esc(ui('education')) + '</h2><div class="timeline">' + arr(SITE.education).map(function (x) {
             return '<article class="tl-item"><div class="tl-period">' + esc(x.period) + '</div><div><h3 class="tl-role">' + esc(t(x.title)) + '</h3><p class="tl-org">' + esc(x.school) + '</p></div></article>';
           }).join('') + '</div></div>' +
-          '<div><h2 class="h3">' + esc(ui('languages')) + '</h2><div class="lang-list">' + SITE.languages.map(function (l) {
+          '<div><h2 class="h3">' + esc(ui('languages')) + '</h2><div class="lang-list">' + arr(SITE.languages).map(function (l) {
             return '<div><span>' + esc(t(l.name)) + '</span><span>' + esc(t(l.level)) + '</span></div>';
           }).join('') + '</div></div>' +
         '</div>' +
@@ -197,12 +198,14 @@
       [ui('client'), t(p.client)],
       [ui('role'), t(p.role)],
       [ui('year'), p.year],
-      [ui('tools'), (p.tools || []).join(', ')]
+      [ui('tools'), arr(p.tools).join(', ')]
     ].filter(function (m) { return m[1]; });
 
-    var sections = (p.sections || []).map(function (s) {
-      var body = s.list
-        ? '<ul class="bullets">' + t(s.list).map(function (b) { return '<li>' + esc(b) + '</li>'; }).join('') + '</ul>'
+    var sections = arr(p.sections).map(function (s) {
+      // Si la sección tiene lista con elementos, se muestra la lista; si no, el texto
+      var items = arr(s.list);
+      var body = items.length
+        ? '<ul class="bullets">' + items.map(function (b) { return '<li>' + esc(b) + '</li>'; }).join('') + '</ul>'
         : '<p>' + esc(t(s.text)) + '</p>';
       return '<section class="case-sec"><h2>' + esc(t(s.title)) + '</h2><div>' + body + '</div></section>';
     }).join('');
