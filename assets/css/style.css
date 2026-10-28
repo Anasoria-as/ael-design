@@ -478,6 +478,7 @@ ul, ol { margin: 0; padding: 0; }
   .case-meta div:nth-child(n+3) { border-top: 1px solid var(--line); }
 }
 .case-cover { border-radius: calc(var(--radius) + 6px); overflow: hidden; aspect-ratio: 16 / 10; position: relative; border: 1px solid var(--line); max-width: 100%; }
+.case-cover img { width: 100%; height: 100%; object-fit: cover; }   /* recorte centrado, no solo la parte de arriba */
 @media (max-width: 640px) { .case-cover { aspect-ratio: 4 / 3; } }
 
 /* Ventana navegable con la web real (capturas largas con scroll dentro) */

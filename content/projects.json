@@ -314,6 +314,111 @@
     ]
   },
   {
+    "slug": "eventos-ferias",
+    "featured": false,
+    "art": "magenta",
+    "art_word": "ferias",
+    "cover": "assets/img/proyectos/eventos-ferias.jpg",
+    "gallery": [
+      "assets/img/proyectos/eventos-ferias-stand.jpg"
+    ],
+    "link": "",
+    "year": "",
+    "client": {
+      "es": "",
+      "en": ""
+    },
+    "title": {
+      "es": "Eventos, ferias y gran formato",
+      "en": "Events, trade fairs and large format"
+    },
+    "kind": {
+      "es": "Producción de eventos · Gran formato · Preimpresión",
+      "en": "Event production · Large format · Prepress"
+    },
+    "summary": {
+      "es": "Del diseño al montaje: el visual del stand de Cashdisplay para sus ferias, la gráfica de roll-ups, pop-ups y expositores, los archivos listos para imprenta y la organización del montaje en el evento.",
+      "en": "From design to set-up: Cashdisplay’s trade fair stand visual, the graphics for roll-ups, pop-ups and displays, print-ready files and planning the set-up at the event."
+    },
+    "role": {
+      "es": "Diseño gráfico, preimpresión y producción",
+      "en": "Graphic design, prepress and production"
+    },
+    "tools": [
+      "Illustrator",
+      "Photoshop",
+      "InDesign"
+    ],
+    "tags": [
+      "Eventos",
+      "Ferias",
+      "Gran formato",
+      "Preimpresión"
+    ],
+    "sections": [
+      {
+        "title": {
+          "es": "El visual del stand",
+          "en": "The stand visual"
+        },
+        "text": {
+          "es": "Diseñé el visual del stand de Cashdisplay para sus ferias, con una misma línea gráfica en la trasera de gran formato y en todos los soportes expuestos, para que el stand se leyera de un vistazo como una sola marca.",
+          "en": "I designed the visual for Cashdisplay’s trade fair stand, with one graphic line across the large-format back wall and every display on show, so the stand read at a glance as a single brand."
+        }
+      },
+      {
+        "title": {
+          "es": "Preimpresión y producción",
+          "en": "Prepress and production"
+        },
+        "text": {
+          "es": "Preparaba los artes finales para imprenta (sangrados, marcas de corte, color y resolución para gran formato) y los enviaba a imprimir. Conozco bien los soportes, roll-ups, pop-ups y expositores, porque los montaba yo misma en las sesiones de fotos.",
+          "en": "I prepared the final artwork for print (bleed, crop marks, colour and resolution for large format) and sent it to the printer. I know the displays well, roll-ups, pop-ups and stands, because I assembled them myself for the photo shoots."
+        }
+      },
+      {
+        "title": {
+          "es": "Montaje en el evento",
+          "en": "Set-up at the event"
+        },
+        "text": {
+          "es": "Organizaba los tiempos de montaje y desmontaje y el visual final de colocación en el evento: qué va en cada sitio para que el stand funcione de un vistazo. También preparo presupuestos de producción sin problema.",
+          "en": "I planned the set-up and take-down times and the final layout at the event: what goes where so the stand works at a glance. I’m also comfortable preparing production budgets."
+        }
+      },
+      {
+        "title": {
+          "es": "Formación en eventos",
+          "en": "Events training"
+        },
+        "text": {
+          "es": "Estudié el ciclo superior de Producción de Audiovisuales y Espectáculos, con prácticas en organización de eventos.",
+          "en": "I studied a Higher Diploma in Audiovisual and Live Events Production, with an internship in event organisation."
+        }
+      },
+      {
+        "title": {
+          "es": "Proceso",
+          "en": "Process"
+        },
+        "list": {
+          "es": [
+            "Visual del stand y de cada soporte",
+            "Artes finales y preimpresión para gran formato",
+            "Presupuesto y envío a imprenta",
+            "Tiempos de montaje, colocación y desmontaje"
+          ],
+          "en": [
+            "Stand and display visuals",
+            "Final artwork and large-format prepress",
+            "Budget and sending to print",
+            "Set-up timing, layout and take-down"
+          ]
+        }
+      }
+    ]
+  },
+  {
     "slug": "coches-eventos",
     "featured": false,
     "art": "black",
