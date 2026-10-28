@@ -464,16 +464,20 @@
         "after": "assets/img/proyectos/books-ia-gara-ia.jpg"
       },
       {
-        "before": "assets/img/proyectos/books-ia-averly-estudio.jpg",
-        "after": "assets/img/proyectos/books-ia-averly-ia.jpg"
+        "before": "assets/img/proyectos/books-ia-olie-estudio.jpg",
+        "after": "assets/img/proyectos/books-ia-olie-ia.jpg"
+      },
+      {
+        "before": "assets/img/proyectos/books-ia-maddie-estudio.jpg",
+        "after": "assets/img/proyectos/books-ia-maddie-ia.jpg"
       }
     ],
     "gallery": [],
     "link": "",
     "year": "2025 — 2026",
     "client": {
-      "es": "Vaukura · Grupo Herme",
-      "en": "Vaukura · Grupo Herme"
+      "es": "",
+      "en": ""
     },
     "title": {
       "es": "IA generativa para creación de contenido",
@@ -528,8 +532,8 @@
           "en": "From studio to room"
         },
         "text": {
-          "es": "Desliza la línea de las imágenes para comparar: a un lado, la foto de estudio con fondo blanco; al otro, la misma silla en su ambiente creado con IA.",
-          "en": "Drag the line on the images to compare: on one side, the white-background studio photo; on the other, the same chair in its AI-created room."
+          "es": "Desliza la línea de las imágenes para comparar: a un lado, la foto de estudio con fondo blanco; al otro, el mismo mueble en su ambiente creado con IA.",
+          "en": "Drag the line on the images to compare: on one side, the white-background studio photo; on the other, the same piece in its AI-created room."
         }
       },
       {
