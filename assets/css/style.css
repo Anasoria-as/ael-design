@@ -336,7 +336,7 @@ ul, ol { margin: 0; padding: 0; }
 
 /* ---------- Lo que aporto ---------- */
 .strengths { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 clamp(1.5rem, 4vw, 3.5rem); }
-.strength { border-top: 1px solid var(--line-strong); padding-block: 1.3rem 2rem; display: grid; gap: .5rem; }
+.strength { border-top: 1px solid var(--line-strong); padding-block: 1.3rem 2rem; display: grid; gap: .5rem; align-content: start; }   /* títulos alineados aunque un texto sea más largo */
 .strength h3 { font-size: 1.6rem; line-height: 1.1; }
 .strength p { color: var(--muted); max-width: 52ch; }
 @media (max-width: 760px) { .strengths { grid-template-columns: 1fr; } }
