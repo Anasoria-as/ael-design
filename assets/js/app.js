@@ -332,13 +332,25 @@
       if (active) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
     });
 
-    // título de la pestaña
+    // título y descripción de cada vista (buscadores y pestaña)
     var base = 'Ana Soria Ael';
-    if (view === 'about') document.title = ui('about_title') + ' · ' + base;
+    var SEO = {
+      es: { title: 'Ana Soria Ael · Diseñadora gráfica y web en Madrid',
+            desc: 'Portfolio de Ana Soria Ael, diseñadora gráfica y web en Madrid: branding e identidad visual, diseño UX/UI en Figma, e-commerce, dirección de arte y frontend.',
+            about: 'Ana Soria Ael, diseñadora gráfica y web en Madrid con seis años de experiencia en estudio y en empresa: marcas, tiendas online, Figma y código.' },
+      en: { title: 'Ana Soria Ael · Graphic & Web Designer in Madrid',
+            desc: 'Portfolio of Ana Soria Ael, graphic and web designer in Madrid: branding and visual identity, UX/UI design in Figma, e-commerce, art direction and frontend.',
+            about: 'Ana Soria Ael, graphic and web designer in Madrid with six years of experience in studio and in-house: brands, online stores, Figma and code.' }
+    }[lang];
+    var title = SEO.title, desc = SEO.desc;
+    if (view === 'about') { title = ui('about_title') + ' · ' + base; desc = SEO.about; }
     else if (view === 'project') {
       var p = PROJECTS.find(function (x) { return 'p-' + x.slug === hash; });
-      document.title = (p ? t(p.title) + ' · ' : '') + base;
-    } else document.title = 'Ana Soria Ael · Web Designer & Frontend Developer';
+      if (p) { title = t(p.title) + ' · ' + base; desc = t(p.summary) || desc; }
+    }
+    document.title = title;
+    var md = document.querySelector('meta[name="description"]');
+    if (md) md.setAttribute('content', desc);
 
     if (opts.keepScroll) return;
     if (anchor) {
