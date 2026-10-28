@@ -234,7 +234,6 @@
     var meta = [
       [ui('client'), t(p.client)],
       [ui('role'), t(p.role)],
-      [ui('year'), p.year],
       [ui('tools'), arr(p.tools).join(', ')]
     ].filter(function (m) { return m[1]; });
 
