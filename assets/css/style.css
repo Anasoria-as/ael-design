@@ -307,7 +307,6 @@ ul, ol { margin: 0; padding: 0; }
 .pill-star { font-size: 1.1em; line-height: 1; }
 .card:hover .pill { background: var(--magenta); color: #fff; }
 .card-kind { color: var(--magenta); font-weight: 500; font-size: clamp(1rem, 1.3vw, 1.12rem); letter-spacing: -.01em; }
-.card-sub { color: var(--muted); font-size: .95rem; }
 @media (max-width: 760px) {
   .projects { grid-template-columns: 1fr; }
   .card-row { flex-wrap: wrap; }

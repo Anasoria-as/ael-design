@@ -61,15 +61,12 @@
   function projectCard(p) {
     // pastilla: texto propio del proyecto o, si no tiene, «Proyecto real»
     var pill = t(p.pill) || ui('case_study');
-    // debajo, el cliente (sin año); no se repite si dice lo mismo que la pastilla
-    var sub = t(p.client) && t(p.client) !== pill ? t(p.client) : '';
     return '<a class="card" href="#p-' + esc(p.slug) + '" data-cursor="view">' +
       '<div class="cover">' + art(p) + '</div>' +
       '<div class="card-meta">' +
         '<div class="card-row"><h3>' + esc(t(p.title)) + '</h3>' +
         '<span class="pill"><span class="pill-star" aria-hidden="true">✱</span>' + esc(pill) + '</span></div>' +
         '<p class="card-kind">' + esc(t(p.kind)) + '</p>' +
-        (sub ? '<p class="card-sub">' + esc(sub) + '</p>' : '') +
       '</div></a>';
   }
 
