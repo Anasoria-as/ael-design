@@ -2,6 +2,7 @@
 """Genera las páginas propias de cada proyecto para Google y para compartir.
 
 Crea, a partir de index.html y de content/*.json:
+  - sobre-mi/index.html          · la página «Sobre mí», ya pintada
   - proyectos/<slug>/index.html  · una página por proyecto, ya pintada, con su título,
                                    descripción, imagen al compartir y datos estructurados
   - 404.html                     · respaldo: un proyecto nuevo funciona aunque aún no tenga página
@@ -114,6 +115,13 @@ def main():
         d.mkdir(parents=True, exist_ok=True)
         (d / 'index.html').write_text(build(tpl, title=t(p['title'])), encoding='utf-8')
 
+    (ROOT / 'sobre-mi').mkdir(exist_ok=True)
+    (ROOT / 'sobre-mi/index.html').write_text(build(tpl, title='Sobre mí'), encoding='utf-8')
+
+    # datos de Ana (los mismos de la portada), para reutilizarlos en las demás páginas
+    home_ld = json.loads(re.search(r'<script type="application/ld\+json">(.*?)</script>', tpl, re.S).group(1))
+    person = next(n for n in home_ld['@graph'] if n.get('@type') == 'Person')
+
     # quita páginas de proyectos que ya no existen
     keep = {p['slug'] for p in projects}
     for d in (ROOT / 'proyectos').iterdir():
@@ -133,8 +141,7 @@ def main():
         with sync_playwright() as pw:
             browser = pw.chromium.launch()
             page = browser.new_page(viewport={'width': 1280, 'height': 900}, locale='es-ES')
-            for p in projects:
-                url = 'proyectos/' + p['slug'] + '/'
+            def capture(url):
                 page.goto(f'http://localhost:{port}/{url}', wait_until='networkidle')
                 page.wait_for_function("document.getElementById('app').hasAttribute('data-h')")
                 h = page.evaluate('document.body.scrollHeight')
@@ -150,6 +157,31 @@ def main():
                     footer: document.getElementById('footer').innerHTML,
                     title: document.title,
                     desc: document.querySelector('meta[name=description]').content })""")
+                return got
+
+            # «Sobre mí»
+            url = 'sobre-mi/'
+            got = capture(url)
+            full = SITE_URL + url
+            jsonld = {'@context': 'https://schema.org', '@graph': [
+                {'@type': 'ProfilePage', '@id': full + '#perfil', 'url': full, 'name': got['title'],
+                 'description': got['desc'], 'inLanguage': 'es', 'mainEntity': {'@id': ANA}, 'isPartOf': {'@id': WEB}},
+                person,
+                {'@type': 'WebSite', '@id': WEB, 'url': SITE_URL, 'name': 'Ana Soria Ael'},
+                {'@type': 'BreadcrumbList', 'itemListElement': [
+                    {'@type': 'ListItem', 'position': 1, 'name': 'Ana Soria Ael', 'item': SITE_URL},
+                    {'@type': 'ListItem', 'position': 2, 'name': 'Sobre mí', 'item': full}]}]}
+            out = build(tpl, title=got['title'], desc=got['desc'], canonical=full,
+                        og={'url': full, 'title': 'Sobre mí · Ana Soria Ael', 'description': got['desc']},
+                        jsonld=jsonld, skip_href='/' + url + '#app',
+                        app_html=got['app'], app_hash=got['hash'], footer_html=got['footer'])
+            (ROOT / url / 'index.html').write_text(out, encoding='utf-8')
+            print('✓', url, '·', got['title'])
+
+            # proyectos
+            for p in projects:
+                url = 'proyectos/' + p['slug'] + '/'
+                got = capture(url)
                 full = SITE_URL + url
                 title, summary = t(p['title']), t(p.get('summary'))
                 gallery = [g.get('src') if isinstance(g, dict) else g for g in (p.get('gallery') or [])]
@@ -159,8 +191,7 @@ def main():
                      'image': [absurl(p['cover'])] + [absurl(g) for g in gallery[:6]],
                      'keywords': ', '.join(dict.fromkeys(keywords)), 'inLanguage': 'es',
                      'author': {'@id': ANA}, 'creator': {'@id': ANA}, 'isPartOf': {'@id': WEB}},
-                    {'@type': 'Person', '@id': ANA, 'name': 'Ana Soria Ael', 'url': SITE_URL,
-                     'jobTitle': 'Diseñadora Gráfica y Web', 'sameAs': ['https://www.linkedin.com/in/anasoriaael']},
+                    person,
                     {'@type': 'WebSite', '@id': WEB, 'url': SITE_URL, 'name': 'Ana Soria Ael'},
                     {'@type': 'BreadcrumbList', 'itemListElement': [
                         {'@type': 'ListItem', 'position': 1, 'name': 'Ana Soria Ael', 'item': SITE_URL},
@@ -188,14 +219,15 @@ def main():
     xml = ('<?xml version="1.0" encoding="UTF-8"?>\n'
            '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" '
            'xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n')
-    xml += entry(SITE_URL, [absurl('assets/img/og-ael.png')] + ([absurl(site['about']['photo'])] if site.get('about', {}).get('photo') else []))
+    xml += entry(SITE_URL, [absurl('assets/img/og-ael.png')])
+    xml += entry(SITE_URL + 'sobre-mi/', [absurl(site['about']['photo'])] if site.get('about', {}).get('photo') else [])
     for p in projects:
         gallery = [g.get('src') if isinstance(g, dict) else g for g in (p.get('gallery') or [])]
         after = [c['after'] for c in (p.get('compare') or []) if c.get('after')]
         xml += entry(SITE_URL + 'proyectos/' + p['slug'] + '/', [absurl(p['cover'])] + [absurl(x) for x in gallery + after])
     xml += '</urlset>\n'
     (ROOT / 'sitemap.xml').write_text(xml, encoding='utf-8')
-    print('✓ sitemap.xml ·', len(projects) + 1, 'páginas')
+    print('✓ sitemap.xml ·', len(projects) + 2, 'páginas')
 
 
 if __name__ == '__main__':

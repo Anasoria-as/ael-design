@@ -160,7 +160,7 @@
             '<p class="role"><mark>' + esc(t(h.role)) + '</mark></p>' +
             '<p class="intro">' + esc(t(h.intro)) + '</p>' +
             '<div class="actions"><a class="btn btn-primary" href="#proyectos">' + esc(ui('see_projects')) + ' <span class="arr">→</span></a>' +
-            '<a class="btn btn-ghost" href="#sobre-mi">' + esc(ui('nav_about')) + '</a></div>' +
+            '<a class="btn btn-ghost" href="sobre-mi/">' + esc(ui('nav_about')) + '</a></div>' +
           '</div>' +
           '<aside class="cv-card" aria-label="' + esc(ui('cv_title')) + '">' +
             '<div class="cv-head"><strong>' + esc(ui('cv_title')) + '</strong><span class="mono muted">' + esc(ui('cv_note')) + '</span></div>' +
@@ -349,8 +349,8 @@
   }
 
   /* ---------- router ----------
-     Portada: #inicio, #proyectos, #sobre-mi, #contacto.
-     Proyectos: cada uno en su dirección /proyectos/slug/ (los enlaces antiguos #p-slug llevan a ella). */
+     Portada: #inicio, #proyectos, #contacto.
+     Sobre mí: /sobre-mi/ · Proyectos: /proyectos/slug/ (los enlaces antiguos #sobre-mi y #p-slug llevan a ellas). */
   function findProject(slug) {
     return PROJECTS.find(function (x) { return x.slug === slug && !x.soon; });
   }
@@ -362,13 +362,16 @@
     if (m) {
       project = findProject(decodeURIComponent(m[1]));
       if (project) view = 'project';
-    } else if (hash.indexOf('p-') === 0 && findProject(hash.slice(2))) {
+    } else if (/\/sobre-mi\/?$/.test(location.pathname)) view = 'about';
+    else if (hash.indexOf('p-') === 0 && findProject(hash.slice(2))) {
       location.replace(projectUrl(findProject(hash.slice(2))));   // enlace antiguo → página propia
       return;
-    } else if (hash === 'sobre-mi') view = 'about';
-    else if (hash === 'proyectos' || hash === 'contacto') anchor = hash;
+    } else if (hash === 'sobre-mi') {
+      location.replace('sobre-mi/');   // enlace antiguo → página propia
+      return;
+    } else if (hash === 'proyectos' || hash === 'contacto') anchor = hash;
     // dirección que no existe: se muestra la portada con su dirección correcta
-    if (view !== 'project' && !/^\/(index\.html)?$/.test(location.pathname) && history.replaceState) {
+    if (view === 'home' && !/^\/(index\.html)?$/.test(location.pathname) && history.replaceState) {
       history.replaceState(null, '', '/' + location.hash);
     }
 
@@ -387,7 +390,6 @@
     });
 
     // título y descripción de cada vista (buscadores y pestaña)
-    var base = 'Ana Soria Ael';
     var SEO = {
       es: { title: 'Ana Soria Ael · Diseñadora gráfica y web en Madrid',
             desc: 'Portfolio de Ana Soria Ael, diseñadora gráfica y web en Madrid: branding e identidad visual, diseño UX/UI en Figma, e-commerce, dirección de arte y frontend.',
@@ -397,7 +399,7 @@
             about: 'Ana Soria Ael, graphic and web designer in Madrid with six years of experience in studio and in-house: brands, online stores, Figma and code.' }
     }[lang];
     var title = SEO.title, desc = SEO.desc;
-    if (view === 'about') { title = ui('about_title') + ' · ' + base; desc = SEO.about; }
+    if (view === 'about') { title = ui('about_title') + ' · ' + SEO.title; desc = SEO.about; }
     else if (view === 'project') { title = projectTitle(project); desc = t(project.summary) || desc; }
     document.title = title;
     var md = document.querySelector('meta[name="description"]');
@@ -585,6 +587,14 @@
     });
   }
 
+  /* ---------- transición entre páginas ----------
+     Si el navegador la cancela (por ejemplo, porque cambia el tamaño de la pantalla), no pasa nada */
+  window.addEventListener('pagereveal', function (e) {
+    var vt = e.viewTransition;
+    if (!vt) return;
+    [vt.ready, vt.finished, vt.updateCallbackDone].forEach(function (pr) { if (pr && pr.catch) pr.catch(function () {}); });
+  });
+
   /* ---------- volver atrás: recupera la posición de la página ---------- */
   // Se guarda en el historial de cada página, para volver al mismo punto al darle «atrás»
   var scrollTimer = null;
@@ -612,12 +622,7 @@
 
   function onHash() {
     if (location.hash === '#app') return;   // enlace «Saltar al contenido»
-    var h = decodeURIComponent(location.hash.replace(/^#/, ''));
-    var next = h === 'sobre-mi' ? 'about' : 'home';
-    if (h.indexOf('p-') === 0 || next === currentView) return route();
-    // cambio de página dentro de la portada (inicio ↔ sobre mí): fundido suave
-    if (document.startViewTransition && !reduceMotion) document.startViewTransition(function () { route({ animate: true }); });
-    else route({ animate: true });
+    route();
   }
   function start(data, sync) {
     SITE = data[0]; PROJECTS = data[1];
