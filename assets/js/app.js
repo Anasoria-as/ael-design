@@ -305,6 +305,12 @@
       [ui('tools'), arr(p.tools).join(', ')]
     ].filter(function (m) { return m[1]; });
 
+    // cifras destacadas del proyecto (números grandes)
+    var stats = arr(p.stats).filter(function (s) { return s && t(s.value); });
+    var statsHtml = stats.length ? '<div class="case-stats">' + stats.map(function (s) {
+      return '<div class="case-stat"><strong>' + esc(t(s.value)) + '</strong><span>' + esc(t(s.label)) + '</span></div>';
+    }).join('') + '</div>' : '';
+
     var sections = arr(p.sections).map(function (s) {
       // Si la sección tiene lista con elementos, se muestra la lista; si no, el texto
       var items = arr(s.list);
@@ -332,6 +338,7 @@
           '<div class="case-meta">' + meta.map(function (m) {
             return '<div><span class="mono muted">' + esc(m[0]) + '</span><b>' + esc(m[1]) + '</b></div>';
           }).join('') + '</div>' +
+          statsHtml +
         '</header>' +
         (p.web_preview && arr(p.web_preview.desktop).length ? webPreview(p) : '<div class="case-cover">' + art(p) + '</div>') +
         '<div class="case-sections">' + sections + '</div>' +

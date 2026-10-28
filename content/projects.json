@@ -140,8 +140,8 @@
           "en": "Photography and sets"
         },
         "text": {
-          "es": "Ideé la estética de los sets de fotografía de producto y dirigí el estilo de las sesiones. Edité yo las fotos de producto con fondo blanco, con una forma de editar común para todo el catálogo: fondo blanco, pero con una sombra muy suave del producto en el suelo, para que nada pareciera recortado. Además, incorporé la IA generativa (Nano Banana) para crear espacios e imágenes de ambiente.",
-          "en": "I conceived the look of the product photo sets and directed the style of the shoots. I edited the white-background product photos myself with one style for the whole catalogue: a white background, but with a very soft shadow of the product on the floor, so nothing looked cut out. I also brought in generative AI (Nano Banana) to create rooms and lifestyle images."
+          "es": "Ideé la estética de los sets de fotografía de producto y dirigí el estilo de las sesiones. Las fotos de producto con fondo blanco las hacía junto a mi compañera, y las editábamos con un método que creé para Vaukura: fondo blanco, pero con una sombra suave y concreta del producto en el suelo, para que nada pareciera plano ni recortado. Además, sustituí las fotos de ambiente de estudio de toda la web por imágenes creadas con IA generativa (Nano Banana).",
+          "en": "I came up with the look of the product photo sets and directed the style of the shoots. My colleague and I shot the white-background product photos, and we edited them with a method I created for Vaukura: a white background, but with a soft, specific shadow under each product, so nothing looked flat or cut out. I also replaced the studio room photos across the whole website with images created with generative AI (Nano Banana)."
         }
       },
       {
@@ -172,6 +172,28 @@
         "text": {
           "es": "Es la web publicada hoy en vaukura.com. Las ventas empezaron a subir a medida que la tienda se volvía más visual y atractiva.",
           "en": "It's the site live today at vaukura.com. Sales started to rise as the store became more visual and appealing."
+        }
+      }
+    ],
+    "stats": [
+      {
+        "value": {
+          "es": "~400",
+          "en": "~400"
+        },
+        "label": {
+          "es": "productos en catálogo",
+          "en": "products in the catalogue"
+        }
+      },
+      {
+        "value": {
+          "es": "100 %",
+          "en": "100%"
+        },
+        "label": {
+          "es": "de las fotos de ambiente, creadas con IA",
+          "en": "of room photos, created with AI"
         }
       }
     ]
@@ -243,8 +265,8 @@
           "en": "Context"
         },
         "text": {
-          "es": "Cashdisplay es una firma referente en soportes publicitarios, expositores y equipamiento para retail y eventos: roll-ups, expositores, señalética y material para punto de venta. Un catálogo técnico y muy amplio, pensado para empresas.",
-          "en": "Cashdisplay is a leading brand in advertising displays, stands and equipment for retail and events: roll-ups, stands, signage and point-of-sale material. A broad, technical catalogue aimed at businesses."
+          "es": "Cashdisplay es una firma referente en soportes publicitarios, expositores y equipamiento para retail y eventos: roll-ups, expositores, señalética y material para punto de venta. Un catálogo técnico y muy amplio, de unos 3.000 productos, pensado para empresas.",
+          "en": "Cashdisplay is a leading brand in advertising displays, stands and equipment for retail and events: roll-ups, stands, signage and point-of-sale material. A broad, technical catalogue of around 3,000 products, aimed at businesses."
         }
       },
       {
@@ -275,6 +297,18 @@
         "text": {
           "es": "Ideé y desarrollé la estrategia visual y la propuesta gráfica para redes sociales. Definí la nueva línea estética de la marca en el entorno digital, con un sistema de plantillas, guías de contenido y dirección de arte para dar más presencia y coherencia visual a Cashdisplay.",
           "en": "I conceived and developed the visual strategy and graphic proposal for social media. I defined the brand’s new aesthetic line in the digital space, with a template system, content guidelines and art direction to give Cashdisplay more presence and visual consistency."
+        }
+      }
+    ],
+    "stats": [
+      {
+        "value": {
+          "es": "~3.000",
+          "en": "~3,000"
+        },
+        "label": {
+          "es": "productos en catálogo",
+          "en": "products in the catalogue"
         }
       }
     ]
@@ -492,8 +526,8 @@
       "en": "Art direction · Generative AI"
     },
     "summary": {
-      "es": "Sin estudio de fotografía ni presupuesto para montar ambientes, creé con IA (Nano Banana) las fotos de ambiente de vaukura.com, con la dirección de arte siempre en mis manos.",
-      "en": "With no photo studio and no budget to stage rooms, I created vaukura.com’s room photos with AI (Nano Banana), keeping art direction in my own hands."
+      "es": "Sustituí las fotos de ambiente de estudio de toda la web de vaukura.com por imágenes creadas con IA (Nano Banana), con la dirección de arte siempre en mis manos y un gran ahorro en sesiones, atrezo y montaje de sets.",
+      "en": "I replaced the studio room photos across the whole vaukura.com website with images created with AI (Nano Banana), keeping art direction in my own hands and saving a lot on shoots, props and set building."
     },
     "role": {
       "es": "Dirección de arte y generación de imágenes",
@@ -514,8 +548,8 @@
           "en": "Context"
         },
         "text": {
-          "es": "La tienda necesitaba fotos de ambiente para enseñar los muebles en espacios reales, pero no había recursos para un estudio de fotos ni para montar entornos con mobiliario diverso.",
-          "en": "The store needed room shots to show the furniture in real spaces, but there were no resources for a photo studio or for staging varied furniture sets."
+          "es": "Las fotos de ambiente de vaukura.com se hacían en sesiones de estudio: había que comprar atrezo, montar y mover los sets, y dedicar jornadas enteras de varias personas, yo incluida.",
+          "en": "The room photos on vaukura.com used to be made in studio shoots: buying props, building and moving sets, and full days of work for several people, me included."
         }
       },
       {
@@ -562,8 +596,30 @@
           "en": "Outcome"
         },
         "text": {
-          "es": "Las fotos de ambiente de vaukura.com están hechas así: sin coste de estudio y con una estética coherente con la marca.",
-          "en": "The room photos on vaukura.com are made this way: no studio costs and a look consistent with the brand."
+          "es": "Hoy todas las fotos de ambiente de vaukura.com están creadas con IA. Se acabaron las sesiones de estudio para ambientes, la compra de atrezo y el montaje de sets, y el equipo ganó tiempo para otras tareas, con una estética coherente con la marca.",
+          "en": "Today every room photo on vaukura.com is created with AI. No more studio shoots for room photos, no props to buy or sets to build, and the team gained time for other work, with a look consistent with the brand."
+        }
+      }
+    ],
+    "stats": [
+      {
+        "value": {
+          "es": "100 %",
+          "en": "100%"
+        },
+        "label": {
+          "es": "de las fotos de ambiente de la web, creadas con IA",
+          "en": "of the website’s room photos, created with AI"
+        }
+      },
+      {
+        "value": {
+          "es": "0",
+          "en": "0"
+        },
+        "label": {
+          "es": "sesiones de estudio para fotos de ambiente",
+          "en": "studio shoots for room photos"
         }
       }
     ]

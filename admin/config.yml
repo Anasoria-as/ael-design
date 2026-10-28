@@ -62,8 +62,8 @@ singletons:
       pattern:
       - ^[a-z0-9-]+$
       - Solo minúsculas, números y guiones, sin espacios.
-      hint: Va en el enlace del proyecto (anasoriaael.com/#p-identificador). Si lo cambias, cambia el
-        enlace.
+      hint: Va en el enlace del proyecto (anasoriaael.com/proyectos/identificador/). Si lo cambias, cambia
+        el enlace.
     - name: soon
       label: Próximamente
       widget: boolean
@@ -118,6 +118,40 @@ singletons:
         widget: text
         required: false
       hint: Sale al principio de la página del caso.
+    - name: stats
+      label: Cifras destacadas
+      widget: list
+      required: false
+      label_singular: cifra
+      collapsed: true
+      summary: '{{fields.value.es}} · {{fields.label.es}}'
+      hint: 'Números grandes al principio del caso (mejor 2 o 3). Solo datos reales. Ejemplo: ~400 · productos
+        en catálogo'
+      fields:
+      - name: value
+        label: Cifra
+        widget: object
+        collapsed: false
+        fields:
+        - name: es
+          label: Español
+          widget: string
+        - name: en
+          label: English
+          widget: string
+        hint: 'Ejemplo: ~400, 100 %, 0'
+      - name: label
+        label: Qué significa
+        widget: object
+        collapsed: false
+        fields:
+        - name: es
+          label: Español
+          widget: string
+        - name: en
+          label: English
+          widget: string
+        hint: 'Ejemplo: productos en catálogo'
     - name: cover
       label: Imagen de portada
       widget: image
