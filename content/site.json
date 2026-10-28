@@ -180,12 +180,12 @@
     {
       "tag": "workflow",
       "title": {
-        "es": "Orden y flujo de trabajo",
-        "en": "Order and workflow"
+        "es": "Menos tareas, más diseño",
+        "en": "Less busywork, more design"
       },
       "text": {
-        "es": "Definí cómo se nombraban y guardaban los archivos del equipo de diseño (RAW, editadas, PSD, web) para que todos encontráramos todo más rápido.",
-        "en": "I defined how the design team named and stored files (RAW, edited, PSD, web) so everyone could find everything faster."
+        "es": "Organizo flujos de trabajo con mucha carga de información para que el día a día sea más ágil y el equipo no se pise. Las tareas repetitivas las automatizo con IA: así el tiempo humano va a lo que de verdad lo merece.",
+        "en": "I organize information-heavy workflows so day-to-day work runs faster and nobody on the team steps on anyone else's toes. I automate repetitive tasks with AI, so human time goes to what truly deserves it."
       }
     }
   ],
