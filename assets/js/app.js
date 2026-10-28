@@ -12,6 +12,8 @@
   var SITE = null;
   var PROJECTS = [];
   var lang = root.getAttribute('lang') === 'en' ? 'en' : 'es';
+  var reduceMotion = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var currentView = null;
 
   /* ---------- utilidades ---------- */
   function store(key, val) { try { localStorage.setItem(key, val); } catch (e) {} }
@@ -56,6 +58,16 @@
     var h = 5381;
     for (var i = 0; i < str.length; i++) h = ((h << 5) + h + str.charCodeAt(i)) | 0;
     return (h >>> 0).toString(36);
+  }
+  // Entrada suave del contenido: sube un poco y aparece (misma animación que el nombre de la portada)
+  var enterTimer = null;
+  function enter() {
+    if (reduceMotion) return;
+    app.classList.remove('is-entering');
+    void app.offsetWidth;   // reinicia la animación
+    app.classList.add('is-entering');
+    clearTimeout(enterTimer);
+    enterTimer = setTimeout(function () { app.classList.remove('is-entering'); }, 1100);
   }
   function setApp(html) {
     var h = hashStr(html);
@@ -391,12 +403,18 @@
     var md = document.querySelector('meta[name="description"]');
     if (md) md.setAttribute('content', desc);
 
+    var changed = view !== currentView;
+    currentView = view;
+    if (opts.animate) enter();
+
     if (opts.keepScroll) return;
+    // al cambiar de página el salto es directo; dentro de la misma página, con scroll suave
+    var how = (opts.initial || changed) ? 'instant' : 'smooth';
     if (anchor) {
       var el = document.getElementById(anchor);
-      if (el) el.scrollIntoView();
+      if (el) el.scrollIntoView({ behavior: how });
     } else {
-      window.scrollTo(0, 0);
+      window.scrollTo({ top: 0, behavior: how });
     }
   }
 
@@ -527,6 +545,19 @@
     var ringLabel = ring.querySelector('span');
     var glow = document.querySelector('.cursor-glow');
     var mx = -500, my = -500, rx = mx, ry = my, gx = mx, gy = my, started = false;
+    // al llegar desde otra página de la web (clic en un enlace), el cursor aparece donde estaba
+    try {
+      var last = JSON.parse(sessionStorage.getItem('ael-cursor') || 'null');
+      var navType = performance.getEntriesByType ? (performance.getEntriesByType('navigation')[0] || {}).type : '';
+      if (last && navType === 'navigate' && document.referrer.indexOf(location.origin) === 0) {
+        mx = rx = gx = last[0]; my = ry = gy = last[1]; started = true;
+        dot.style.transform = 'translate(' + mx + 'px,' + my + 'px)';
+        root.classList.add('has-cursor');
+      }
+    } catch (e) {}
+    window.addEventListener('pagehide', function () {
+      try { if (started) sessionStorage.setItem('ael-cursor', JSON.stringify([mx, my])); } catch (e) {}
+    });
 
     window.addEventListener('pointermove', function (e) {
       mx = e.clientX; my = e.clientY;
@@ -567,22 +598,48 @@
   function restoreScroll() {
     var nav = performance.getEntriesByType ? performance.getEntriesByType('navigation')[0] : null;
     var y = history.state && history.state.y;
-    if (nav && (nav.type === 'back_forward' || nav.type === 'reload') && y) window.scrollTo(0, y);
+    if (nav && (nav.type === 'back_forward' || nav.type === 'reload') && y) window.scrollTo({ top: y, behavior: 'instant' });
   }
 
   /* ---------- carga del contenido ---------- */
-  Promise.all([
+  // Los textos se guardan durante la visita: al pasar de una página a otra se pintan al momento
+  // y, mientras, se comprueba si hay cambios (si los hay, se repinta).
+  var DATA_KEY = 'ael-data';
+  var cached = null;
+  try { cached = JSON.parse(sessionStorage.getItem(DATA_KEY)); } catch (e) {}
+  if (!Array.isArray(cached) || cached.length !== 2) cached = null;
+  var prerendered = app.hasAttribute('data-prerender');
+
+  function onHash() {
+    if (location.hash === '#app') return;   // enlace «Saltar al contenido»
+    var h = decodeURIComponent(location.hash.replace(/^#/, ''));
+    var next = h === 'sobre-mi' ? 'about' : 'home';
+    if (h.indexOf('p-') === 0 || next === currentView) return route();
+    // cambio de página dentro de la portada (inicio ↔ sobre mí): fundido suave
+    if (document.startViewTransition && !reduceMotion) document.startViewTransition(function () { route({ animate: true }); });
+    else route({ animate: true });
+  }
+  function start(data, sync) {
+    SITE = data[0]; PROJECTS = data[1];
+    // anima la entrada solo si el contenido aún no se ha visto en pantalla
+    var painted = performance.getEntriesByType && performance.getEntriesByType('paint').length > 0;
+    route({ keepScroll: !location.hash, initial: true, animate: sync ? !painted : !prerendered });
+    restoreScroll();
+    window.addEventListener('hashchange', onHash);
+  }
+
+  var loading = Promise.all([
     fetch('content/site.json').then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }),
     fetch('content/projects.json').then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
-  ]).then(function (res) {
-    SITE = res[0]; PROJECTS = res[1];
-    route({ keepScroll: !location.hash });
-    restoreScroll();
-    window.addEventListener('hashchange', function () {
-      if (location.hash === '#app') return;   // enlace «Saltar al contenido»
-      route();
-    });
+  ]);
+  if (cached) start(cached, true);
+  loading.then(function (res) {
+    var fresh = JSON.stringify(res);
+    try { sessionStorage.setItem(DATA_KEY, fresh); } catch (e) {}
+    if (!cached) return start(res, false);
+    if (fresh !== JSON.stringify(cached)) { SITE = res[0]; PROJECTS = res[1]; route({ keepScroll: true }); }
   }).catch(function () {
+    if (cached) return;
     app.removeAttribute('data-prerender');
     app.innerHTML = '<div class="wrap error-box"><h1 class="h2">Ups<span class="sq"></span></h1>' +
       '<p>No se ha podido cargar el contenido. Si estás abriendo el archivo directamente desde tu ordenador, ábrelo con un servidor local (por ejemplo, la extensión Live Server de VS Code).</p></div>';

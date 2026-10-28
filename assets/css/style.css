@@ -295,6 +295,7 @@ ul, ol { margin: 0; padding: 0; }
 
 /* ---------- Tarjetas de proyecto ---------- */
 .projects { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(2.5rem, 5vw, 4rem) clamp(1rem, 2.5vw, 2rem); }
+.card, .next { -webkit-tap-highlight-color: transparent; }   /* sin recuadro de color al tocar en el móvil */
 .card { display: flex; flex-direction: column; gap: 1.1rem; text-decoration: none; color: inherit; }
 .card .cover { border-radius: 28px; overflow: hidden; aspect-ratio: 1.1 / 1; max-width: 100%; position: relative; border: 1px solid var(--line); background: var(--bg-2); }
 .card .cover > * { transition: transform .9s var(--ease); }
@@ -309,7 +310,11 @@ ul, ol { margin: 0; padding: 0; }
 .card-kind { color: var(--magenta); font-weight: 500; font-size: clamp(1rem, 1.3vw, 1.12rem); letter-spacing: -.01em; }
 @media (max-width: 760px) {
   .projects { grid-template-columns: 1fr; }
-  .card-row { flex-wrap: wrap; }
+  /* en móvil, todas las tarjetas igual: título, debajo el texto rosa y debajo la pastilla */
+  .card-row { display: contents; }
+  .card h3 { order: 1; }
+  .card-kind { order: 2; }
+  .card .pill { order: 3; justify-self: start; margin-top: .55rem; }
 }
 
 /* Portadas generadas (cuando aún no hay imagen) */
@@ -561,6 +566,17 @@ ul, ol { margin: 0; padding: 0; }
 }
 
 /* ---------- Movimiento reducido ---------- */
+/* ---------- Transiciones entre páginas ----------
+   La cabecera se queda quieta; el resto funde y el contenido nuevo sube un poco. */
+@view-transition { navigation: auto; }
+.topbar { view-transition-name: topbar; }
+::view-transition-old(root) { animation-duration: .28s; }
+::view-transition-new(root) { animation-duration: .38s; }
+#app.is-entering { overflow-anchor: none; }   /* que la animación no mueva la posición al volver atrás */
+#app.is-entering > * { animation: rise .75s var(--ease) both; }
+#app.is-entering > :nth-child(2) { animation-delay: .06s; }
+#app.is-entering > :nth-child(n+3) { animation-delay: .12s; }
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; }
