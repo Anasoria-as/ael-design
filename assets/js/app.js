@@ -39,6 +39,33 @@
   function rich(s) { return esc(s).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>'); }
   function ui(key) { return (SITE && SITE.ui[lang] && SITE.ui[lang][key]) || key; }
 
+  // Dirección propia de cada proyecto: anasoriaael.com/proyectos/slug/
+  function projectUrl(p) { return 'proyectos/' + encodeURIComponent(p.slug) + '/'; }
+  // Título para Google: «Vaukura · Dirección de arte, branding y E-commerce · Ana Soria Ael» (o corto si no cabe)
+  function projectTitle(p) {
+    var parts = String(t(p.kind) || '').split(' · ').filter(Boolean).map(function (k, i) {
+      return i && /^[A-ZÁÉÍÓÚÑ](?![A-ZÁÉÍÓÚÑ])/.test(k) ? k.charAt(0).toLowerCase() + k.slice(1) : k;   // «IA», «UX/UI» se quedan igual
+    });
+    var kind = parts.length > 1 ? parts.slice(0, -1).join(', ') + ' y ' + parts[parts.length - 1] : (parts[0] || '');
+    if (lang === 'en' && parts.length > 1) kind = parts.slice(0, -1).join(', ') + ' & ' + parts[parts.length - 1];
+    var full = t(p.title) + (kind ? ' · ' + kind : '') + ' · Ana Soria Ael';
+    return full.length <= 72 ? full : t(p.title) + ' · Ana Soria Ael';
+  }
+  // Huella corta del HTML de una vista: si la página ya viene pintada igual, no se vuelve a pintar
+  function hashStr(str) {
+    var h = 5381;
+    for (var i = 0; i < str.length; i++) h = ((h << 5) + h + str.charCodeAt(i)) | 0;
+    return (h >>> 0).toString(36);
+  }
+  function setApp(html) {
+    var h = hashStr(html);
+    var pre = app.getAttribute('data-prerender');
+    app.removeAttribute('data-prerender');
+    app.setAttribute('data-h', h);
+    if (pre && pre === h) return;
+    app.innerHTML = html;
+  }
+
   var ICON_DL = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10.5l5 5 5-5M5 20h14"/></svg>';
 
   function cvButtons() {
@@ -62,7 +89,7 @@
     // pastilla: texto propio del proyecto o, si no tiene, «Proyecto real»
     var pill = t(p.pill) || ui('case_study');
     // proyecto «próximamente»: tarjeta sin enlace
-    var open = p.soon ? '<div class="card is-soon">' : '<a class="card" href="#p-' + esc(p.slug) + '" data-cursor="view">';
+    var open = p.soon ? '<div class="card is-soon">' : '<a class="card" href="' + esc(projectUrl(p)) + '" data-cursor="view">';
     var close = p.soon ? '</div></div>' : '</div></a>';
     return open +
       '<div class="cover">' + art(p) + '</div>' +
@@ -294,7 +321,7 @@
         '<div class="case-sections">' + sections + '</div>' +
         compareBlock(p) +
         gallery +
-        '<a class="next" href="#p-' + esc(next.slug) + '" data-cursor="view">' +
+        '<a class="next" href="' + esc(projectUrl(next)) + '" data-cursor="view">' +
           '<span class="mono">' + esc(ui('next')) + '</span>' +
           '<span class="big">' + esc(t(next.title)) + '<span class="arrow" aria-hidden="true">→</span></span>' +
         '</a>' +
@@ -309,18 +336,33 @@
       '</div>';
   }
 
-  /* ---------- router (#inicio, #proyectos, #sobre-mi, #contacto, #p-slug) ---------- */
+  /* ---------- router ----------
+     Portada: #inicio, #proyectos, #sobre-mi, #contacto.
+     Proyectos: cada uno en su dirección /proyectos/slug/ (los enlaces antiguos #p-slug llevan a ella). */
+  function findProject(slug) {
+    return PROJECTS.find(function (x) { return x.slug === slug && !x.soon; });
+  }
   function route(opts) {
     opts = opts || {};
     var hash = decodeURIComponent((location.hash || '').replace(/^#/, ''));
-    var view = 'home', anchor = null;
-    if (hash === 'sobre-mi') view = 'about';
-    else if (hash.indexOf('p-') === 0) view = 'project';
+    var m = location.pathname.match(/\/proyectos\/([^\/]+)\/?$/);
+    var view = 'home', anchor = null, project = null;
+    if (m) {
+      project = findProject(decodeURIComponent(m[1]));
+      if (project) view = 'project';
+    } else if (hash.indexOf('p-') === 0 && findProject(hash.slice(2))) {
+      location.replace(projectUrl(findProject(hash.slice(2))));   // enlace antiguo → página propia
+      return;
+    } else if (hash === 'sobre-mi') view = 'about';
     else if (hash === 'proyectos' || hash === 'contacto') anchor = hash;
+    // dirección que no existe: se muestra la portada con su dirección correcta
+    if (view !== 'project' && !/^\/(index\.html)?$/.test(location.pathname) && history.replaceState) {
+      history.replaceState(null, '', '/' + location.hash);
+    }
 
-    if (view === 'about') app.innerHTML = viewAbout();
-    else if (view === 'project') app.innerHTML = viewProject(hash.slice(2));
-    else app.innerHTML = viewHome();
+    if (view === 'about') setApp(viewAbout());
+    else if (view === 'project') setApp(viewProject(project.slug));
+    else setApp(viewHome());
 
     renderFooter();
     applyI18nStatic();
@@ -344,10 +386,7 @@
     }[lang];
     var title = SEO.title, desc = SEO.desc;
     if (view === 'about') { title = ui('about_title') + ' · ' + base; desc = SEO.about; }
-    else if (view === 'project') {
-      var p = PROJECTS.find(function (x) { return 'p-' + x.slug === hash; });
-      if (p) { title = t(p.title) + ' · ' + base; desc = t(p.summary) || desc; }
-    }
+    else if (view === 'project') { title = projectTitle(project); desc = t(project.summary) || desc; }
     document.title = title;
     var md = document.querySelector('meta[name="description"]');
     if (md) md.setAttribute('content', desc);
@@ -515,6 +554,22 @@
     });
   }
 
+  /* ---------- volver atrás: recupera la posición de la página ---------- */
+  // Se guarda en el historial de cada página, para volver al mismo punto al darle «atrás»
+  var scrollTimer = null;
+  function saveScroll() {
+    try { history.replaceState(Object.assign({}, history.state, { y: window.scrollY }), ''); } catch (e) {}
+  }
+  window.addEventListener('scroll', function () {
+    clearTimeout(scrollTimer); scrollTimer = setTimeout(saveScroll, 250);
+  }, { passive: true });
+  window.addEventListener('pagehide', saveScroll);
+  function restoreScroll() {
+    var nav = performance.getEntriesByType ? performance.getEntriesByType('navigation')[0] : null;
+    var y = history.state && history.state.y;
+    if (nav && (nav.type === 'back_forward' || nav.type === 'reload') && y) window.scrollTo(0, y);
+  }
+
   /* ---------- carga del contenido ---------- */
   Promise.all([
     fetch('content/site.json').then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }),
@@ -522,8 +577,13 @@
   ]).then(function (res) {
     SITE = res[0]; PROJECTS = res[1];
     route({ keepScroll: !location.hash });
-    window.addEventListener('hashchange', function () { route(); });
+    restoreScroll();
+    window.addEventListener('hashchange', function () {
+      if (location.hash === '#app') return;   // enlace «Saltar al contenido»
+      route();
+    });
   }).catch(function () {
+    app.removeAttribute('data-prerender');
     app.innerHTML = '<div class="wrap error-box"><h1 class="h2">Ups<span class="sq"></span></h1>' +
       '<p>No se ha podido cargar el contenido. Si estás abriendo el archivo directamente desde tu ordenador, ábrelo con un servidor local (por ejemplo, la extensión Live Server de VS Code).</p></div>';
   });

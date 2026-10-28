@@ -99,12 +99,14 @@
   /* Aplica tema e idioma guardados antes de pintar, para evitar parpadeos */
   (function () {
     var d = document.documentElement;
+    var l = null;
     try {
       var t = localStorage.getItem('ael-theme');
       if (t === 'light' || t === 'dark') d.setAttribute('data-theme', t);
-      var l = localStorage.getItem('ael-lang');
-      if (l === 'es' || l === 'en') d.setAttribute('lang', l);
+      l = localStorage.getItem('ael-lang');
     } catch (e) {}
+    if (l !== 'es' && l !== 'en') l = /^es/i.test(navigator.language || 'es') ? 'es' : 'en';
+    d.setAttribute('lang', l);
   })();
 </script>
 </head>
@@ -150,14 +152,14 @@
       <h1>Ana Soria Ael</h1>
       <p>Diseñadora gráfica y web en Madrid. Seis años en el mundo del diseño gráfico, en estudio y dentro de empresa, dando forma a marcas y tiendas online: branding e identidad visual, diseño UX/UI en Figma, e-commerce, diseño editorial y dirección de arte, y maquetación con HTML, CSS y JavaScript.</p>
       <h2>Proyectos</h2>
-      <ul>
-        <li>Vaukura: dirección de arte y rediseño integral de una marca de mobiliario (identidad, web, redes y fotografía).</li>
-        <li>Cashdisplay: dirección de arte, catálogo impreso, web y e-commerce.</li>
-        <li>Coches para eventos: diseño web e imagen con IA.</li>
-        <li>E-commerce de mobiliario: diseño y código de una tienda online.</li>
-        <li>IA generativa para creación de contenido.</li>
-        <li>Catálogo «La movida de los 80»: diseño editorial.</li>
-      </ul>
+      <!--proyectos--><ul>
+        <li><a href="proyectos/vaukura/">Vaukura</a> · Dirección de arte · Branding · E-commerce</li>
+        <li><a href="proyectos/cashdisplay/">Cashdisplay</a> · Dirección de arte · Catálogo · E-commerce</li>
+        <li><a href="proyectos/coches-eventos/">Coches para eventos</a> · Diseño web · Imagen con IA</li>
+        <li><a href="proyectos/ecommerce-mobiliario/">E-commerce de mobiliario</a> · Diseño + código</li>
+        <li><a href="proyectos/books-ia/">IA generativa para creación de contenido</a> · Dirección de arte · IA generativa</li>
+        <li><a href="proyectos/movida-80/">Catálogo «La movida de los 80»</a> · Diseño editorial · Catálogo de fotografía</li>
+      </ul><!--/proyectos-->
       <p>Contacto: <a href="mailto:anasoria.as@gmail.com">anasoria.as@gmail.com</a> · <a href="https://www.linkedin.com/in/anasoriaael">LinkedIn</a></p>
     </div>
   </noscript>

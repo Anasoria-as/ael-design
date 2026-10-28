@@ -86,3 +86,10 @@ En Cloudflare → tu dominio → **DNS → Records**, crea estos registros con e
 | CNAME | `www` | `anasoria-as.github.io` |
 
 Cuando GitHub compruebe el dominio (de minutos a unas horas), vuelve a **Settings → Pages** y marca **Enforce HTTPS**. Con esto funcionan tanto anasoriaael.com como www.anasoriaael.com.
+
+## Páginas de los proyectos y Google
+
+Cada proyecto tiene su propia dirección, por ejemplo `anasoriaael.com/proyectos/vaukura/`, con su título, descripción e imagen al compartir (en `assets/img/og/`). Esas páginas se generan con `tools/generar_paginas.py`, que también actualiza `sitemap.xml`.
+
+- Si añades o cambias un proyecto desde el panel, su página **funciona al momento** (la web la pinta con los textos nuevos).
+- Para que Google y WhatsApp vean también el título, la descripción y la foto nuevos, hay que volver a generar las páginas: pídeselo a Claude.
