@@ -140,8 +140,8 @@
           "en": "Photography and sets"
         },
         "text": {
-          "es": "Ideé la estética de los sets de fotografía de producto y dirigí el estilo de las sesiones. Las fotos de producto con fondo blanco las hacía junto a mi compañera, y las editábamos con un método que creé para Vaukura: fondo blanco, pero con una sombra suave y concreta del producto en el suelo, para que nada pareciera plano ni recortado. Además, sustituí las fotos de ambiente de estudio de toda la web por imágenes creadas con IA generativa (Nano Banana).",
-          "en": "I came up with the look of the product photo sets and directed the style of the shoots. My colleague and I shot the white-background product photos, and we edited them with a method I created for Vaukura: a white background, but with a soft, specific shadow under each product, so nothing looked flat or cut out. I also replaced the studio room photos across the whole website with images created with generative AI (Nano Banana)."
+          "es": "Ideé la estética de los sets de fotografía de producto y dirigí el estilo de las sesiones. Las fotos de producto con fondo blanco las hacía junto a mi compañera, y las editábamos con un método que creé para Vaukura: fondo blanco, pero con una sombra suave y concreta del producto en el suelo, para que nada pareciera plano ni recortado. Además, llevé las fotos de ambiente del estudio a la IA generativa (Nano Banana), manteniendo la misma dirección de arte.",
+          "en": "I came up with the look of the product photo sets and directed the style of the shoots. My colleague and I shot the white-background product photos, and we edited them with a method I created for Vaukura: a white background, but with a soft, specific shadow under each product, so nothing looked flat or cut out. I also moved the room photos from the studio to generative AI (Nano Banana), keeping the same art direction."
         }
       },
       {
@@ -188,12 +188,12 @@
       },
       {
         "value": {
-          "es": "100 %",
-          "en": "100%"
+          "es": "5",
+          "en": "5"
         },
         "label": {
-          "es": "de las fotos de ambiente, creadas con IA",
-          "en": "of room photos, created with AI"
+          "es": "años dirigiendo la imagen de la marca",
+          "en": "years leading the brand’s visual identity"
         }
       }
     ]
@@ -526,8 +526,8 @@
       "en": "Art direction · Generative AI"
     },
     "summary": {
-      "es": "Sustituí las fotos de ambiente de estudio de toda la web de vaukura.com por imágenes creadas con IA (Nano Banana), con la dirección de arte siempre en mis manos y un gran ahorro en sesiones, atrezo y montaje de sets.",
-      "en": "I replaced the studio room photos across the whole vaukura.com website with images created with AI (Nano Banana), keeping art direction in my own hands and saving a lot on shoots, props and set building."
+      "es": "Llevé las fotos de ambiente de vaukura.com del estudio a la IA (Nano Banana), con la dirección de arte siempre en mis manos: la misma estética de marca, con un gran ahorro en sesiones, atrezo y montaje de sets.",
+      "en": "I moved vaukura.com’s room photos from the studio to AI (Nano Banana), keeping art direction in my own hands: the same brand look, with big savings on shoots, props and set building."
     },
     "role": {
       "es": "Dirección de arte y generación de imágenes",
@@ -596,30 +596,20 @@
           "en": "Outcome"
         },
         "text": {
-          "es": "Hoy todas las fotos de ambiente de vaukura.com están creadas con IA. Se acabaron las sesiones de estudio para ambientes, la compra de atrezo y el montaje de sets, y el equipo ganó tiempo para otras tareas, con una estética coherente con la marca.",
-          "en": "Today every room photo on vaukura.com is created with AI. No more studio shoots for room photos, no props to buy or sets to build, and the team gained time for other work, with a look consistent with the brand."
+          "es": "Las fotos de ambiente de vaukura.com ya no dependen de sesiones de estudio, compra de atrezo ni montaje de sets. El equipo ganó tiempo para otras tareas y la web mantiene una estética coherente con la marca, revisada imagen a imagen.",
+          "en": "vaukura.com’s room photos no longer depend on studio shoots, buying props or building sets. The team gained time for other work, and the website keeps a look consistent with the brand, reviewed image by image."
         }
       }
     ],
     "stats": [
       {
         "value": {
-          "es": "100 %",
-          "en": "100%"
+          "es": "12",
+          "en": "12"
         },
         "label": {
-          "es": "de las fotos de ambiente de la web, creadas con IA",
-          "en": "of the website’s room photos, created with AI"
-        }
-      },
-      {
-        "value": {
-          "es": "0",
-          "en": "0"
-        },
-        "label": {
-          "es": "sesiones de estudio para fotos de ambiente",
-          "en": "studio shoots for room photos"
+          "es": "sesiones de estudio al año que ya no hacen falta",
+          "en": "studio shoots a year no longer needed"
         }
       }
     ]

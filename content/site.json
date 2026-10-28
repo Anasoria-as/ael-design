@@ -105,16 +105,16 @@
   },
   "hero": {
     "role": {
-      "es": "Web Designer & Frontend Developer",
-      "en": "Web Designer & Frontend Developer"
+      "es": "Diseñadora web & UX/UI",
+      "en": "Web & UX/UI Designer"
     },
     "status": {
       "es": "Abierta a nuevas oportunidades",
       "en": "Open to new opportunities"
     },
     "intro": {
-      "es": "Diseño interfaces en Figma y las llevo a código con HTML, CSS y JavaScript. Seis años haciendo que tiendas online de mobiliario se vean como merecen, con la IA como herramienta y no como piloto automático.",
-      "en": "I design interfaces in Figma and build them with HTML, CSS and JavaScript. Six years making furniture online stores look the way they deserve, with AI as a tool, not an autopilot."
+      "es": "Diseño webs y experiencias digitales en Figma, y sé llevarlas a código. Detrás, seis años de diseño gráfico, branding y e-commerce, con la IA como herramienta y no como piloto automático.",
+      "en": "I design websites and digital experiences in Figma, and I know how to build them in code. Behind that, six years of graphic design, branding and e-commerce, with AI as a tool, not an autopilot."
     }
   },
   "marquee": [

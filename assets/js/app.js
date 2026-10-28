@@ -158,7 +158,7 @@
         '<div class="hero-grid">' +
           '<div>' +
             '<p class="role"><mark>' + esc(t(h.role)) + '</mark></p>' +
-            '<p class="intro">' + esc(t(h.intro)) + '</p>' +
+            '<p class="intro">' + esc(t(h.intro)).replace(/(\w)-(\w)/g, '$1&#8209;$2') + '</p>' +
             '<div class="actions"><a class="btn btn-primary" href="#proyectos">' + esc(ui('see_projects')) + ' <span class="arr">→</span></a>' +
             '<a class="btn btn-ghost" href="sobre-mi/">' + esc(ui('nav_about')) + '</a></div>' +
           '</div>' +
@@ -402,12 +402,12 @@
 
     // título y descripción de cada vista (buscadores y pestaña)
     var SEO = {
-      es: { title: 'Ana Soria Ael · Diseñadora gráfica y web en Madrid',
-            desc: 'Portfolio de Ana Soria Ael, diseñadora gráfica y web en Madrid: branding e identidad visual, diseño UX/UI en Figma, e-commerce, dirección de arte y frontend.',
-            about: 'Ana Soria Ael, diseñadora gráfica y web en Madrid con seis años de experiencia en estudio y en empresa: marcas, tiendas online, Figma y código.' },
-      en: { title: 'Ana Soria Ael · Graphic & Web Designer in Madrid',
-            desc: 'Portfolio of Ana Soria Ael, graphic and web designer in Madrid: branding and visual identity, UX/UI design in Figma, e-commerce, art direction and frontend.',
-            about: 'Ana Soria Ael, graphic and web designer in Madrid with six years of experience in studio and in-house: brands, online stores, Figma and code.' }
+      es: { title: 'Ana Soria Ael · Diseñadora web, UX/UI y gráfica en Madrid',
+            desc: 'Portfolio de Ana Soria Ael, diseñadora web y UX/UI en Madrid con seis años de diseño gráfico y branding: Figma, e-commerce, dirección de arte y código.',
+            about: 'Ana Soria Ael, diseñadora web y UX/UI en Madrid con seis años de diseño gráfico y branding, en estudio y en empresa: marcas, tiendas online, Figma y código.' },
+      en: { title: 'Ana Soria Ael · Web, UX/UI & Graphic Designer in Madrid',
+            desc: 'Portfolio of Ana Soria Ael, web and UX/UI designer in Madrid with six years of graphic design and branding: Figma, e-commerce, art direction and code.',
+            about: 'Ana Soria Ael, web and UX/UI designer in Madrid with six years of graphic design and branding, in studio and in-house: brands, online stores, Figma and code.' }
     }[lang];
     var title = SEO.title, desc = SEO.desc;
     if (view === 'about') { title = ui('about_title') + ' · ' + SEO.title; desc = SEO.about; }
