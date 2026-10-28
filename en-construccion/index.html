@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ana Soria Ael · Web en construcción</title>
+<meta name="description" content="Ana Soria Ael, diseñadora gráfica y web en Madrid. Estoy renovando mi portfolio: vuelvo pronto.">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#F8E006">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Ana Soria Ael">
+<meta property="og:title" content="Ana Soria Ael">
+<meta property="og:description" content="Diseñadora gráfica y web en Madrid. Web en construcción: vuelvo pronto.">
+<meta property="og:image" content="https://anasoriaael.com/assets/img/og-ael.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="/assets/img/favicon.png">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="/assets/css/style.css">
+<script>
+  /* tema e idioma guardados (o los del sistema), antes de pintar */
+  (function () {
+    var d = document.documentElement, l = null;
+    try {
+      var t = localStorage.getItem('ael-theme');
+      if (t === 'light' || t === 'dark') d.setAttribute('data-theme', t);
+      l = localStorage.getItem('ael-lang');
+    } catch (e) {}
+    if (l !== 'es' && l !== 'en') l = /^es/i.test(navigator.language || 'es') ? 'es' : 'en';
+    d.setAttribute('lang', l);
+  })();
+</script>
+<style>
+  /* Página «en construcción»: usa los colores, fuentes y botones de la web */
+  html, body { height: 100%; }
+  body { display: flex; flex-direction: column; min-height: 100svh; overflow-x: hidden; }
+  html[lang="es"] [lang="en"], html[lang="en"] [lang="es"] { display: none !important; }
+  .uc-top { display: flex; align-items: center; justify-content: space-between; min-height: 72px; }
+  .uc-top .logo { height: 46px; width: auto; display: block; }
+  .uc-main { flex: 1; display: grid; align-content: center; padding-block: clamp(2rem, 6vh, 4rem) clamp(1rem, 3vh, 2rem); }
+  .uc-kicker { font-family: var(--mono); font-size: .8rem; letter-spacing: .08em; text-transform: uppercase; color: var(--ink); margin-bottom: 1.1rem; }
+  .uc-kicker b { color: var(--magenta); font-weight: 400; margin-right: .5em; }
+  .uc-title { font-family: var(--serif); font-weight: 400; font-size: clamp(3.6rem, 13vw, 10.5rem); line-height: .9; letter-spacing: -.02em; animation: rise 1s var(--ease) both; }
+  .uc-title .sq { width: .14em; height: .14em; margin-left: .03em; }
+  .uc-text { max-width: 34ch; font-size: clamp(1.05rem, 1.6vw, 1.3rem); color: var(--muted); margin-top: 1.4rem; animation: rise 1s var(--ease) .08s both; }
+  .uc-contact { display: flex; flex-wrap: wrap; align-items: center; gap: .8rem 1.4rem; margin-top: 2rem; animation: rise 1s var(--ease) .16s both; }
+  .uc-contact .mail { color: var(--ink); }
+  .uc-links { display: flex; flex-wrap: wrap; gap: .6rem; }
+  /* cintas de obra: amarilla y rosa, cruzadas */
+  .uc-tapes { position: relative; height: clamp(150px, 22vw, 230px); overflow: hidden; margin-top: auto; }
+  .uc-tapes .tape { position: absolute; left: -10%; width: 120%; top: 50%; }
+  .uc-tapes .tape-a { transform: translateY(-50%) rotate(-4deg); z-index: 2; }
+  .uc-tapes .tape-b { transform: translateY(-50%) rotate(3deg); background: var(--magenta); color: #fff; }
+  .uc-tapes .tape-b .tape-track { animation-direction: reverse; animation-duration: 40s; }
+  .uc-tapes .tape-b .tape-track span::after { background: var(--yellow); }
+  .uc-tapes .tape-track span { font-family: var(--mono); font-size: clamp(1rem, 2vw, 1.35rem); letter-spacing: .1em; text-transform: uppercase; }
+  .uc-foot { display: flex; justify-content: space-between; gap: 1rem; padding-block: 1rem 1.4rem; font-family: var(--mono); font-size: .74rem; letter-spacing: .06em; color: var(--muted); }
+  @media (max-width: 600px) {
+    .uc-top .logo { height: 40px; }
+    .uc-contact { flex-direction: column; align-items: flex-start; }
+    .uc-tapes { height: 190px; }
+    .uc-tapes .tape-a { transform: translateY(-50%) rotate(-11deg); }
+    .uc-tapes .tape-b { transform: translateY(-50%) rotate(8deg); }
+  }
+</style>
+</head>
+<body>
+  <header class="wrap uc-top">
+    <svg class="logo" viewBox="0 0 863.4 953.8" aria-hidden="true" focusable="false"><path class="logo-letters" d="M132.7,940.9c0-3.6-.2-8.4-.5-14.6-.4-6.1-.9-13.1-1.6-21-13.7,28.1-32.7,42.1-57.2,42.1s-38.3-6.1-52.3-18.3c-14-12.2-21-32-21-59.3v-339.9c0-23,21.6-48.2,64.7-75.5,21.6-13.7,37.8-28,48.5-43.2s16.2-30.2,16.2-45.3V79.8c0-15.8-9-23.7-27-23.7s-27,7.9-27,23.7v301H0V87.4C0,29.1,34.2,0,102.5,0s106.8,29.1,106.8,87.4v826.5c0,5,.2,9.9.5,14.6.4,4.7,1.3,8.8,2.7,12.4h-79.8ZM129.5,466.1c-12.2,7.9-22,14.4-29.1,19.4s-12.6,9.7-16.2,14-5.9,8.6-7,13-1.6,9.4-1.6,15.1v333.4c0,16.5,9,24.8,27,24.8s16.2-2.7,20.5-8.1c4.3-5.4,6.5-12,6.5-20v-391.7Z M414.4,547.1h84.2v320.5c0,27.3-9.9,48.6-29.7,63.7-19.8,15.1-46.2,22.7-79.3,22.7-74.1,0-111.1-32.7-111.1-98.2V91.7c0-29.5,9.2-52.1,27.5-68S351.8,0,388.5,0s61.5,7.6,80.9,22.7,29.1,35.2,29.1,60.4v424h-136v360.4c0,15.1,9,22.7,27,22.7s24.8-7.5,24.8-22.7v-320.5ZM414.4,84.2c0-15.8-8.3-23.8-24.8-23.8s-27,7.9-27,23.8v365.8h51.8V84.2Z M565.5,940.9V14h83.1v851.3h100.3v75.5h-183.4Z"/><path class="logo-dot" d="M787.9,940.9v-88.5h75.5v88.5h-75.5Z"/></svg>
+    <div class="seg" role="group" aria-label="Idioma / Language">
+      <button type="button" data-lang="es" aria-pressed="true">ES</button>
+      <button type="button" data-lang="en" aria-pressed="false">EN</button>
+    </div>
+  </header>
+
+  <main class="wrap uc-main">
+    <p class="uc-kicker"><b>//</b><span lang="es">Web en construcción</span><span lang="en">Under construction</span></p>
+    <h1 class="uc-title"><span lang="es">Vuelvo pronto</span><span lang="en">Back soon</span><span class="sq" aria-hidden="true"></span></h1>
+    <p class="uc-text">
+      <span lang="es">Estoy dando una vuelta a mi portfolio. Mientras tanto, puedes escribirme, ver mi perfil o descargar mi CV.</span>
+      <span lang="en">I’m reworking my portfolio. In the meantime, you can email me, visit my profile or download my CV.</span>
+    </p>
+    <div class="uc-contact">
+      <a class="mail" href="mailto:anasoria.as@gmail.com">anasoria.as@gmail.com</a>
+      <div class="uc-links">
+        <a class="btn btn-ghost btn-sm" href="https://www.linkedin.com/in/anasoriaael" target="_blank" rel="noopener">LinkedIn <span class="arr">↗</span></a>
+        <a class="btn btn-primary btn-sm" href="/cv/CV_Ana_Soria_Ael_ES.pdf" download lang="es">CV <span class="arr">↓</span></a>
+        <a class="btn btn-primary btn-sm" href="/cv/CV_Ana_Soria_Ael_EN.pdf" download lang="en">CV <span class="arr">↓</span></a>
+      </div>
+    </div>
+  </main>
+
+  <div class="uc-tapes" aria-hidden="true">
+    <div class="tape tape-b"><div class="tape-track"><span>Under construction</span><span>Back soon</span><span>Under construction</span><span>Back soon</span><span>Under construction</span><span>Back soon</span><span>Under construction</span><span>Back soon</span><span>Under construction</span><span>Back soon</span><span>Under construction</span><span>Back soon</span><span>Under construction</span><span>Back soon</span><span>Under construction</span><span>Back soon</span></div></div>
+    <div class="tape tape-a"><div class="tape-track"><span>En construcción</span><span>Vuelvo pronto</span><span>En construcción</span><span>Vuelvo pronto</span><span>En construcción</span><span>Vuelvo pronto</span><span>En construcción</span><span>Vuelvo pronto</span><span>En construcción</span><span>Vuelvo pronto</span><span>En construcción</span><span>Vuelvo pronto</span><span>En construcción</span><span>Vuelvo pronto</span><span>En construcción</span><span>Vuelvo pronto</span></div></div>
+  </div>
+
+  <footer class="wrap uc-foot"><span>© <span id="y">2026</span> Ana Soria Ael</span><span lang="es">Madrid, España</span><span lang="en">Madrid, Spain</span></footer>
+
+<script>
+  document.getElementById('y').textContent = new Date().getFullYear();
+  document.querySelectorAll('[data-lang]').forEach(function (b) {
+    function sync() {
+      var l = document.documentElement.getAttribute('lang');
+      document.querySelectorAll('[data-lang]').forEach(function (x) { x.setAttribute('aria-pressed', String(x.getAttribute('data-lang') === l)); });
+    }
+    b.addEventListener('click', function () {
+      var l = b.getAttribute('data-lang');
+      document.documentElement.setAttribute('lang', l);
+      try { localStorage.setItem('ael-lang', l); } catch (e) {}
+      sync();
+    });
+    sync();
+  });
+</script>
+</body>
+</html>

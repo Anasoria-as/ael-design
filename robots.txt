@@ -2,5 +2,6 @@ User-agent: *
 Allow: /
 Disallow: /admin/
 Disallow: /tools/
+Disallow: /en-construccion/
 
 Sitemap: https://anasoriaael.com/sitemap.xml
