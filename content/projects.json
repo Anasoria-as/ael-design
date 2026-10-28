@@ -445,6 +445,44 @@
     ]
   },
   {
+    "slug": "tacos-n1",
+    "soon": true,
+    "featured": false,
+    "art": "yellow",
+    "art_word": "nº1",
+    "cover": "assets/img/proyectos/tacos-n1.jpg",
+    "gallery": [],
+    "link": "",
+    "year": "",
+    "client": {
+      "es": "",
+      "en": ""
+    },
+    "title": {
+      "es": "Tacos Nº1",
+      "en": "Tacos Nº1"
+    },
+    "kind": {
+      "es": "Rediseño de marca · Branding",
+      "en": "Brand redesign · Branding"
+    },
+    "pill": {
+      "es": "Próximamente",
+      "en": "Coming soon"
+    },
+    "summary": {
+      "es": "",
+      "en": ""
+    },
+    "role": {
+      "es": "",
+      "en": ""
+    },
+    "tools": [],
+    "tags": [],
+    "sections": []
+  },
+  {
     "slug": "movida-80",
     "featured": false,
     "art": "black",
@@ -521,44 +559,6 @@
         }
       }
     ]
-  },
-  {
-    "slug": "tacos-n1",
-    "soon": true,
-    "featured": false,
-    "art": "yellow",
-    "art_word": "nº1",
-    "cover": "assets/img/proyectos/tacos-n1.jpg",
-    "gallery": [],
-    "link": "",
-    "year": "",
-    "client": {
-      "es": "",
-      "en": ""
-    },
-    "title": {
-      "es": "Tacos Nº1",
-      "en": "Tacos Nº1"
-    },
-    "kind": {
-      "es": "Rediseño de marca · Branding",
-      "en": "Brand redesign · Branding"
-    },
-    "pill": {
-      "es": "Próximamente",
-      "en": "Coming soon"
-    },
-    "summary": {
-      "es": "",
-      "en": ""
-    },
-    "role": {
-      "es": "",
-      "en": ""
-    },
-    "tools": [],
-    "tags": [],
-    "sections": []
   },
   {
     "slug": "books-ia",
