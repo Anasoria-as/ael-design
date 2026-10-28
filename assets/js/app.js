@@ -61,13 +61,16 @@
   function projectCard(p) {
     // pastilla: texto propio del proyecto o, si no tiene, «Proyecto real»
     var pill = t(p.pill) || ui('case_study');
-    return '<a class="card" href="#p-' + esc(p.slug) + '" data-cursor="view">' +
+    // proyecto «próximamente»: tarjeta sin enlace
+    var open = p.soon ? '<div class="card is-soon">' : '<a class="card" href="#p-' + esc(p.slug) + '" data-cursor="view">';
+    var close = p.soon ? '</div></div>' : '</div></a>';
+    return open +
       '<div class="cover">' + art(p) + '</div>' +
       '<div class="card-meta">' +
         '<div class="card-row"><h3>' + esc(t(p.title)) + '</h3>' +
         '<span class="pill"><span class="pill-star" aria-hidden="true">✱</span>' + esc(pill) + '</span></div>' +
         '<p class="card-kind">' + esc(t(p.kind)) + '</p>' +
-      '</div></a>';
+      close;
   }
 
   // Cifra destacada (+6 años) y frase de introducción, encima de los proyectos
@@ -106,7 +109,7 @@
     var marquee = arr(SITE.marquee).concat(arr(SITE.marquee)).map(function (m) { return '<span>' + esc(m) + '</span>'; }).join('');
     var featured = PROJECTS.filter(function (p) { return p.featured; });
     var rest = PROJECTS.filter(function (p) { return !p.featured; });
-    var count = String(PROJECTS.length).padStart(2, '0');
+    var count = String(PROJECTS.filter(function (p) { return !p.soon; }).length).padStart(2, '0');
 
     return '' +
       '<section class="hero wrap" id="inicio">' +
@@ -226,11 +229,33 @@
     '<p class="webview-hint mono">↕ ' + esc(ui('webview_hint')) + '</p>';
   }
 
+  // Comparador antes / después: la foto «antes» se recorta hasta la línea; la «después» queda debajo
+  function compareBlock(p) {
+    var pairs = arr(p.compare).filter(function (c) { return c && c.before && c.after; });
+    if (!pairs.length) return '';
+    return '<div class="compare-grid">' + pairs.map(function (c) {
+      return '<figure class="compare" style="--pos:50%">' +
+        '<img class="compare-after" src="' + esc(c.after) + '" alt="' + esc(t(p.title)) + ' · ' + esc(ui('compare_after')) + '" loading="lazy" draggable="false">' +
+        '<img class="compare-before" src="' + esc(c.before) + '" alt="' + esc(t(p.title)) + ' · ' + esc(ui('compare_before')) + '" loading="lazy" draggable="false">' +
+        '<span class="compare-tag is-before">' + esc(ui('compare_before')) + '</span>' +
+        '<span class="compare-tag is-after">' + esc(ui('compare_after')) + '</span>' +
+        '<span class="compare-line" aria-hidden="true"><span class="compare-knob">‹ ›</span></span>' +
+        '<input class="compare-range" type="range" min="0" max="100" value="50" aria-label="' + esc(ui('compare_hint')) + '">' +
+      '</figure>';
+    }).join('') + '</div>' +
+    '<p class="webview-hint mono">↔ ' + esc(ui('compare_hint')) + '</p>';
+  }
+
   function viewProject(slug) {
     var i = PROJECTS.findIndex(function (p) { return p.slug === slug; });
     if (i < 0) return viewHome();
     var p = PROJECTS[i];
-    var next = PROJECTS[(i + 1) % PROJECTS.length];
+    if (p.soon) return viewHome();
+    var next = p;
+    for (var k = 1; k <= PROJECTS.length; k++) {
+      next = PROJECTS[(i + k) % PROJECTS.length];
+      if (!next.soon) break;
+    }
     var meta = [
       [ui('client'), t(p.client)],
       [ui('role'), t(p.role)],
@@ -267,6 +292,7 @@
         '</header>' +
         (p.web_preview && arr(p.web_preview.desktop).length ? webPreview(p) : '<div class="case-cover">' + art(p) + '</div>') +
         '<div class="case-sections">' + sections + '</div>' +
+        compareBlock(p) +
         gallery +
         '<a class="next" href="#p-' + esc(next.slug) + '" data-cursor="view">' +
           '<span class="mono">' + esc(ui('next')) + '</span>' +
@@ -396,6 +422,32 @@
     box.querySelectorAll('.webview-toggle [data-view]').forEach(function (x) {
       x.setAttribute('aria-pressed', String(x === b));
     });
+  });
+
+  /* ---------- comparador antes / después ---------- */
+  function setCompare(box, clientX) {
+    var r = box.getBoundingClientRect();
+    var pos = Math.max(0, Math.min(100, (clientX - r.left) / r.width * 100));
+    box.style.setProperty('--pos', pos + '%');
+    var range = box.querySelector('.compare-range');
+    if (range) range.value = Math.round(pos);
+  }
+  var dragging = null;
+  document.addEventListener('pointerdown', function (e) {
+    var box = e.target.closest('.compare');
+    if (!box) return;
+    dragging = box;
+    box.classList.add('is-dragging');
+    if (box.setPointerCapture) { try { box.setPointerCapture(e.pointerId); } catch (err) {} }
+    setCompare(box, e.clientX);
+  });
+  document.addEventListener('pointermove', function (e) { if (dragging) setCompare(dragging, e.clientX); });
+  function stopCompare() { if (dragging) { dragging.classList.remove('is-dragging'); dragging = null; } }
+  document.addEventListener('pointerup', stopCompare);
+  document.addEventListener('pointercancel', stopCompare);
+  document.addEventListener('input', function (e) {
+    if (!e.target.classList || !e.target.classList.contains('compare-range')) return;
+    e.target.closest('.compare').style.setProperty('--pos', e.target.value + '%');
   });
 
   /* ---------- copiar email ---------- */

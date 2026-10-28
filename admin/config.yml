@@ -64,6 +64,12 @@ singletons:
       - Solo minúsculas, números y guiones, sin espacios.
       hint: Va en el enlace del proyecto (anasoriaael.com/#p-identificador). Si lo cambias, cambia el
         enlace.
+    - name: soon
+      label: Próximamente
+      widget: boolean
+      required: false
+      default: false
+      hint: 'Actívalo para una tarjeta en blanco: sale en la home sin enlace y sin página.'
     - name: featured
       label: Destacado
       widget: boolean
@@ -171,6 +177,21 @@ singletons:
           widget: image
           media_folder: /assets/img/proyectos/web
           public_folder: /assets/img/proyectos/web
+    - name: compare
+      label: Comparador antes / después
+      widget: list
+      required: false
+      label_singular: pareja
+      collapsed: true
+      hint: 'Parejas de fotos del mismo tamaño. Se comparan arrastrando una línea: a la izquierda la original,
+        a la derecha la nueva.'
+      fields:
+      - name: before
+        label: Foto original (izquierda)
+        widget: image
+      - name: after
+        label: Foto nueva (derecha)
+        widget: image
     - name: gallery
       label: Galería
       widget: list
@@ -796,6 +817,15 @@ singletons:
       - name: webview_label
         label: 'Ventana de la web: nombre del selector'
         widget: string
+      - name: compare_before
+        label: 'Comparador: etiqueta de la foto original'
+        widget: string
+      - name: compare_after
+        label: 'Comparador: etiqueta de la foto con IA'
+        widget: string
+      - name: compare_hint
+        label: 'Comparador: texto de ayuda'
+        widget: string
       - name: next
         label: 'Caso: Siguiente proyecto'
         widget: string
@@ -920,6 +950,15 @@ singletons:
         widget: string
       - name: webview_label
         label: 'Ventana de la web: nombre del selector'
+        widget: string
+      - name: compare_before
+        label: 'Comparador: etiqueta de la foto original'
+        widget: string
+      - name: compare_after
+        label: 'Comparador: etiqueta de la foto con IA'
+        widget: string
+      - name: compare_hint
+        label: 'Comparador: texto de ayuda'
         widget: string
       - name: next
         label: 'Caso: Siguiente proyecto'

@@ -445,16 +445,68 @@
     ]
   },
   {
+    "slug": "proximamente",
+    "soon": true,
+    "featured": false,
+    "art": "white",
+    "art_word": "···",
+    "cover": "",
+    "gallery": [],
+    "link": "",
+    "year": "",
+    "client": {
+      "es": "",
+      "en": ""
+    },
+    "title": {
+      "es": "Próximamente",
+      "en": "Coming soon"
+    },
+    "kind": {
+      "es": "Nuevo proyecto",
+      "en": "New project"
+    },
+    "pill": {
+      "es": "Próximamente",
+      "en": "Coming soon"
+    },
+    "summary": {
+      "es": "",
+      "en": ""
+    },
+    "role": {
+      "es": "",
+      "en": ""
+    },
+    "tools": [],
+    "tags": [],
+    "sections": []
+  },
+  {
     "slug": "books-ia",
     "featured": false,
     "art": "magenta",
     "art_word": "ai",
     "cover": "assets/img/proyectos/books-ia.jpg",
-    "gallery": [
-      "assets/img/proyectos/books-ia-cala.jpg",
-      "assets/img/proyectos/books-ia-gara.jpg",
-      "assets/img/proyectos/books-ia-averly.jpg"
+    "compare": [
+      {
+        "before": "assets/img/proyectos/books-ia-maren-estudio.jpg",
+        "after": "assets/img/proyectos/books-ia-maren-ia.jpg"
+      },
+      {
+        "before": "assets/img/proyectos/books-ia-cala-estudio.jpg",
+        "after": "assets/img/proyectos/books-ia-cala-ia.jpg"
+      },
+      {
+        "before": "assets/img/proyectos/books-ia-gara-estudio.jpg",
+        "after": "assets/img/proyectos/books-ia-gara-ia.jpg"
+      },
+      {
+        "before": "assets/img/proyectos/books-ia-averly-estudio.jpg",
+        "after": "assets/img/proyectos/books-ia-averly-ia.jpg"
+      }
     ],
+    "gallery": [],
     "link": "",
     "year": "2025 — 2026",
     "client": {
@@ -462,8 +514,8 @@
       "en": "Vaukura · Grupo Herme"
     },
     "title": {
-      "es": "Books de producto con IA",
-      "en": "AI product photo books"
+      "es": "IA generativa para creación de contenido",
+      "en": "Generative AI for content creation"
     },
     "kind": {
       "es": "Dirección de arte · IA generativa",
@@ -514,8 +566,8 @@
           "en": "From studio to room"
         },
         "text": {
-          "es": "En las imágenes ves cada silla dos veces: a la izquierda, la foto de estudio con fondo blanco; a la derecha, la misma silla en su ambiente creado con IA.",
-          "en": "In the images you see each chair twice: on the left, the white-background studio photo; on the right, the same chair in its AI-created room."
+          "es": "Desliza la línea de las imágenes para comparar: a un lado, la foto de estudio con fondo blanco; al otro, la misma silla en su ambiente creado con IA.",
+          "en": "Drag the line on the images to compare: on one side, the white-background studio photo; on the other, the same chair in its AI-created room."
         }
       },
       {
