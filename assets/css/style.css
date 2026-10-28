@@ -490,15 +490,17 @@ ul, ol { margin: 0; padding: 0; }
 .gallery img.wide { grid-column: 1 / -1; }
 @media (max-width: 640px) { .gallery { grid-template-columns: 1fr; } }
 
+/* Siguiente proyecto: enlace discreto, separado de la línea del contacto */
 .next {
-  display: grid; gap: .6rem; margin-top: clamp(2.5rem, 6vw, 4.5rem); padding: clamp(1.5rem, 4vw, 2.5rem);
-  border-radius: calc(var(--radius) + 6px); background: var(--ink); color: var(--bg); text-decoration: none;
-  transition: background-color .3s;
+  display: flex; align-items: baseline; justify-content: flex-end; gap: .4rem 1rem; flex-wrap: wrap;
+  margin-block: clamp(2.5rem, 6vw, 4rem) clamp(3rem, 7vw, 5rem); padding-top: 1.2rem;
+  border-top: 1px solid var(--line); text-decoration: none; color: var(--ink);
 }
-.next:hover { background: var(--magenta); color: #fff; }
-.next .big { font-family: var(--serif); font-size: clamp(2.2rem, 6vw, 4.8rem); line-height: 1; letter-spacing: -.01em; display: flex; justify-content: space-between; align-items: flex-end; gap: 1rem; }
-.next .arrow { font-family: var(--sans); font-size: .5em; transition: transform .4s var(--ease); }
-.next:hover .arrow { transform: translateX(6px); }
+.next .mono { color: var(--muted); }
+.next .big { font-family: var(--serif); font-size: clamp(1.4rem, 2.4vw, 1.9rem); line-height: 1.1; letter-spacing: -.01em; display: inline-flex; align-items: baseline; gap: .5rem; transition: color .25s; }
+.next .arrow { font-family: var(--sans); font-size: .7em; transition: transform .4s var(--ease); }
+.next:hover .big { color: var(--magenta); }
+.next:hover .arrow { transform: translateX(5px); }
 
 .error-box { padding-block: 5rem; display: grid; gap: 1rem; max-width: 60ch; }
 
