@@ -333,7 +333,7 @@
     });
 
     // título de la pestaña
-    var base = 'Ana Soria Ael · ael-design';
+    var base = 'Ana Soria Ael';
     if (view === 'about') document.title = ui('about_title') + ' · ' + base;
     else if (view === 'project') {
       var p = PROJECTS.find(function (x) { return 'p-' + x.slug === hash; });
