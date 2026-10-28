@@ -445,122 +445,6 @@
     ]
   },
   {
-    "slug": "tacos-n1",
-    "soon": true,
-    "featured": false,
-    "art": "yellow",
-    "art_word": "nº1",
-    "cover": "assets/img/proyectos/tacos-n1.jpg",
-    "gallery": [],
-    "link": "",
-    "year": "",
-    "client": {
-      "es": "",
-      "en": ""
-    },
-    "title": {
-      "es": "Tacos Nº1",
-      "en": "Tacos Nº1"
-    },
-    "kind": {
-      "es": "Rediseño de marca · Branding",
-      "en": "Brand redesign · Branding"
-    },
-    "pill": {
-      "es": "Próximamente",
-      "en": "Coming soon"
-    },
-    "summary": {
-      "es": "",
-      "en": ""
-    },
-    "role": {
-      "es": "",
-      "en": ""
-    },
-    "tools": [],
-    "tags": [],
-    "sections": []
-  },
-  {
-    "slug": "movida-80",
-    "featured": false,
-    "art": "black",
-    "art_word": "80s",
-    "cover": "assets/img/proyectos/movida-80.jpg",
-    "gallery": [
-      "assets/img/proyectos/movida-80-1.jpg",
-      "assets/img/proyectos/movida-80-2.jpg",
-      "assets/img/proyectos/movida-80-3.jpg",
-      "assets/img/proyectos/movida-80-4.jpg",
-      "assets/img/proyectos/movida-80-5.jpg"
-    ],
-    "link": "",
-    "year": "",
-    "client": {
-      "es": "",
-      "en": ""
-    },
-    "title": {
-      "es": "Catálogo «La movida de los 80»",
-      "en": "«La movida de los 80» catalogue"
-    },
-    "kind": {
-      "es": "Diseño editorial · Catálogo de fotografía",
-      "en": "Editorial design · Photography catalogue"
-    },
-    "pill": {
-      "es": "Proyecto académico",
-      "en": "Academic project"
-    },
-    "summary": {
-      "es": "Diseño y maquetación de un catálogo de fotografía sobre la movida madrileña de los 80: portada, páginas interiores y presentación.",
-      "en": "Design and layout of a photography catalogue about Madrid’s 1980s «movida» scene: cover, inside pages and presentation."
-    },
-    "role": {
-      "es": "Diseño editorial y maquetación",
-      "en": "Editorial design and layout"
-    },
-    "tools": [],
-    "tags": [
-      "Editorial",
-      "Catálogo",
-      "Fotografía"
-    ],
-    "sections": [
-      {
-        "title": {
-          "es": "Contexto",
-          "en": "Context"
-        },
-        "text": {
-          "es": "Catálogo para una exposición de fotografía sobre la movida madrileña, con imágenes de Eduardo Cimadevila Niño de grupos como Radio Futura, Aviador Dro, O.X. Pow o Loquillo y los Trogloditas.",
-          "en": "A catalogue for a photography exhibition about Madrid’s «movida», with images by Eduardo Cimadevila Niño of bands such as Radio Futura, Aviador Dro, O.X. Pow and Loquillo y los Trogloditas."
-        }
-      },
-      {
-        "title": {
-          "es": "Mi papel",
-          "en": "My role"
-        },
-        "text": {
-          "es": "Diseñé la portada y maqueté todo el catálogo: la retícula, la tipografía, el tratamiento de las fotos y la presentación final en mockups.",
-          "en": "I designed the cover and laid out the whole catalogue: the grid, typography, photo treatment and the final mockup presentation."
-        }
-      },
-      {
-        "title": {
-          "es": "El diseño",
-          "en": "The design"
-        },
-        "text": {
-          "es": "La portada mezcla un rótulo de neón rosa con un efecto de color desplazado sobre la foto en blanco y negro, y la palabra «Exposición» repetida en vertical. Dentro, cada doble página combina una foto grande con una cita de los protagonistas, y algunas páginas van teñidas de verde agua o amarillo.",
-          "en": "The cover mixes a pink neon sign with a shifted-colour effect over the black-and-white photo, and the word «Exposición» repeated vertically. Inside, each spread pairs a large photo with a quote from the people in it, and some pages are tinted aqua or yellow."
-        }
-      }
-    ]
-  },
-  {
     "slug": "books-ia",
     "featured": false,
     "art": "magenta",
@@ -674,6 +558,122 @@
         "text": {
           "es": "Las fotos de ambiente de vaukura.com están hechas así: sin coste de estudio y con una estética coherente con la marca.",
           "en": "The room photos on vaukura.com are made this way: no studio costs and a look consistent with the brand."
+        }
+      }
+    ]
+  },
+  {
+    "slug": "tacos-n1",
+    "soon": true,
+    "featured": false,
+    "art": "yellow",
+    "art_word": "nº1",
+    "cover": "assets/img/proyectos/tacos-n1.jpg",
+    "gallery": [],
+    "link": "",
+    "year": "",
+    "client": {
+      "es": "",
+      "en": ""
+    },
+    "title": {
+      "es": "Tacos Nº1",
+      "en": "Tacos Nº1"
+    },
+    "kind": {
+      "es": "Rediseño de marca · Branding",
+      "en": "Brand redesign · Branding"
+    },
+    "pill": {
+      "es": "Próximamente",
+      "en": "Coming soon"
+    },
+    "summary": {
+      "es": "",
+      "en": ""
+    },
+    "role": {
+      "es": "",
+      "en": ""
+    },
+    "tools": [],
+    "tags": [],
+    "sections": []
+  },
+  {
+    "slug": "movida-80",
+    "featured": false,
+    "art": "black",
+    "art_word": "80s",
+    "cover": "assets/img/proyectos/movida-80.jpg",
+    "gallery": [
+      "assets/img/proyectos/movida-80-1.jpg",
+      "assets/img/proyectos/movida-80-2.jpg",
+      "assets/img/proyectos/movida-80-3.jpg",
+      "assets/img/proyectos/movida-80-4.jpg",
+      "assets/img/proyectos/movida-80-5.jpg"
+    ],
+    "link": "",
+    "year": "",
+    "client": {
+      "es": "",
+      "en": ""
+    },
+    "title": {
+      "es": "Catálogo «La movida de los 80»",
+      "en": "«La movida de los 80» catalogue"
+    },
+    "kind": {
+      "es": "Diseño editorial · Catálogo de fotografía",
+      "en": "Editorial design · Photography catalogue"
+    },
+    "pill": {
+      "es": "Proyecto académico",
+      "en": "Academic project"
+    },
+    "summary": {
+      "es": "Diseño y maquetación de un catálogo de fotografía sobre la movida madrileña de los 80: portada, páginas interiores y presentación.",
+      "en": "Design and layout of a photography catalogue about Madrid’s 1980s «movida» scene: cover, inside pages and presentation."
+    },
+    "role": {
+      "es": "Diseño editorial y maquetación",
+      "en": "Editorial design and layout"
+    },
+    "tools": [],
+    "tags": [
+      "Editorial",
+      "Catálogo",
+      "Fotografía"
+    ],
+    "sections": [
+      {
+        "title": {
+          "es": "Contexto",
+          "en": "Context"
+        },
+        "text": {
+          "es": "Catálogo para una exposición de fotografía sobre la movida madrileña, con imágenes de Eduardo Cimadevila Niño de grupos como Radio Futura, Aviador Dro, O.X. Pow o Loquillo y los Trogloditas.",
+          "en": "A catalogue for a photography exhibition about Madrid’s «movida», with images by Eduardo Cimadevila Niño of bands such as Radio Futura, Aviador Dro, O.X. Pow and Loquillo y los Trogloditas."
+        }
+      },
+      {
+        "title": {
+          "es": "Mi papel",
+          "en": "My role"
+        },
+        "text": {
+          "es": "Diseñé la portada y maqueté todo el catálogo: la retícula, la tipografía, el tratamiento de las fotos y la presentación final en mockups.",
+          "en": "I designed the cover and laid out the whole catalogue: the grid, typography, photo treatment and the final mockup presentation."
+        }
+      },
+      {
+        "title": {
+          "es": "El diseño",
+          "en": "The design"
+        },
+        "text": {
+          "es": "La portada mezcla un rótulo de neón rosa con un efecto de color desplazado sobre la foto en blanco y negro, y la palabra «Exposición» repetida en vertical. Dentro, cada doble página combina una foto grande con una cita de los protagonistas, y algunas páginas van teñidas de verde agua o amarillo.",
+          "en": "The cover mixes a pink neon sign with a shifted-colour effect over the black-and-white photo, and the word «Exposición» repeated vertically. Inside, each spread pairs a large photo with a quote from the people in it, and some pages are tinted aqua or yellow."
         }
       }
     ]
