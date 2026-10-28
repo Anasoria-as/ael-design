@@ -84,6 +84,20 @@ singletons:
         widget: string
         required: false
       hint: 'Sale en rosa bajo el título de la tarjeta. Ejemplo: Diseño web · UX/UI'
+    - name: pill
+      label: Texto de la pastilla amarilla
+      widget: object
+      collapsed: false
+      fields:
+      - name: es
+        label: Español
+        widget: string
+        required: false
+      - name: en
+        label: English
+        widget: string
+        required: false
+      hint: 'Si lo dejas vacío, pone «Proyecto real». Ejemplo: Proyecto propio'
     - name: summary
       label: Resumen
       widget: object

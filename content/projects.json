@@ -376,6 +376,10 @@
       "es": "Diseño + código",
       "en": "Design + code"
     },
+    "pill": {
+      "es": "Proyecto propio",
+      "en": "Personal project"
+    },
     "summary": {
       "es": "Una tienda online responsive diseñada y maquetada por mí desde cero, publicada en GitHub Pages.",
       "en": "A responsive online store I designed and built from scratch, published on GitHub Pages."
