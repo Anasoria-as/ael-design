@@ -266,8 +266,8 @@
   "about": {
     "photo": "assets/img/ana.jpg",
     "title": {
-      "es": "Just another creative human",
-      "en": "Just another creative human"
+      "es": "Just another **creative** human",
+      "en": "Just another **creative** human"
     },
     "paragraphs": {
       "es": [

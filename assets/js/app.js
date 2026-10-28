@@ -201,12 +201,16 @@
       ? '<img src="' + esc(a.photo) + '" alt="Ana Soria Ael">'
       : '<div class="portrait-logo">' + (logo ? logo.outerHTML : '') + '</div>';
     return '' +
-      '<section class="wrap page-head">' +
-        '<h1 class="page-title">' + esc(ui('about_title')) + '<span class="sq" aria-hidden="true"></span></h1>' +
-      '</section>' +
+      // cabecera: «// Sobre mí» pequeño y la frase como titular grande (la palabra entre ** va en rosa y cursiva)
+      (t(a.title)
+        ? '<section class="wrap page-head about-head">' +
+            '<p class="about-kicker"><span aria-hidden="true">//</span>' + esc(ui('about_title')) + '</p>' +
+            '<h1 class="about-title">' + rich(t(a.title)) + '<span class="sq" aria-hidden="true"></span></h1>' +
+          '</section>'
+        : '<section class="wrap page-head">' +
+            '<h1 class="page-title">' + esc(ui('about_title')) + '<span class="sq" aria-hidden="true"></span></h1>' +
+          '</section>') +
       '<section class="section wrap about-main">' +
-        // título grande en rosa que se sale por la derecha de la pantalla
-        (t(a.title) ? '<h2 class="about-title">' + esc(t(a.title)) + '</h2>' : '') +
         '<div class="about-body">' +
           // columna izquierda: foto y, debajo, la caja para descargar el CV
           '<div class="portrait">' + photo +

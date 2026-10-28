@@ -515,7 +515,7 @@ singletons:
       public_folder: /assets/img
       hint: Sale redonda en Sobre mí. Si la dejas vacía, sale el logo.
     - name: title
-      label: Título del texto
+      label: Titular de la página
       widget: object
       collapsed: false
       fields:
@@ -527,7 +527,8 @@ singletons:
         label: English
         widget: string
         required: false
-      hint: 'Sale en grande encima del texto. Ejemplo: Just another creative human'
+      hint: 'Es el titular grande de Sobre mí. Escribe **así** la palabra que quieras en rosa y cursiva.
+        Ejemplo: Just another **creative** human'
     - name: paragraphs
       label: Párrafos
       widget: object
