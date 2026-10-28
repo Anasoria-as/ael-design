@@ -11,9 +11,11 @@ Crea, a partir de index.html y de content/*.json:
 
 Uso, desde la carpeta de la web:   python3 tools/generar_paginas.py
 Necesita Python 3 con Pillow y Playwright (pip install pillow playwright && playwright install chromium).
-Vuelve a ejecutarlo cuando añadas, quites o cambies un proyecto.
+Vuelve a ejecutarlo cuando añadas, quites o cambies un proyecto, y siempre que cambien style.css o app.js:
+también les pone un número de versión para que los navegadores no usen una copia antigua.
 """
 import datetime
+import hashlib
 import html
 import json
 import re
@@ -98,8 +100,19 @@ def free_port():
 def main():
     projects = [p for p in json.loads((ROOT / 'content/projects.json').read_text(encoding='utf-8')) if not p.get('soon')]
 
-    # 0 · lista de proyectos con enlaces en el resumen sin JavaScript de la portada
+    # 0 · número de versión de los estilos y del código (cambia cuando cambia el archivo),
+    #     así el navegador descarga siempre la versión publicada y no una copia antigua
+    ver = lambda f: hashlib.md5((ROOT / f).read_bytes()).hexdigest()[:8]
+    css_v, js_v = ver('assets/css/style.css'), ver('assets/js/app.js')
     tpl = (ROOT / 'index.html').read_text(encoding='utf-8')
+    tpl = sub1(r'href="assets/css/style\.css(\?v=[^"]*)?"', f'href="assets/css/style.css?v={css_v}"', tpl)
+    tpl = sub1(r'src="assets/js/app\.js(\?v=[^"]*)?"', f'src="assets/js/app.js?v={js_v}"', tpl)
+    uc = ROOT / 'en-construccion/index.html'
+    if uc.exists():
+        uc.write_text(sub1(r'href="/assets/css/style\.css(\?v=[^"]*)?"', f'href="/assets/css/style.css?v={css_v}"',
+                           uc.read_text(encoding='utf-8')), encoding='utf-8')
+
+    # lista de proyectos con enlaces en el resumen sin JavaScript de la portada
     items = ''.join('\n        <li><a href="proyectos/' + p['slug'] + '/">' + html.escape(t(p['title'])) + '</a>'
                     + (' · ' + html.escape(t(p.get('kind'))) if t(p.get('kind')) else '') + '</li>' for p in projects)
     tpl = sub1(r'<!--proyectos-->.*?<!--/proyectos-->', '<!--proyectos--><ul>' + items + '\n      </ul><!--/proyectos-->', tpl)

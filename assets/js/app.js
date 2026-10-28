@@ -643,8 +643,8 @@
   }
 
   var loading = Promise.all([
-    fetch('content/site.json').then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }),
-    fetch('content/projects.json').then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+    fetch('content/site.json', { cache: 'no-cache' }).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); }),
+    fetch('content/projects.json', { cache: 'no-cache' }).then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
   ]);
   if (cached) start(cached, true);
   loading.then(function (res) {

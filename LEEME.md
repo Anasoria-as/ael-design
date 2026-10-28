@@ -93,3 +93,4 @@ Cada proyecto tiene su propia dirección, por ejemplo `anasoriaael.com/proyectos
 
 - Si añades o cambias un proyecto desde el panel, su página **funciona al momento** (la web la pinta con los textos nuevos).
 - Para que Google y WhatsApp vean también el título, la descripción y la foto nuevos, hay que volver a generar las páginas: pídeselo a Claude.
+- El script también pone un número de versión a `style.css` y `app.js` en cada página, para que los navegadores no se queden con una copia antigua después de publicar.
