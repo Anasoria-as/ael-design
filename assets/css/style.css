@@ -514,9 +514,14 @@ ul, ol { margin: 0; padding: 0; }
 .compare-tag {
   position: absolute; bottom: 14px; padding: .4rem .75rem; border-radius: 999px; pointer-events: none;
   font-family: var(--mono); font-size: .66rem; letter-spacing: .06em; text-transform: uppercase;
+  background: #fff; color: #000; transition: background-color .25s, color .25s;
+  box-shadow: 0 0 0 1px rgba(0,0,0,.1), 0 4px 12px -6px rgba(0,0,0,.35);   /* se ve también sobre la foto de estudio blanca */
 }
-.compare-tag.is-before { left: 14px; background: var(--black); color: #fff; }
-.compare-tag.is-after { right: 14px; background: #fff; color: #000; }
+.compare-tag.is-before { left: 14px; }
+.compare-tag.is-after { right: 14px; }
+/* las dos pastillas en blanco; se pone en negro la de la foto que se está enseñando más */
+.compare[data-side="before"] .compare-tag.is-before,
+.compare[data-side="after"] .compare-tag.is-after { background: var(--black); color: #fff; }
 .compare-range { position: absolute; inset: auto 0 0 0; width: 100%; height: 1px; opacity: 0; margin: 0; pointer-events: none; }
 .compare:has(.compare-range:focus-visible) { outline: 2px solid var(--magenta); outline-offset: 3px; }
 /* si el número de comparadores es impar, el último va centrado */

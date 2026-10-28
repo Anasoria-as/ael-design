@@ -496,10 +496,17 @@
   });
 
   /* ---------- comparador antes / después ---------- */
+  // Marca qué foto se está enseñando más: a la derecha, la de estudio; a la izquierda, la de IA
+  function compareSide(box, pos) {
+    if (pos > 50.5) box.setAttribute('data-side', 'before');
+    else if (pos < 49.5) box.setAttribute('data-side', 'after');
+    else box.removeAttribute('data-side');
+  }
   function setCompare(box, clientX) {
     var r = box.getBoundingClientRect();
     var pos = Math.max(0, Math.min(100, (clientX - r.left) / r.width * 100));
     box.style.setProperty('--pos', pos + '%');
+    compareSide(box, pos);
     var range = box.querySelector('.compare-range');
     if (range) range.value = Math.round(pos);
   }
@@ -518,7 +525,9 @@
   document.addEventListener('pointercancel', stopCompare);
   document.addEventListener('input', function (e) {
     if (!e.target.classList || !e.target.classList.contains('compare-range')) return;
-    e.target.closest('.compare').style.setProperty('--pos', e.target.value + '%');
+    var box = e.target.closest('.compare');
+    box.style.setProperty('--pos', e.target.value + '%');
+    compareSide(box, +e.target.value);
   });
 
   /* ---------- copiar email ---------- */
