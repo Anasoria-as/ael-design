@@ -106,3 +106,10 @@ Cada proyecto tiene su propia dirección, por ejemplo `anasoriaael.com/proyectos
 ## Recomendaciones
 
 Salen en la portada, en «Lo que dicen de mí», con un botón a tus recomendaciones de LinkedIn. Se añaden desde el panel, en Textos de la web → Recomendaciones: copia el texto tal cual lo escribió la persona y pídele permiso para poner su nombre. En inglés sale la traducción con el aviso «Translated from Spanish».
+
+## Contador de visitas (Cloudflare Web Analytics)
+
+Sin cookies ni datos personales: Cloudflare muestra visitas, páginas vistas, países, de dónde llegan (LinkedIn, Google…) y navegadores. Se mira en Cloudflare → Analytics & Logs → Web Analytics.
+
+- El token de Cloudflare va en `index.html` (línea `var TOKEN = '...'`); el generador lo copia a todas las páginas. También está en `en-construccion/index.html`. Si se deja vacío, el contador se apaga.
+- Para que tus visitas no cuenten, abre **anasoriaael.com/?soy-ana** una vez en cada navegador que uses (móvil, ordenador y también el navegador interno de LinkedIn o Instagram, que va aparte). Para volver a contarte: **anasoriaael.com/?no-soy-ana**.
