@@ -1,0 +1,92 @@
+<!DOCTYPE html><html lang="es"><head><meta charset="utf-8"><title>Ana Soria Ael · Diseñadora web &amp; UX/UI</title><style>
+@page { size: A4; margin: 0; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+:root { --ink: #111111; --muted: #66645F; --side: #111111; --side-ink: #F4F2EA; --side-muted: #A3A198;
+        --yellow: #F8E006; --pink: #E51974; --card: #FBF7D9;
+        --sans: 'Poppins', sans-serif; --mono: 'DejaVu Sans Mono', monospace; }
+html, body { width: 210mm; height: 297mm; }
+body { font-family: var(--sans); color: var(--ink); background: #fff; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+a { color: inherit; text-decoration: none; }
+.page { display: grid; grid-template-columns: 234px 1fr; width: 210mm; height: 297mm; overflow: hidden; }
+
+/* ---- barra lateral ---- */
+.side { background: var(--side); color: var(--side-ink); padding: 39px 30px 34px; display: flex; flex-direction: column; }
+.logo { width: 103px; height: 103px; display: block; }
+.logo.foto { border-radius: 50%; object-fit: cover; box-shadow: 0 0 0 3px var(--yellow); }
+.side h2 { font-family: var(--mono); font-weight: 400; font-size: 9.4px; line-height: 1.2; letter-spacing: .12em; text-transform: uppercase; color: var(--yellow); margin: 22px 0 8px; }
+.side h2::before { content: '// '; }
+.contact dt { font-size: 8.6px; color: var(--side-muted); line-height: 1.2; }
+.contact dd { font-size: 10.4px; line-height: 1.3; margin-bottom: 6px; }
+.group { font-size: 9px; line-height: 1.2; color: var(--side-muted); margin: 8px 0 5px; }
+.chips { display: flex; flex-wrap: wrap; gap: 4px 3px; }
+.chip { font-size: 8.7px; line-height: 1; padding: 4px 6.5px 3.5px; border: 1px solid rgba(244,242,234,.42); border-radius: 999px; white-space: nowrap; }
+.langs div { display: flex; justify-content: space-between; font-size: 10.4px; padding: 5px 0 6px; border-bottom: 1px solid rgba(244,242,234,.18); }
+.langs div span:last-child { color: var(--side-muted); }
+.qr { margin-top: auto; display: flex; align-items: center; gap: 12px; }
+.qr-img { width: 82px; height: 82px; background: #fff; border-radius: 10px; padding: 8px; flex: none; }
+.qr-img img { width: 100%; height: 100%; display: block; image-rendering: pixelated; }
+.qr strong { display: block; color: var(--yellow); font-weight: 700; font-size: 11.4px; margin-bottom: 3px; }
+.qr span { display: block; font-size: 9px; color: var(--side-muted); line-height: 1.35; }
+
+/* ---- columna principal ---- */
+.main { padding: 36px 45px 30px 38px; display: flex; flex-direction: column; }
+.name { font-weight: 700; font-size: 41.5px; line-height: 1; letter-spacing: -.035em; }
+.name span { display: block; }
+.name i { font-style: normal; color: var(--pink); }
+.headline { display: flex; align-items: center; gap: 12px; margin-top: 13px; padding-bottom: 14px; border-bottom: 1px solid var(--ink); }
+.role { position: relative; z-index: 0; font-size: 15.4px; font-weight: 500; letter-spacing: -.01em; padding: 0 2px; }
+/* subrayado amarillo: un bloque sólido detrás del texto (se ve igual en cualquier visor de PDF) */
+.role::after { content: ''; position: absolute; left: 0; right: 0; bottom: .02em; height: .5em; background: var(--yellow); z-index: -1; }
+.badge { font-family: var(--mono); font-size: 9.6px; letter-spacing: .04em; background: var(--pink); color: #fff; border-radius: 999px; padding: 4px 10px; }
+.sec { margin-top: 16px; }
+.sec-h { display: flex; align-items: center; gap: 9px; margin-bottom: 8px; }
+.num { font-family: var(--mono); font-size: 8.8px; background: var(--pink); color: #fff; border-radius: 3px; padding: 3px 4px 2px; line-height: 1; }
+.sec-h h2 { font-size: 15.2px; font-weight: 700; letter-spacing: -.01em; }
+.profile { font-size: 11.4px; line-height: 1.58; }
+.job-top { display: grid; grid-template-columns: 1fr auto; align-items: start; }
+.job h3 { font-size: 13px; font-weight: 700; letter-spacing: -.01em; }
+.dates { font-family: var(--mono); font-size: 9px; background: var(--yellow); padding: 2px 5px; justify-self: end; }
+.org { font-size: 10.9px; color: var(--muted); font-weight: 500; }
+.place { font-size: 8.9px; color: var(--muted); text-align: right; }
+.job ul { list-style: none; margin-top: 6px; display: grid; gap: 3.2px; }
+.job li { position: relative; padding-left: 14px; font-size: 11px; line-height: 1.5; }
+.job li::before { content: ''; position: absolute; left: 0; top: .72em; width: 7px; height: 2px; background: var(--pink); }
+.cards { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.card { background: var(--card); border-radius: 10px; padding: 12px 13px 12px; display: flex; flex-direction: column; }
+.card .tag { font-family: var(--mono); font-size: 8.8px; color: var(--pink); }
+.card h3 { font-size: 12.4px; font-weight: 700; margin-top: 3px; letter-spacing: -.01em; }
+.card p { font-size: 10.2px; line-height: 1.5; margin-top: 2px; }
+.card .chips { margin-top: 8px; gap: 4px; }
+.card .chip { border-color: rgba(17,17,17,.3); color: var(--ink); font-size: 8.6px; padding: 4px 7px 3.5px; }
+.card .link { font-family: var(--mono); font-size: 7.2px; letter-spacing: -.02em; margin-top: auto; padding-top: 9px; text-decoration: underline; text-underline-offset: 2px; word-break: break-all; }
+.edu { display: grid; gap: 9px; }
+.edu div { display: grid; grid-template-columns: 98px 1fr; align-items: baseline; }
+.edu .y { font-family: var(--mono); font-size: 9px; color: var(--muted); }
+.edu b { display: block; font-size: 11.4px; font-weight: 700; letter-spacing: -.01em; }
+.edu small { display: block; font-size: 10.2px; color: var(--muted); }
+</style></head>
+<body><div class="page">
+<aside class="side">
+  <img class="logo" src="logo-ael-circulo.png" alt="ael.">
+  <h2>Contacto</h2>
+  <dl class="contact">
+    <dt>Email</dt><dd><a href="mailto:anasoria.as@gmail.com">anasoria.as@gmail.com</a></dd>
+    <dt>Teléfono</dt><dd><a href="tel:+34699857478">699 85 74 78</a></dd>
+    <dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/anasoriaael">linkedin.com/in/anasoriaael</a></dd>
+    <dt>Portfolio</dt><dd><a href="https://anasoriaael.com/">anasoriaael.com</a></dd>
+    <dt>Ubicación</dt><dd>Madrid, España</dd>
+  </dl>
+  <h2>Habilidades</h2><p class="group">Diseño</p><div class="chips"><span class="chip">Figma</span><span class="chip">UX/UI</span><span class="chip">Wireframes</span><span class="chip">Prototipado</span><span class="chip">Diseño responsive</span><span class="chip">E-commerce</span><span class="chip">Branding</span><span class="chip">Dirección de arte</span></div><p class="group">Frontend</p><div class="chips"><span class="chip">HTML5</span><span class="chip">CSS3</span><span class="chip">Sass</span><span class="chip">Flexbox</span><span class="chip">Grid</span><span class="chip">JavaScript</span><span class="chip">GSAP</span><span class="chip">WordPress</span><span class="chip">Git · GitHub</span><span class="chip">VS Code</span></div><p class="group">IA generativa</p><div class="chips"><span class="chip">Gemini · Nano Banana</span><span class="chip">ChatGPT</span><span class="chip">Claude</span><span class="chip">GitHub Copilot</span></div><p class="group">Marketing digital</p><div class="chips"><span class="chip">SEO on-page</span><span class="chip">Google Analytics</span><span class="chip">Tag Manager</span><span class="chip">Mailchimp</span><span class="chip">Mailrelay</span></div><p class="group">Adobe, vídeo e impresión</p><div class="chips"><span class="chip">Photoshop</span><span class="chip">Illustrator</span><span class="chip">InDesign</span><span class="chip">Lightroom</span><span class="chip">Premiere</span><span class="chip">Final Cut</span><span class="chip">Preimpresión</span><span class="chip">Gran formato</span></div>
+  <h2>Idiomas</h2><div class="langs"><div><span>Español</span><span>Nativo</span></div><div><span>Inglés</span><span>B2</span></div></div>
+  <a class="qr" href="https://anasoriaael.com/"><span class="qr-img"><img src="qr-anasoriaael.png" alt=""></span>
+    <span><strong>anasoriaael.com</strong><span>Escanea para ver mis proyectos</span></span></a>
+</aside>
+<main class="main">
+  <h1 class="name"><span>Ana Soria</span><span>Ael<i>.</i></span></h1>
+  <div class="headline"><span class="role">Diseñadora web &amp; UX/UI</span><span class="badge">+6 años</span></div>
+  <section class="sec"><div class="sec-h"><span class="num">01</span><h2>Perfil</h2></div><p class="profile">Diseñadora web y UX/UI con seis años de experiencia en diseño gráfico, branding y e-commerce. Diseño interfaces en Figma, de la estructura al prototipo, para que sean bonitas pero sobre todo fáciles de usar, y sé maquetarlas con HTML, CSS (Flexbox, Grid, responsive) y JavaScript. Vengo de la dirección de arte y la identidad visual, y uso la IA generativa como herramienta, siempre con criterio y dirección creativa propia.</p></section>
+  <section class="sec"><div class="sec-h"><span class="num">02</span><h2>Experiencia</h2></div><div class="job"><div class="job-top"><h3>Directora de Arte &amp; Diseñadora Gráfica Senior</h3><span class="dates">04/2021 — 07/2026</span><span class="org">Vaukura / Cashdisplay · Grupo Herme</span><span class="place">Madrid</span></div><ul><li>Diseño completo en Figma de la interfaz y la estructura de vaukura.com (~400 productos) y cashdisplay.com (~3.000), y coordinación de su implementación con un equipo de desarrollo externo.</li><li>Mantenimiento y edición directa en WordPress: personalización de temas, páginas nuevas, fichas de producto e incidencias resueltas con código.</li><li>Dirección de arte de ambas marcas: rediseño de la identidad y el logotipo de Vaukura, fotografía de producto con un método de edición propio, banners, newsletters, redes sociales y SEO on-page.</li><li>Fotos de ambiente de Vaukura llevadas del estudio a la IA generativa (Nano Banana) con dirección de arte propia.</li><li>Gráfica para ferias y eventos: visual del stand, gran formato (roll-ups, pop-ups, expositores), preimpresión, presupuestos y organización del montaje.</li><li>Organización de flujos de trabajo con mucha carga de información para agilizar el día a día del equipo, y automatización de tareas repetitivas con IA.</li></ul></div></section>
+  <section class="sec"><div class="sec-h"><span class="num">03</span><h2>Proyectos web</h2></div><div class="cards"><div class="card"><span class="tag">P/01 · Diseño web · Figma</span><h3>Web e-commerce de Vaukura</h3><p>Diseño completo en Figma de la tienda online: estructura, navegación e interfaz. Es la web publicada hoy, desarrollada a partir de mi diseño.</p><div class="chips"><span class="chip">Figma</span><span class="chip">UX/UI</span><span class="chip">E-commerce</span></div><a class="link" href="https://anasoriaael.com/proyectos/vaukura/">↗ anasoriaael.com/proyectos/vaukura</a></div><div class="card"><span class="tag">P/02 · Diseño web · Figma</span><h3>Web de Cashdisplay</h3><p>Diseño completo en Figma de la web y la tienda online de soportes publicitarios: un catálogo técnico de unos 3.000 productos.</p><div class="chips"><span class="chip">Figma</span><span class="chip">UX/UI</span><span class="chip">E-commerce B2B</span></div><a class="link" href="https://anasoriaael.com/proyectos/cashdisplay/">↗ anasoriaael.com/proyectos/cashdisplay</a></div></div></section>
+  <section class="sec"><div class="sec-h"><span class="num">04</span><h2>Formación</h2></div><div class="edu"><div><span class="y">2024 — 2025</span><span><b>Máster en Programación para Creativos</b><small>LABASAD</small></span></div><div><span class="y">2018 — 2020</span><span><b>CFGS Diseño y Edición de Publicaciones Impresas y Multimedia</b><small>IES Puerta Bonita</small></span></div><div><span class="y">2016 — 2018</span><span><b>CFGS Producción de Audiovisuales y Espectáculos</b><small>IES Puerta Bonita</small></span></div></div></section>
+</main>
+</div></body></html>
