@@ -138,7 +138,7 @@ CONTENT = {
 }
 
 CSS = """
-@page { size: A4; margin: 0; }
+@page { size: 210mm 297mm; margin: 0; }   /* la hoja mide exactamente lo mismo que el diseño (sin línea blanca) */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 :root { --ink: #111111; --muted: #66645F; --side: #111111; --side-ink: #F4F2EA; --side-muted: #A3A198;
         --yellow: #F8E006; --pink: #E51974; --card: #FBF7D9;
@@ -271,7 +271,7 @@ def main():
             if over['main'] > 0 or over['side'] > 0:
                 print(f'⚠ {lang}: el contenido no cabe en una página', over)
             out = outdir / (CONTENT[lang]['file'].replace('.pdf', '_foto.pdf') if photo else CONTENT[lang]['file'])
-            page.pdf(path=str(out), format='A4', print_background=True, margin={'top': '0', 'right': '0', 'bottom': '0', 'left': '0'})
+            page.pdf(path=str(out), prefer_css_page_size=True, print_background=True, margin={'top': '0', 'right': '0', 'bottom': '0', 'left': '0'})
             print('✓', out)
         browser.close()
 
