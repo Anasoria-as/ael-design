@@ -671,8 +671,10 @@
     if (location.hash === '#app') return;   // enlace «Saltar al contenido»
     route();
   }
+  // proyectos marcados como «Oculto» en el panel: no salen en ningún sitio de la web
+  function visible(list) { return (Array.isArray(list) ? list : []).filter(function (p) { return !p.hidden; }); }
   function start(data, sync) {
-    SITE = data[0]; PROJECTS = data[1];
+    SITE = data[0]; PROJECTS = visible(data[1]);
     // anima la entrada solo si el contenido aún no se ha visto en pantalla
     var painted = performance.getEntriesByType && performance.getEntriesByType('paint').length > 0;
     route({ keepScroll: !location.hash, initial: true, animate: sync ? !painted : !prerendered });
@@ -689,7 +691,7 @@
     var fresh = JSON.stringify(res);
     try { sessionStorage.setItem(DATA_KEY, fresh); } catch (e) {}
     if (!cached) return start(res, false);
-    if (fresh !== JSON.stringify(cached)) { SITE = res[0]; PROJECTS = res[1]; route({ keepScroll: true }); }
+    if (fresh !== JSON.stringify(cached)) { SITE = res[0]; PROJECTS = visible(res[1]); route({ keepScroll: true }); }
   }).catch(function () {
     if (cached) return;
     app.removeAttribute('data-prerender');

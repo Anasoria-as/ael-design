@@ -70,6 +70,13 @@ singletons:
       required: false
       default: false
       hint: 'Actívalo para una tarjeta en blanco: sale en la home sin enlace y sin página.'
+    - name: hidden
+      label: Oculto
+      widget: boolean
+      required: false
+      default: false
+      hint: Actívalo para esconder el proyecto de toda la web sin borrarlo. Desactívalo para que vuelva
+        a salir.
     - name: featured
       label: Destacado
       widget: boolean

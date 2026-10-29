@@ -735,6 +735,7 @@
   {
     "slug": "tacos-n1",
     "soon": true,
+    "hidden": true,
     "featured": false,
     "art": "yellow",
     "art_word": "nº1",

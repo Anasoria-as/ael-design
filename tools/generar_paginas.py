@@ -98,7 +98,7 @@ def free_port():
 
 
 def main():
-    projects = [p for p in json.loads((ROOT / 'content/projects.json').read_text(encoding='utf-8')) if not p.get('soon')]
+    projects = [p for p in json.loads((ROOT / 'content/projects.json').read_text(encoding='utf-8')) if not p.get('soon') and not p.get('hidden')]
 
     # 0 · número de versión de los estilos y del código (cambia cuando cambia el archivo),
     #     así el navegador descarga siempre la versión publicada y no una copia antigua
