@@ -97,8 +97,12 @@ Cada proyecto tiene su propia dirección, por ejemplo `anasoriaael.com/proyectos
 
 ## Web en construcción
 
-`tools/construccion.py` copia `en-construccion/index.html` encima de la portada, «Sobre mí», cada proyecto y la 404: cualquier dirección de la web muestra «Vuelvo pronto», con tu correo, LinkedIn y los CV.
+`python3 tools/construccion.py` copia `en-construccion/index.html` encima de la portada, «Sobre mí», cada proyecto y la 404: cualquier dirección de la web muestra «Vuelvo pronto», con tu correo, LinkedIn y los CV.
 
-- Para volver a la web normal se deshace el commit «Web en construcción» (`git revert`), y las páginas vuelven exactamente como estaban: pídeselo a Claude.
+- Para volver a la web normal: `python3 tools/construccion.py quitar` y después `python3 tools/generar_paginas.py`. Las páginas vuelven como estaban, con los cambios hechos mientras tanto. Pídeselo a Claude.
 - Mientras está en construcción, `tools/generar_paginas.py` no se ejecuta, para no regenerar la web encima por error.
 - Los cambios que hagas en el panel se guardan, pero no se ven hasta quitar la página en construcción.
+
+## Recomendaciones
+
+Salen en la portada, en «Lo que dicen de mí», con un botón a tus recomendaciones de LinkedIn. Se añaden desde el panel, en Textos de la web → Recomendaciones: copia el texto tal cual lo escribió la persona y pídele permiso para poner su nombre. En inglés sale la traducción con el aviso «Translated from Spanish».

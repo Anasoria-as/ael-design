@@ -512,6 +512,80 @@ singletons:
         label: English
         widget: text
         required: false
+  - name: testimonials
+    label: Recomendaciones
+    widget: list
+    required: false
+    collapsed: true
+    label_singular: recomendación
+    summary: '{{fields.name}}'
+    hint: Las recomendaciones de LinkedIn. Copia el texto tal cual lo escribió cada persona y pide permiso
+      para poner su nombre.
+    fields:
+    - name: name
+      label: Nombre
+      widget: string
+    - name: role
+      label: Puesto
+      widget: object
+      collapsed: false
+      fields:
+      - name: es
+        label: Español
+        widget: string
+        required: false
+      - name: en
+        label: English
+        widget: string
+        required: false
+      hint: 'Por ejemplo: Diseñadora creativa y directora de arte'
+    - name: relation
+      label: Relación
+      widget: object
+      collapsed: false
+      fields:
+      - name: es
+        label: Español
+        widget: string
+        required: false
+      - name: en
+        label: English
+        widget: string
+        required: false
+      hint: 'Por ejemplo: Mismo equipo · Grupo Herme'
+    - name: original
+      label: Idioma en que la escribió
+      widget: select
+      required: false
+      default: es
+      options:
+      - label: Español
+        value: es
+      - label: Inglés
+        value: en
+      hint: En el otro idioma sale el aviso «Traducido».
+    - name: text
+      label: Texto
+      widget: object
+      fields:
+      - name: es
+        label: Español
+        widget: list
+        required: false
+        label_singular: párrafo
+        field:
+          name: item
+          label: párrafo
+          widget: text
+      - name: en
+        label: English
+        widget: list
+        required: false
+        label_singular: párrafo
+        field:
+          name: item
+          label: párrafo
+          widget: text
   - name: skills
     label: Herramientas
     widget: list
@@ -798,6 +872,15 @@ singletons:
       - name: strengths_title
         label: Título de Lo que aporto
         widget: string
+      - name: testimonials_title
+        label: Título de Recomendaciones
+        widget: string
+      - name: testimonials_link
+        label: 'Recomendaciones: botón Ver en LinkedIn'
+        widget: string
+      - name: testimonials_translated
+        label: 'Recomendaciones: aviso de texto traducido'
+        widget: string
       - name: skills_title
         label: Título de Herramientas
         widget: string
@@ -931,6 +1014,15 @@ singletons:
         widget: string
       - name: strengths_title
         label: Título de Lo que aporto
+        widget: string
+      - name: testimonials_title
+        label: Título de Recomendaciones
+        widget: string
+      - name: testimonials_link
+        label: 'Recomendaciones: botón Ver en LinkedIn'
+        widget: string
+      - name: testimonials_translated
+        label: 'Recomendaciones: aviso de texto traducido'
         widget: string
       - name: skills_title
         label: Título de Herramientas

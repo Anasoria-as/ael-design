@@ -180,11 +180,38 @@
           return '<article class="strength"><span class="mono slash">' + esc(s.tag) + '</span><h3>' + esc(t(s.title)) + '</h3><p>' + esc(t(s.text)) + '</p></article>';
         }).join('') + '</div>' +
       '</section>' +
+      testimonialsSection() +
       '<section class="section wrap" style="padding-top:0">' +
         '<div class="sec-head"><h2 class="h2">' + esc(ui('skills_title')) + '</h2></div>' +
         skillsBlock() +
       '</section>' +
       contactSection();
+  }
+
+  // Recomendaciones de compañeros (las mismas de LinkedIn). Si se leen en otro idioma que el original, se avisa de que es traducción
+  function testimonialsSection() {
+    var list = arr(SITE.testimonials);
+    if (!list.length) return '';
+    var li = String(SITE.linkedin || '').replace(/\/+$/, '') + '/details/recommendations/';
+    return '<section class="section wrap" id="recomendaciones" style="padding-top:0">' +
+      '<div class="sec-head"><h2 class="h2">' + esc(ui('testimonials_title')) + '</h2>' +
+        (SITE.linkedin ? '<a class="btn btn-ghost btn-sm" href="' + esc(li) + '" target="_blank" rel="noopener">' + esc(ui('testimonials_link')) + ' <span class="arr">↗</span></a>' : '') +
+      '</div>' +
+      '<div class="quotes">' + list.map(function (q) {
+        var original = q.original || 'es';
+        var translated = lang !== original && q.text && arr(q.text[lang]).length;
+        var initials = String(q.name || '').split(/\s+/).filter(Boolean).slice(0, 2).map(function (w) { return w.charAt(0); }).join('');
+        return '<figure class="quote">' +
+          '<span class="quote-mark" aria-hidden="true">“</span>' +
+          '<blockquote>' + arr(q.text).map(function (p) { return '<p>' + esc(p) + '</p>'; }).join('') + '</blockquote>' +
+          '<figcaption class="quote-by"><span class="quote-av" aria-hidden="true">' + esc(initials) + '</span>' +
+            '<span class="quote-who"><strong>' + esc(q.name) + '</strong>' +
+            (t(q.role) ? '<span class="quote-role">' + esc(t(q.role)) + '</span>' : '') +
+            (t(q.relation) || translated ? '<span class="quote-rel">' + esc(t(q.relation)) + (t(q.relation) && translated ? ' · ' : '') + (translated ? esc(ui('testimonials_translated')) : '') + '</span>' : '') +
+          '</span></figcaption>' +
+        '</figure>';
+      }).join('') + '</div>' +
+    '</section>';
   }
 
   function skillsBlock() {

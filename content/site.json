@@ -32,6 +32,9 @@
       "featured": "Destacado",
       "case_study": "Proyecto real",
       "strengths_title": "Lo que aporto",
+      "testimonials_title": "Lo que dicen de mí",
+      "testimonials_link": "Ver en LinkedIn",
+      "testimonials_translated": "Traducido del inglés",
       "skills_title": "Herramientas",
       "contact_kicker": "¿Hablamos?",
       "contact_text": "Estoy buscando mi siguiente equipo. Escríbeme y te respondo pronto.",
@@ -77,6 +80,9 @@
       "featured": "Featured",
       "case_study": "Real project",
       "strengths_title": "What I bring",
+      "testimonials_title": "What colleagues say",
+      "testimonials_link": "See on LinkedIn",
+      "testimonials_translated": "Translated from Spanish",
       "skills_title": "Tools",
       "contact_kicker": "Let's talk",
       "contact_text": "I'm looking for my next team. Drop me a line and I'll get back to you soon.",
@@ -186,6 +192,50 @@
       "text": {
         "es": "Organizo flujos de trabajo con mucha carga de información para que el día a día sea más ágil y el equipo no se pise. Las tareas repetitivas las automatizo con IA: así el tiempo humano va a lo que de verdad lo merece.",
         "en": "I organize information-heavy workflows so day-to-day work runs faster and nobody on the team steps on anyone else's toes. I automate repetitive tasks with AI, so human time goes to what truly deserves it."
+      }
+    }
+  ],
+  "testimonials": [
+    {
+      "name": "Yaiza Molina",
+      "role": {
+        "es": "Diseñadora creativa y directora de arte",
+        "en": "Creative designer & art director"
+      },
+      "relation": {
+        "es": "Mismo equipo · Grupo Herme",
+        "en": "Same team · Grupo Herme"
+      },
+      "text": {
+        "es": [
+          "Ana es una excelente profesional, resolutiva, eficaz y con un ojo de tiburona para el diseño. Tiene una capacidad especial para detectar lo que funciona, cuidar cada detalle y aportar valor a cualquier proyecto.",
+          "Trabajar con ella ha sido tener una compañera de tándem de las que marcan la diferencia: por su criterio, su agilidad y la confianza que transmite trabajando en equipo.",
+          "Sin duda, una profesional con mucho talento y una gran compañera con la que da gusto trabajar."
+        ],
+        "en": [
+          "Ana is an excellent professional: resourceful, effective and with a razor-sharp eye for design. She has a special ability to spot what works, take care of every detail and add value to any project.",
+          "Working with her meant having the kind of tandem partner who makes a difference: for her judgement, her agility and the confidence she brings to teamwork.",
+          "Without a doubt, a very talented professional and a great colleague who is a pleasure to work with."
+        ]
+      }
+    },
+    {
+      "name": "Laura Martín Corrales",
+      "role": {
+        "es": "Administración y contabilidad",
+        "en": "Administration & accounting"
+      },
+      "relation": {
+        "es": "Otro equipo · Grupo Herme",
+        "en": "Different team · Grupo Herme"
+      },
+      "text": {
+        "es": [
+          "Coincidí con Ana en Grupo Herme; yo estaba en administración y ella en diseño. Las veces que necesitó algo de nuestro departamento lo pedía todo claro y bien explicado, y eso se agradece mucho. Pero sobre todo destaco su trato: cercana, positiva y siempre dispuesta a echar una mano. Se notaban las ganas que le ponía a su trabajo. Una compañera estupenda."
+        ],
+        "en": [
+          "I worked alongside Ana at Grupo Herme; I was in administration and she was in design. Whenever she needed something from our department, she asked for it clearly and well explained, which is much appreciated. But above all I'd highlight the way she treats people: warm, positive and always willing to lend a hand. You could tell how much she put into her work. A wonderful colleague."
+        ]
       }
     }
   ],

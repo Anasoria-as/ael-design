@@ -341,6 +341,20 @@ ul, ol { margin: 0; padding: 0; }
 .strength p { color: var(--muted); max-width: 52ch; }
 @media (max-width: 760px) { .strengths { grid-template-columns: 1fr; } }
 
+/* Recomendaciones: tarjetas con comilla rosa; el nombre siempre abajo aunque un texto sea más largo */
+.quotes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1rem, 2vw, 1.5rem); }
+.quote { margin: 0; display: flex; flex-direction: column; background: var(--bg-2); border-radius: var(--radius); padding: clamp(1.5rem, 3vw, 2.4rem); }
+.quote-mark { font-family: var(--serif); font-size: 5.5rem; line-height: 1; height: 2.6rem; color: var(--magenta); margin-bottom: .6rem; }
+.quote blockquote { margin: 0 0 1.8rem; font-size: clamp(1.05rem, 1.35vw, 1.2rem); line-height: 1.55; }
+.quote blockquote p + p { margin-top: .9em; }
+.quote-by { margin-top: auto; padding-top: 1.3rem; border-top: 1px solid var(--line); display: flex; align-items: center; gap: .9rem; }
+.quote-av { flex: none; width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center; background: var(--yellow); color: #000; font-family: var(--mono); font-size: .9rem; letter-spacing: .04em; }
+.quote-who { display: grid; gap: .1rem; min-width: 0; }
+.quote-who strong { font-weight: 600; }
+.quote-role { color: var(--muted); font-size: .92rem; }
+.quote-rel { font-family: var(--mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin-top: .15rem; }
+@media (max-width: 760px) { .quotes { grid-template-columns: 1fr; } }
+
 /* ---------- Herramientas ---------- */
 .skills { display: grid; }
 .skill-row { display: grid; grid-template-columns: 220px 1fr; gap: 1rem; padding-block: 1rem; border-top: 1px solid var(--line); align-items: baseline; }
