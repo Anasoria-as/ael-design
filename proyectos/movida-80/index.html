@@ -152,7 +152,7 @@
      Las visitas de Ana no cuentan: anasoriaael.com/?soy-ana marca este dispositivo
      y anasoriaael.com/?no-soy-ana lo desmarca. */
   (function () {
-    var TOKEN = '';   // token de Cloudflare → Web Analytics (vacío = contador apagado)
+    var TOKEN = '99f17e9b26ac4660b8db816873d00c22';   // token de Cloudflare → Web Analytics (vacío = contador apagado)
     try {
       var q = location.search;
       if (/[?&](no-)?soy-ana\b/.test(q)) {
@@ -164,7 +164,7 @@
     } catch (e) {}
     if (!TOKEN || location.hostname.indexOf('anasoriaael.com') === -1) return;
     var s = document.createElement('script');
-    s.defer = true;
+    s.type = 'module';   // igual que el código que da Cloudflare
     s.src = 'https://static.cloudflareinsights.com/beacon.min.js';
     s.setAttribute('data-cf-beacon', JSON.stringify({ token: TOKEN }));
     document.head.appendChild(s);
