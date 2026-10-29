@@ -8,22 +8,25 @@
     "web_preview": {
       "url": "vaukura.com",
       "desktop": [
-        "assets/img/proyectos/web/vaukura-web-escritorio-01.jpg",
-        "assets/img/proyectos/web/vaukura-web-escritorio-02.jpg",
-        "assets/img/proyectos/web/vaukura-web-escritorio-03.jpg",
-        "assets/img/proyectos/web/vaukura-web-escritorio-04.jpg",
-        "assets/img/proyectos/web/vaukura-web-escritorio-05.jpg"
+        "assets/img/proyectos/web/vaukura-figma-escritorio-01.jpg",
+        "assets/img/proyectos/web/vaukura-figma-escritorio-02.jpg",
+        "assets/img/proyectos/web/vaukura-figma-escritorio-03.jpg",
+        "assets/img/proyectos/web/vaukura-figma-escritorio-04.jpg",
+        "assets/img/proyectos/web/vaukura-figma-escritorio-05.jpg"
       ],
       "mobile": [
-        "assets/img/proyectos/web/vaukura-web-movil-01.jpg",
-        "assets/img/proyectos/web/vaukura-web-movil-02.jpg",
-        "assets/img/proyectos/web/vaukura-web-movil-03.jpg",
-        "assets/img/proyectos/web/vaukura-web-movil-04.jpg",
-        "assets/img/proyectos/web/vaukura-web-movil-05.jpg",
-        "assets/img/proyectos/web/vaukura-web-movil-06.jpg"
+        "assets/img/proyectos/web/vaukura-figma-movil-01.jpg",
+        "assets/img/proyectos/web/vaukura-figma-movil-02.jpg",
+        "assets/img/proyectos/web/vaukura-figma-movil-03.jpg",
+        "assets/img/proyectos/web/vaukura-figma-movil-04.jpg",
+        "assets/img/proyectos/web/vaukura-figma-movil-05.jpg",
+        "assets/img/proyectos/web/vaukura-figma-movil-06.jpg"
       ]
     },
     "gallery": [
+      "assets/img/proyectos/vaukura-figma-menu.jpg",
+      "assets/img/proyectos/vaukura-figma-categoria.jpg",
+      "assets/img/proyectos/vaukura-figma-producto.jpg",
       "assets/img/proyectos/vaukura-logo-construccion.jpg",
       "assets/img/proyectos/vaukura-logo-v.jpg",
       "assets/img/proyectos/vaukura-logo-colores.jpg",
@@ -94,6 +97,16 @@
         "text": {
           "es": "Diseñé en Figma la estructura y la interfaz completas de la web y coordiné su implementación con el equipo de desarrollo externo. En el día a día decidía cómo se presentaba cada producto: el orden de las fotos, qué cualidades destacar y el SEO on-page de cada ficha.",
           "en": "I designed the full structure and interface of the site in Figma and coordinated its implementation with the external development team. Day to day, I decided how each product was presented: photo order, which qualities to highlight and the on-page SEO of each listing."
+        }
+      },
+      {
+        "title": {
+          "es": "Del Figma a la web",
+          "en": "From Figma to the website"
+        },
+        "text": {
+          "es": "Diseñé en Figma todas las plantillas de la tienda antes de pasarlas a desarrollo: la home, el menú con todo el árbol de categorías, las páginas de categoría con accesos visuales a cada subcategoría y filtros, y la ficha de producto con galería, variantes de color y tamaño, precios por volumen, medidas y productos para combinar. Al final de la página puedes ver algunas de las pantallas originales.",
+          "en": "I designed every template of the store in Figma before handing it over to development: the home page, the menu with the full category tree, category pages with visual shortcuts to each subcategory and filters, and the product page with gallery, colour and size variants, volume pricing, dimensions and products to pair with. Some of the original screens are at the end of the page."
         }
       },
       {

@@ -2,18 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://anasoriaael.com/</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <image:image><image:loc>https://anasoriaael.com/assets/img/og-ael.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://anasoriaael.com/sobre-mi/</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <image:image><image:loc>https://anasoriaael.com/assets/img/ana.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://anasoriaael.com/proyectos/vaukura/</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <image:image><image:loc>https://anasoriaael.com/assets/img/proyectos/vaukura.jpg</image:loc></image:image>
+    <image:image><image:loc>https://anasoriaael.com/assets/img/proyectos/vaukura-figma-menu.jpg</image:loc></image:image>
+    <image:image><image:loc>https://anasoriaael.com/assets/img/proyectos/vaukura-figma-categoria.jpg</image:loc></image:image>
+    <image:image><image:loc>https://anasoriaael.com/assets/img/proyectos/vaukura-figma-producto.jpg</image:loc></image:image>
     <image:image><image:loc>https://anasoriaael.com/assets/img/proyectos/vaukura-logo-construccion.jpg</image:loc></image:image>
     <image:image><image:loc>https://anasoriaael.com/assets/img/proyectos/vaukura-logo-v.jpg</image:loc></image:image>
     <image:image><image:loc>https://anasoriaael.com/assets/img/proyectos/vaukura-logo-colores.jpg</image:loc></image:image>
@@ -22,18 +25,18 @@
   </url>
   <url>
     <loc>https://anasoriaael.com/proyectos/cashdisplay/</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <image:image><image:loc>https://anasoriaael.com/assets/img/proyectos/cashdisplay.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://anasoriaael.com/proyectos/eventos-ferias/</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <image:image><image:loc>https://anasoriaael.com/assets/img/proyectos/eventos-ferias.jpg</image:loc></image:image>
     <image:image><image:loc>https://anasoriaael.com/assets/img/proyectos/eventos-ferias-stand.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://anasoriaael.com/proyectos/coches-eventos/</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <image:image><image:loc>https://anasoriaael.com/assets/img/proyectos/coches-eventos.jpg</image:loc></image:image>
     <image:image><image:loc>https://anasoriaael.com/assets/img/proyectos/coches-eventos-flota.jpg</image:loc></image:image>
     <image:image><image:loc>https://anasoriaael.com/assets/img/proyectos/coches-eventos-detalle.jpg</image:loc></image:image>
@@ -45,12 +48,12 @@
   </url>
   <url>
     <loc>https://anasoriaael.com/proyectos/ecommerce-mobiliario/</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <image:image><image:loc>https://anasoriaael.com/assets/img/proyectos/ecommerce-mobiliario.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://anasoriaael.com/proyectos/books-ia/</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <image:image><image:loc>https://anasoriaael.com/assets/img/proyectos/books-ia.jpg</image:loc></image:image>
     <image:image><image:loc>https://anasoriaael.com/assets/img/proyectos/books-ia-maren-ia.jpg</image:loc></image:image>
     <image:image><image:loc>https://anasoriaael.com/assets/img/proyectos/books-ia-aime-ia.jpg</image:loc></image:image>
@@ -61,7 +64,7 @@
   </url>
   <url>
     <loc>https://anasoriaael.com/proyectos/movida-80/</loc>
-    <lastmod>2026-10-28</lastmod>
+    <lastmod>2026-10-29</lastmod>
     <image:image><image:loc>https://anasoriaael.com/assets/img/proyectos/movida-80.jpg</image:loc></image:image>
     <image:image><image:loc>https://anasoriaael.com/assets/img/proyectos/movida-80-1.jpg</image:loc></image:image>
     <image:image><image:loc>https://anasoriaael.com/assets/img/proyectos/movida-80-2.jpg</image:loc></image:image>
