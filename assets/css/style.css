@@ -343,9 +343,19 @@ ul, ol { margin: 0; padding: 0; }
 
 /* Recomendaciones: tarjetas con comilla rosa; el nombre siempre abajo aunque un texto sea más largo */
 .quotes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1rem, 2vw, 1.5rem); }
+.quotes > .quote:last-child:nth-child(odd) { grid-column: 1 / -1; }          /* si sobra una, ocupa la fila entera */
+@media (min-width: 1100px) {                                                     /* con tres: tres columnas */
+  .quotes[data-n="3"] { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .quotes[data-n="3"] > .quote:last-child { grid-column: auto; }
+}
 .quote { margin: 0; display: flex; flex-direction: column; background: var(--bg-2); border-radius: var(--radius); padding: clamp(1.5rem, 3vw, 2.4rem); }
+@supports (grid-template-rows: subgrid) {                                        /* comilla, texto y firma alineados entre tarjetas */
+  .quote { display: grid; grid-row: span 3; grid-template-rows: subgrid; row-gap: 0; }
+  .quote .quote-by { margin-top: 0; }
+}
 .quote-mark { font-family: var(--serif); font-size: 5.5rem; line-height: 1; height: 2.6rem; color: var(--magenta); margin-bottom: .6rem; }
-.quote blockquote { margin: 0 0 1.8rem; font-size: clamp(1.05rem, 1.35vw, 1.2rem); line-height: 1.55; }
+.quote blockquote { margin: 0 0 1.8rem; max-width: 68ch; font-size: clamp(1.05rem, 1.35vw, 1.2rem); line-height: 1.55; }
+.quotes[data-n="3"] .quote blockquote { font-size: clamp(1.02rem, 1.15vw, 1.12rem); }
 .quote blockquote p + p { margin-top: .9em; }
 .quote-by { margin-top: auto; padding-top: 1.3rem; border-top: 1px solid var(--line); display: flex; align-items: center; gap: .9rem; }
 .quote-av { flex: none; width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center; background: var(--yellow); color: #000; font-family: var(--mono); font-size: .9rem; letter-spacing: .04em; }

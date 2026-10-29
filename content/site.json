@@ -199,8 +199,8 @@
     {
       "name": "Yaiza Molina",
       "role": {
-        "es": "Diseñadora creativa y directora de arte",
-        "en": "Creative designer & art director"
+        "es": "Diseñadora gráfica e-commerce",
+        "en": "E-commerce graphic designer"
       },
       "relation": {
         "es": "Mismo equipo · Grupo Herme",
@@ -216,6 +216,29 @@
           "Ana is an excellent professional: resourceful, effective and with a razor-sharp eye for design. She has a special ability to spot what works, take care of every detail and add value to any project.",
           "Working with her meant having the kind of tandem partner who makes a difference: for her judgement, her agility and the confidence she brings to teamwork.",
           "Without a doubt, a very talented professional and a great colleague who is a pleasure to work with."
+        ]
+      }
+    },
+    {
+      "name": "Daniel Jiménez Salmerón",
+      "role": {
+        "es": "Director de proyecto",
+        "en": "Project director"
+      },
+      "relation": {
+        "es": "Otro equipo · Grupo Herme",
+        "en": "Different team · Grupo Herme"
+      },
+      "text": {
+        "es": [
+          "Coincidí con Ana en Grupo Herme y, aunque trabajábamos en departamentos diferentes, las veces que colaboramos siempre me llamó la atención su criterio visual y su capacidad para entender cada proyecto en su conjunto.",
+          "Es clara al comunicar, resolutiva y muy fácil trabajar con ella.",
+          "Una gran profesional y con un futuro brillante."
+        ],
+        "en": [
+          "I worked with Ana at Grupo Herme and, although we were in different departments, whenever we collaborated I was struck by her visual judgement and her ability to understand each project as a whole.",
+          "She communicates clearly, gets things done and is very easy to work with.",
+          "A great professional with a bright future ahead."
         ]
       }
     },

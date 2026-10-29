@@ -197,7 +197,7 @@
       '<div class="sec-head"><h2 class="h2">' + esc(ui('testimonials_title')) + '</h2>' +
         (SITE.linkedin ? '<a class="btn btn-ghost btn-sm" href="' + esc(li) + '" target="_blank" rel="noopener">' + esc(ui('testimonials_link')) + ' <span class="arr">↗</span></a>' : '') +
       '</div>' +
-      '<div class="quotes">' + list.map(function (q) {
+      '<div class="quotes" data-n="' + list.length + '">' + list.map(function (q) {
         var original = q.original || 'es';
         var translated = lang !== original && q.text && arr(q.text[lang]).length;
         var initials = String(q.name || '').split(/\s+/).filter(Boolean).slice(0, 2).map(function (w) { return w.charAt(0); }).join('');
