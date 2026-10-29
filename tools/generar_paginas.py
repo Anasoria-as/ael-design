@@ -244,4 +244,6 @@ def main():
 
 
 if __name__ == '__main__':
+    if 'uc-main' in (ROOT / 'index.html').read_text(encoding='utf-8'):
+        sys.exit('La web está en construcción: quítalo antes (git revert del commit «Web en construcción»).')
     main()

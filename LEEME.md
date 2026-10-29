@@ -94,3 +94,11 @@ Cada proyecto tiene su propia dirección, por ejemplo `anasoriaael.com/proyectos
 - Si añades o cambias un proyecto desde el panel, su página **funciona al momento** (la web la pinta con los textos nuevos).
 - Para que Google y WhatsApp vean también el título, la descripción y la foto nuevos, hay que volver a generar las páginas: pídeselo a Claude.
 - El script también pone un número de versión a `style.css` y `app.js` en cada página, para que los navegadores no se queden con una copia antigua después de publicar.
+
+## Web en construcción
+
+`tools/construccion.py` copia `en-construccion/index.html` encima de la portada, «Sobre mí», cada proyecto y la 404: cualquier dirección de la web muestra «Vuelvo pronto», con tu correo, LinkedIn y los CV.
+
+- Para volver a la web normal se deshace el commit «Web en construcción» (`git revert`), y las páginas vuelven exactamente como estaban: pídeselo a Claude.
+- Mientras está en construcción, `tools/generar_paginas.py` no se ejecuta, para no regenerar la web encima por error.
+- Los cambios que hagas en el panel se guardan, pero no se ven hasta quitar la página en construcción.
