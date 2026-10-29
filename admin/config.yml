@@ -888,6 +888,12 @@ singletons:
       - name: testimonials_translated
         label: 'Recomendaciones: aviso de texto traducido'
         widget: string
+      - name: testimonials_prev
+        label: 'Recomendaciones: flecha anterior (para lectores de pantalla)'
+        widget: string
+      - name: testimonials_next
+        label: 'Recomendaciones: flecha siguiente (para lectores de pantalla)'
+        widget: string
       - name: skills_title
         label: Título de Herramientas
         widget: string
@@ -1030,6 +1036,12 @@ singletons:
         widget: string
       - name: testimonials_translated
         label: 'Recomendaciones: aviso de texto traducido'
+        widget: string
+      - name: testimonials_prev
+        label: 'Recomendaciones: flecha anterior (para lectores de pantalla)'
+        widget: string
+      - name: testimonials_next
+        label: 'Recomendaciones: flecha siguiente (para lectores de pantalla)'
         widget: string
       - name: skills_title
         label: Título de Herramientas

@@ -197,7 +197,8 @@
       '<div class="sec-head"><h2 class="h2">' + esc(ui('testimonials_title')) + '</h2>' +
         (SITE.linkedin ? '<a class="btn btn-ghost btn-sm" href="' + esc(li) + '" target="_blank" rel="noopener">' + esc(ui('testimonials_link')) + ' <span class="arr">↗</span></a>' : '') +
       '</div>' +
-      '<div class="quotes" data-n="' + list.length + '">' + list.map(function (q) {
+      '<div class="quotes-slider">' +
+      '<div class="quotes" tabindex="0" role="region" aria-label="' + esc(ui('testimonials_title')) + '">' + list.map(function (q) {
         var original = q.original || 'es';
         var translated = lang !== original && q.text && arr(q.text[lang]).length;
         var initials = String(q.name || '').split(/\s+/).filter(Boolean).slice(0, 2).map(function (w) { return w.charAt(0); }).join('');
@@ -206,11 +207,17 @@
           '<blockquote>' + arr(q.text).map(function (p) { return '<p>' + esc(p) + '</p>'; }).join('') + '</blockquote>' +
           '<figcaption class="quote-by"><span class="quote-av" aria-hidden="true">' + esc(initials) + '</span>' +
             '<span class="quote-who"><strong>' + esc(q.name) + '</strong>' +
-            (t(q.role) ? '<span class="quote-role">' + esc(t(q.role)) + '</span>' : '') +
+            (t(q.role) ? '<span class="quote-role">' + esc(t(q.role)).replace(/(\w)-(\w)/g, '$1&#8209;$2') + '</span>' : '') +   // «e-commerce» no se parte
             (t(q.relation) || translated ? '<span class="quote-rel">' + esc(t(q.relation)) + (t(q.relation) && translated ? ' · ' : '') + (translated ? esc(ui('testimonials_translated')) : '') + '</span>' : '') +
           '</span></figcaption>' +
         '</figure>';
       }).join('') + '</div>' +
+      '<div class="quotes-nav"><span class="quotes-bar" aria-hidden="true"><i></i></span>' +
+        '<div class="quotes-arrows">' +
+          '<button type="button" class="quotes-arrow" data-dir="-1" aria-label="' + esc(ui('testimonials_prev')) + '" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>' +
+          '<button type="button" class="quotes-arrow" data-dir="1" aria-label="' + esc(ui('testimonials_next')) + '"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>' +
+        '</div></div>' +
+      '</div>' +
     '</section>';
   }
 
@@ -419,6 +426,7 @@
 
     renderFooter();
     applyI18nStatic();
+    updateAllQuotes();
 
     // navegación activa
     document.querySelectorAll('.nav a').forEach(function (a) {
@@ -566,6 +574,39 @@
     var box = e.target.closest('.compare');
     box.style.setProperty('--pos', e.target.value + '%');
     compareSide(box, +e.target.value);
+  });
+
+  /* ---------- carrusel de recomendaciones ---------- */
+  // Flechas y barra solo si hay más tarjetas de las que caben; cada flecha avanza una tarjeta
+  function updateQuotes(slider) {
+    var s = slider && slider.querySelector('.quotes');
+    if (!s) return;
+    var max = s.scrollWidth - s.clientWidth;
+    slider.classList.toggle('is-scrollable', max > 4);
+    var prev = slider.querySelector('.quotes-arrow[data-dir="-1"]'), next = slider.querySelector('.quotes-arrow[data-dir="1"]');
+    if (prev) prev.disabled = s.scrollLeft <= 4;
+    if (next) next.disabled = s.scrollLeft >= max - 4;
+    var bar = slider.querySelector('.quotes-bar i');
+    if (bar && s.scrollWidth) {
+      bar.style.width = (s.clientWidth / s.scrollWidth * 100) + '%';
+      bar.style.left = (s.scrollLeft / s.scrollWidth * 100) + '%';
+    }
+  }
+  function updateAllQuotes() { document.querySelectorAll('.quotes-slider').forEach(updateQuotes); }
+  document.addEventListener('scroll', function (e) {
+    var el = e.target;
+    if (el && el.classList && el.classList.contains('quotes')) updateQuotes(el.closest('.quotes-slider'));
+  }, true);
+  window.addEventListener('resize', updateAllQuotes);
+  window.addEventListener('load', updateAllQuotes);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(updateAllQuotes);
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest('.quotes-arrow');
+    if (!b) return;
+    var s = b.closest('.quotes-slider').querySelector('.quotes');
+    var card = s.querySelector('.quote');
+    var step = card ? card.getBoundingClientRect().width + (parseFloat(getComputedStyle(s).columnGap) || 0) : s.clientWidth;
+    s.scrollBy({ left: step * Number(b.getAttribute('data-dir')), behavior: reduceMotion ? 'auto' : 'smooth' });
   });
 
   /* ---------- copiar email ---------- */

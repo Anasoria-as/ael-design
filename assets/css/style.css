@@ -341,21 +341,28 @@ ul, ol { margin: 0; padding: 0; }
 .strength p { color: var(--muted); max-width: 52ch; }
 @media (max-width: 760px) { .strengths { grid-template-columns: 1fr; } }
 
-/* Recomendaciones: tarjetas con comilla rosa; el nombre siempre abajo aunque un texto sea más largo */
-.quotes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(1rem, 2vw, 1.5rem); }
-.quotes > .quote:last-child:nth-child(odd) { grid-column: 1 / -1; }          /* si sobra una, ocupa la fila entera */
-@media (min-width: 1100px) {                                                     /* con tres: tres columnas */
-  .quotes[data-n="3"] { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .quotes[data-n="3"] > .quote:last-child { grid-column: auto; }
+/* Recomendaciones: carrusel en una fila. En escritorio caben tres; en tableta y móvil se desliza
+   (la siguiente tarjeta asoma por la derecha) y debajo salen las flechas y la barra de progreso */
+.quotes {
+  --per: 3;                                   /* tarjetas que se ven a la vez */
+  --qgap: clamp(1rem, 2vw, 1.5rem);
+  display: grid; grid-auto-flow: column; grid-template-rows: auto auto auto;
+  grid-auto-columns: calc((100% - (var(--per) - 1) * var(--qgap)) / var(--per));
+  column-gap: var(--qgap); row-gap: 0;
+  overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; scrollbar-width: none;
+  margin-inline: calc(-1 * var(--gutter)); padding-inline: var(--gutter); scroll-padding-inline: var(--gutter);
 }
-.quote { margin: 0; display: flex; flex-direction: column; background: var(--bg-2); border-radius: var(--radius); padding: clamp(1.5rem, 3vw, 2.4rem); }
+.quotes::-webkit-scrollbar { display: none; }
+.quotes:focus-visible { outline-offset: -2px; }
+@media (max-width: 1099px) { .quotes { --per: 2.15; } }
+@media (max-width: 700px) { .quotes { --per: 1.12; } }
+.quote { margin: 0; grid-row: span 3; display: flex; flex-direction: column; scroll-snap-align: start; background: var(--bg-2); border-radius: var(--radius); padding: clamp(1.5rem, 3vw, 2.4rem); }
 @supports (grid-template-rows: subgrid) {                                        /* comilla, texto y firma alineados entre tarjetas */
-  .quote { display: grid; grid-row: span 3; grid-template-rows: subgrid; row-gap: 0; }
+  .quote { display: grid; grid-template-rows: subgrid; row-gap: 0; }
   .quote .quote-by { margin-top: 0; }
 }
 .quote-mark { font-family: var(--serif); font-size: 5.5rem; line-height: 1; height: 2.6rem; color: var(--magenta); margin-bottom: .6rem; }
-.quote blockquote { margin: 0 0 1.8rem; max-width: 68ch; font-size: clamp(1.05rem, 1.35vw, 1.2rem); line-height: 1.55; }
-.quotes[data-n="3"] .quote blockquote { font-size: clamp(1.02rem, 1.15vw, 1.12rem); }
+.quote blockquote { margin: 0 0 1.8rem; font-size: clamp(1.02rem, 1.15vw, 1.12rem); line-height: 1.55; }
 .quote blockquote p + p { margin-top: .9em; }
 .quote-by { margin-top: auto; padding-top: 1.3rem; border-top: 1px solid var(--line); display: flex; align-items: center; gap: .9rem; }
 .quote-av { flex: none; width: 48px; height: 48px; border-radius: 50%; display: grid; place-items: center; background: var(--yellow); color: #000; font-family: var(--mono); font-size: .9rem; letter-spacing: .04em; }
@@ -363,7 +370,16 @@ ul, ol { margin: 0; padding: 0; }
 .quote-who strong { font-weight: 600; }
 .quote-role { color: var(--muted); font-size: .92rem; }
 .quote-rel { font-family: var(--mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin-top: .15rem; }
-@media (max-width: 760px) { .quotes { grid-template-columns: 1fr; } }
+/* flechas y barra: solo cuando hay más tarjetas de las que caben */
+.quotes-nav { display: none; align-items: center; gap: 1.2rem; margin-top: 1.4rem; }
+.quotes-slider.is-scrollable .quotes-nav { display: flex; }
+.quotes-bar { flex: 1; position: relative; height: 2px; background: var(--line); border-radius: 2px; overflow: hidden; }
+.quotes-bar i { position: absolute; top: 0; bottom: 0; left: 0; width: 30%; background: var(--magenta); border-radius: 2px; }
+.quotes-arrows { display: flex; gap: .5rem; }
+.quotes-arrow { width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--line-strong); background: transparent; color: var(--ink); display: grid; place-items: center; cursor: pointer; }
+.quotes-arrow svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.quotes-arrow:hover:not(:disabled) { background: var(--ink); color: var(--bg); }
+.quotes-arrow:disabled { opacity: .28; cursor: default; }
 
 /* ---------- Herramientas ---------- */
 .skills { display: grid; }
