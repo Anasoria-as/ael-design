@@ -170,8 +170,10 @@
       '</section>' +
       '<div class="tape" aria-hidden="true"><div class="tape-track">' + marquee + '</div></div>' +
       '<section class="section wrap" id="proyectos">' +
-        '<div class="sec-head"><h2 class="h2">' + esc(ui('projects_title')) + '<sup>(' + count + ')</sup></h2></div>' +
-        projectsIntro() +
+        '<div class="proy-side">' +
+          '<div class="sec-head"><h2 class="h2">' + esc(ui('projects_title')) + '<sup>(' + count + ')</sup></h2></div>' +
+          projectsIntro() +
+        '</div>' +
         '<div class="projects">' + featured.concat(rest).map(projectCard).join('') + '</div>' +
       '</section>' +
       '<section class="section wrap" id="aporto" style="padding-top:0">' +
@@ -230,7 +232,7 @@
 
   function viewAbout() {
     var a = SITE.about;
-    var logo = document.querySelector('.brand .logo');   // mismo logo SVG de la cabecera
+    var logo = document.querySelector('.brand .logo-word');   // mismo logo de la cabecera
     var photo = a.photo
       ? '<img src="' + esc(a.photo) + '" alt="Ana Soria Ael">'
       : '<div class="portrait-logo">' + (logo ? logo.outerHTML : '') + '</div>';
@@ -489,39 +491,19 @@
     });
   });
 
-  /* ---------- tema claro / oscuro ---------- */
-  function currentTheme() {
-    var t = root.getAttribute('data-theme');
-    if (t === 'light' || t === 'dark') return t;
-    return window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-  }
-  function syncThemeButtons() {
-    var th = currentTheme();
-    document.querySelectorAll('[data-theme-btn]').forEach(function (b) {
-      b.setAttribute('aria-pressed', String(b.getAttribute('data-theme-btn') === th));
-    });
-  }
-  document.querySelectorAll('[data-theme-btn]').forEach(function (b) {
-    b.addEventListener('click', function () {
-      var th = b.getAttribute('data-theme-btn');
-      root.setAttribute('data-theme', th); store('ael-theme', th); syncThemeButtons();
-    });
-  });
-  if (window.matchMedia) {
-    var mq = matchMedia('(prefers-color-scheme: dark)');
-    if (mq.addEventListener) mq.addEventListener('change', syncThemeButtons);
-  }
-  syncThemeButtons();
-
   /* ---------- menú móvil ---------- */
   var menuBtn = document.getElementById('menu-btn');
   var nav = document.getElementById('nav');
-  function closeMenu() { nav.classList.remove('open'); menuBtn.setAttribute('aria-expanded', 'false'); }
+  // al abrirlo, el fondo se difumina y se oscurece (clase menu-open en <html>)
+  function closeMenu() { nav.classList.remove('open'); root.classList.remove('menu-open'); menuBtn.setAttribute('aria-expanded', 'false'); }
   menuBtn.addEventListener('click', function () {
     var open = nav.classList.toggle('open');
+    root.classList.toggle('menu-open', open);
     menuBtn.setAttribute('aria-expanded', String(open));
   });
-  nav.addEventListener('click', function (e) { if (e.target.closest('a')) closeMenu(); });
+  // tocar un enlace o el fondo difuminado cierra el menú
+  nav.addEventListener('click', function (e) { if (e.target.closest('a') || e.target === nav) closeMenu(); });
+  window.addEventListener('resize', function () { if (window.innerWidth > 820) closeMenu(); });
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMenu(); });
 
   /* ---------- barra con borde al hacer scroll ---------- */

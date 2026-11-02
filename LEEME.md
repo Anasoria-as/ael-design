@@ -113,3 +113,9 @@ Sin cookies ni datos personales: Cloudflare muestra visitas, páginas vistas, pa
 
 - El token de Cloudflare va en `index.html` (línea `var TOKEN = '...'`); el generador lo copia a todas las páginas. También está en `en-construccion/index.html`. Si se deja vacío, el contador se apaga.
 - Para que tus visitas no cuenten, abre **anasoriaael.com/?soy-ana** una vez en cada navegador que uses (móvil, ordenador y también el navegador interno de LinkedIn o Instagram, que va aparte). Para volver a contarte: **anasoriaael.com/?no-soy-ana**.
+
+## Diseño actual (noviembre 2026)
+
+Colores al estilo de monos.pro: amarillo #FFF480, lila #A5A1FF, rosa #FAADD6, coral #FFACAA y lima #DBFF9C, sobre crema #FBF9F4 con bandas blancas y secciones oscuras. Sin modo oscuro. Logo «Ael» con la tipografía de los titulares y el punto amarillo. Los estilos del diseño están al final de `assets/css/style.css` («Tema pastel»).
+
+La versión anterior (amarillo y rosa, con modo claro y oscuro) está guardada en la rama `version-1-amarillo-rosa` de GitHub: se puede recuperar entera cuando quieras.

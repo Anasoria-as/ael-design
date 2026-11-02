@@ -1,6 +1,9 @@
 /* =========================================================
    ael-design · Portfolio de Ana Soria Ael
-   Colores de marca: amarillo #F8E006 · magenta #E51974 · negro · blanco
+   Base de la web. El diseño actual (pasteles al estilo Monos, sin modo oscuro)
+   está al final, en «Tema pastel»: sus colores mandan sobre los de aquí.
+   La versión anterior (amarillo y rosa, con modo oscuro) está guardada en la rama
+   version-1-amarillo-rosa de GitHub.
    ========================================================= */
 
 /* ---------- Tokens (tema claro por defecto) ---------- */
@@ -38,51 +41,6 @@
   --radius: 18px;
   --ease: cubic-bezier(.2, .8, .2, 1);
   color-scheme: light;
-}
-
-/* ---------- Tema oscuro: sistema (si no se ha elegido claro) ---------- */
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #000000;
-    --bg-2: #121211;
-    --ink: #F4F3EC;
-    --muted: #A7A59D;
-    --line: rgba(244, 243, 236, .14);
-    --line-strong: #F4F3EC;
-    --btn-bg: #F8E006;
-    --btn-ink: #000000;
-    --chip-bg: #0B0B0A;
-    --topbar-bg: rgba(0, 0, 0, .78);
-    --glow: rgba(229, 25, 116, .42);
-    --glow-blend: screen;
-    --ring: #F8E006;
-    --cursor-dot: #F8E006;
-    --logo-dot: #F8E006;
-    --ring-hover: #F8E006;
-    --shadow: 0 24px 48px -28px rgba(0, 0, 0, .9);
-    color-scheme: dark;
-  }
-}
-/* ---------- Tema oscuro elegido con el botón ---------- */
-:root[data-theme="dark"] {
-  --bg: #000000;
-  --bg-2: #121211;
-  --ink: #F4F3EC;
-  --muted: #A7A59D;
-  --line: rgba(244, 243, 236, .14);
-  --line-strong: #F4F3EC;
-  --btn-bg: #F8E006;
-  --btn-ink: #000000;
-  --chip-bg: #0B0B0A;
-  --topbar-bg: rgba(0, 0, 0, .78);
-  --glow: rgba(229, 25, 116, .42);
-  --glow-blend: screen;
-  --ring: #F8E006;
-  --cursor-dot: #F8E006;
-  --logo-dot: #F8E006;
-  --ring-hover: #F8E006;
-  --shadow: 0 24px 48px -28px rgba(0, 0, 0, .9);
-  color-scheme: dark;
 }
 
 /* ---------- Base ---------- */
@@ -158,8 +116,6 @@ ul, ol { margin: 0; padding: 0; }
 }
 .seg button:hover { color: var(--ink); }
 .seg button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
-.seg-icons svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; }
-.seg-icons button[data-theme-btn="dark"] svg { fill: currentColor; stroke: none; }
 
 .menu-btn {
   display: none; width: 40px; height: 40px; border-radius: 50%;
@@ -655,3 +611,420 @@ ul, ol { margin: 0; padding: 0; }
 
 /* Páginas de proyecto ya pintadas en español: si la visita es en inglés, se esperan los textos en inglés */
 html[lang="en"] #app[data-prerender] { visibility: hidden; }
+
+/* =========================================================
+   Tema pastel (nov 2026), al estilo de monos.pro
+   Amarillo #FFF480 · lila #A5A1FF · rosa #FAADD6 · coral #FFACAA · lima #DBFF9C
+   Fondo crema #FBF9F4, bandas blancas y secciones oscuras #1B1B1F.
+   «Pegatina»: borde negro de 1px que abajo mide 6px, solo en lo destacado.
+   Proyectos como carpetas que se apilan al bajar. Logo «Ael» con el punto amarillo.
+   ========================================================= */
+/* Propuesta E · Al estilo de Monos sobre el fondo crema de Ana (v2).
+   Base neutra (crema y bandas blancas), amarillo protagonista, «pegatina» (borde negro fino
+   que abajo se hace grueso) solo en los botones principales y las tarjetas destacadas,
+   proyectos como carpetas que se apilan al bajar, secciones oscuras para proyectos y contacto.
+   Misma tipografía. Sin modo oscuro. Sin botones negros. */
+:root {
+  --y: #FFF480;          /* amarillo principal (el de Monos) */
+  --y-soft: #FFF9B8;
+  --blue: #C7DFF9;
+  --peach: #F9D9C3;
+  --pink: #F7C4D8;
+  --dark: #1B1B1F;
+  --dark-2: #26262B;
+  --dark-line: #34343B;
+  --line-soft: #D9D9D4;
+
+  --yellow: var(--y);
+  --magenta: var(--y);
+  --black: #1B1B1F;
+  --bg: #FBF9F4;
+  --bg-2: #FFFFFF;
+  --ink: #1B1B1F;
+  --muted: #5F6166;
+  --line: var(--line-soft);
+  --line-strong: #1B1B1F;
+  --btn-bg: var(--y);
+  --btn-ink: #1B1B1F;
+  --chip-bg: #FFFFFF;
+  --topbar-bg: rgba(251, 249, 244, .88);
+  --glow: rgba(255, 244, 128, .5);
+  --glow-blend: multiply;
+  --ring: #1B1B1F;
+  --cursor-dot: #1B1B1F;
+  --logo-dot: #1B1B1F;
+  --ring-hover: #1B1B1F;
+  --radius: 24px;
+  color-scheme: light;
+}
+/* la «pegatina» de Monos: borde de 1px que abajo mide 6px */
+.btn-primary, .stat-card, .cv-card, .cv-banner, .case-stat, .quote:nth-child(3n+1), .quote:nth-child(3n+2) {
+  border: 1px solid var(--ink) !important; border-bottom-width: 6px !important;
+}
+
+.logo-letters { fill: var(--ink); }
+:focus-visible { outline-color: var(--ink); }
+::selection { background: var(--y); color: var(--ink); }
+.slash::before, .about-kicker span, .h2 sup, .card-kind { color: var(--muted); }
+
+/* rotulador amarillo detrás de las palabras clave */
+.role mark { background: var(--y); padding: .02em .22em .06em; border-radius: 4px; }
+.about-title strong { color: var(--ink); background: var(--y); padding: 0 .08em; border-radius: 6px; }
+.mail { background: linear-gradient(transparent 58%, var(--y) 58%, var(--y) 96%, transparent 96%); }
+.sq { background: var(--y); box-shadow: 0 0 0 2px var(--ink) inset; }
+.status { background: #fff; }
+.status i { background: var(--y); box-shadow: 0 0 0 1.5px var(--ink) inset; }
+.bullets li::before { background: var(--y); box-shadow: 0 0 0 1.5px var(--ink) inset; }
+.about-quote { border-left: 4px solid var(--y); }
+.nav a[aria-current="page"]::after { background: var(--y); height: 4px; border-radius: 2px; }
+.hero-top .mono.muted { background: var(--y); color: var(--ink); border: 1px solid var(--ink); border-radius: 999px; padding: .3rem .8rem; transform: rotate(-3deg); }
+
+/* botones: el principal con pegatina; los demás solo con borde fino */
+.btn-primary { background: var(--y); color: var(--ink); padding-block: 1rem .8rem; }
+.btn-primary:hover { background: var(--y); color: var(--ink); transform: translateY(2px); border-bottom-width: 4px !important; }
+.btn-ghost { background: transparent; border-color: var(--ink); }
+.btn-ghost:hover { background: #fff; color: var(--ink); }
+.seg { border-color: var(--line-soft); background: #fff; }
+.seg button[aria-pressed="true"] { background: var(--y); color: var(--ink); }
+.cv-btn, .cv-banner .cv-btn { background: #fff; color: var(--ink); border: 1px solid var(--ink); }
+.cv-btn:hover, .cv-banner .cv-btn:hover { background: var(--y); color: var(--ink); }
+.cv-btn .code, .cv-banner .cv-btn .code { background: var(--y); color: var(--ink); }
+.copy-btn { background: #fff; }
+.copy-btn:hover { background: var(--y); border-color: var(--ink); }
+.chip:hover { background: var(--y); border-color: var(--ink); color: var(--ink); }
+.quotes-arrow { background: #fff; }
+.quotes-arrow:hover:not(:disabled) { background: var(--y); color: var(--ink); }
+.compare-knob { background: var(--y); box-shadow: 0 0 0 1px var(--ink), 0 8px 20px -8px rgba(0,0,0,.5); }
+.compare[data-side="before"] .compare-tag.is-before,
+.compare[data-side="after"] .compare-tag.is-after { background: var(--y); color: var(--ink); }
+
+/* cabecera */
+.cv-card { background: #fff; }
+
+/* cinta amarilla */
+.tape { background: var(--y); color: var(--ink); border-block: 1px solid var(--ink); }
+.tape-track span::after { background: var(--ink); width: .2em; height: .2em; border-radius: 50%; }
+
+/* bandas de sección a todo el ancho */
+.section { position: relative; isolation: isolate; }
+#proyectos::before, #recomendaciones::before, .contact::before {
+  content: ""; position: absolute; top: 0; bottom: 0; left: calc(50% - 50vw); right: calc(50% - 50vw); z-index: -1;
+}
+#recomendaciones { padding-top: clamp(3.5rem, 8vw, 6.5rem) !important; }
+#recomendaciones::before { background: #fff; }
+
+/* ---------- Proyectos: sección oscura y carpetas que se apilan al bajar ---------- */
+#proyectos::before { background: var(--dark); }
+#proyectos { color: #F4F3EF; }
+.proy-side .h2 { color: #fff; }
+.proy-side .h2 sup { color: #A9AAB0; }
+.proy-side .sec-head { margin-bottom: 1.2rem; }
+.proy-side .bento { display: grid; grid-template-columns: 1fr; gap: 1.6rem; margin: 0; }
+.proy-side .intro-card { order: -1; background: none; border: 0; padding: 0; min-height: 0; gap: .8rem; }
+.proy-side .intro-big { color: #DCDCE0; font-weight: 400; font-size: clamp(1.1rem, 1.6vw, 1.3rem); letter-spacing: -.01em; max-width: 30ch; line-height: 1.45; }
+.proy-side .intro-small { color: #A9AAB0; }
+.proy-side .stat-card { background: var(--y); color: var(--ink); min-height: 0; padding: 1.5rem 1.6rem 1.4rem; border-radius: var(--radius); justify-items: start; text-align: left; place-content: start; max-width: 340px; }
+.proy-side .stat-value { font-size: clamp(3rem, 5vw, 4.2rem); }
+.proy-side .stat-label, .proy-side .stat-text { color: #3E3F44; }
+
+#proyectos .projects { display: grid; grid-template-columns: 1fr; gap: 28px; }
+#proyectos .card {
+  position: sticky; top: calc(96px + var(--i, 0) * 22px);
+  gap: 0; background: var(--dark-2); border: 1px solid var(--dark-line); border-radius: var(--radius); overflow: hidden;
+  box-shadow: 0 -12px 40px -24px rgba(0, 0, 0, .8);
+}
+#proyectos .card:nth-child(2) { --i: 1; } #proyectos .card:nth-child(3) { --i: 2; } #proyectos .card:nth-child(4) { --i: 3; }
+#proyectos .card:nth-child(5) { --i: 4; } #proyectos .card:nth-child(6) { --i: 5; } #proyectos .card:nth-child(7) { --i: 6; }
+#proyectos .card:nth-child(8) { --i: 7; } #proyectos .card:nth-child(9) { --i: 8; }
+#proyectos .card .cover { border-radius: 0; border: 0; aspect-ratio: 16 / 10.5; }
+#proyectos .card-meta { padding: 18px 22px 22px; }
+#proyectos .card h3 { color: #fff; font-size: clamp(1.6rem, 2.4vw, 2.1rem); }
+#proyectos .card:hover h3 { color: var(--y); }
+#proyectos .card-kind { color: #A9AAB0; }
+#proyectos .pill { background: var(--y); color: var(--ink); }
+#proyectos .card:hover .pill { background: #fff; }
+@media (min-width: 1001px) {
+  #proyectos { display: grid; grid-template-columns: minmax(0, .78fr) minmax(0, 1.22fr); column-gap: clamp(2.5rem, 5vw, 5rem); align-items: start; }
+  .proy-side { position: sticky; top: 110px; }
+}
+@media (max-width: 1000px) {
+  .proy-side { margin-bottom: 2.4rem; }
+  #proyectos .card { top: calc(84px + var(--i, 0) * 14px); }
+  #proyectos .card h3 { font-size: 1.7rem; }
+  #proyectos .card-meta { padding: 16px 18px 20px; }
+}
+
+/* Lo que aporto: tarjetas blancas con un cuadradito de color en cada etiqueta (como los iconos de Monos) */
+.strength { background: #fff; border: 1px solid var(--line-soft); border-radius: var(--radius); padding: 1.5rem 1.6rem 1.8rem; margin-bottom: 1.2rem; }
+.strength .slash { display: inline-flex; align-items: center; gap: .6rem; width: max-content; }
+.strength .slash::before { content: ""; width: 34px; height: 34px; border-radius: 10px; border: 1px solid var(--ink); background: var(--y); }
+.strengths .strength:nth-child(4n+2) .slash::before { background: var(--blue); }
+.strengths .strength:nth-child(4n+3) .slash::before { background: var(--pink); }
+.strengths .strength:nth-child(4n) .slash::before { background: var(--peach); }
+
+/* Recomendaciones: la primera amarilla y la segunda azul con pegatina; la tercera blanca con borde fino */
+.quote { background: #fff; box-shadow: none; border: 1px solid var(--ink); }
+.quote:nth-child(3n+1) { background: var(--y); }
+.quote:nth-child(3n+2) { background: var(--blue); }
+.quote-mark { color: var(--ink); }
+.quote .quote-av { background: #fff; box-shadow: 0 0 0 1px var(--ink) inset; }
+.quote-by { border-top-color: rgba(0, 0, 0, .14); }
+.quotes-bar i { background: var(--ink); }
+
+/* cifras de cada proyecto y caja del CV en Sobre mí */
+.case-stat { background: #fff; }
+.case-stat:first-child { background: var(--y); }
+.cv-banner { background: #fff; }
+
+/* Contacto y pie en oscuro, como el cierre de Monos */
+.contact { border-top: 0; color: #F4F3EF; }
+.contact::before { background: var(--dark); }
+.contact .contact-big { color: #fff; }
+.contact .contact-big .sq { box-shadow: none; }
+.contact .contact-text { color: #A9AAB0; }
+.contact .mail { color: #fff; background: linear-gradient(transparent 62%, rgba(255, 244, 128, .5) 62%, rgba(255, 244, 128, .5) 96%, transparent 96%); }
+.contact .copy-btn { background: transparent; color: #fff; border-color: #55565C; }
+.contact .copy-btn:hover { background: var(--y); color: var(--ink); }
+.contact .btn-ghost { color: #fff; border-color: #55565C; }
+.contact .btn-ghost:hover { background: var(--y); color: var(--ink); border-color: var(--y); }
+.footer { background: var(--dark); border-top: 1px solid #2E2E34; }
+.footer-in { color: #A9AAB0; }
+.footer a:hover { color: var(--y); }
+
+.cursor-ring.hover { background: rgba(255, 244, 128, .35); }
+.cursor-ring.view { background: var(--y); border-color: var(--ink); }
+
+/* Menú del móvil: pantalla completa, fondo difuminado y más oscuro, textos centrados */
+@media (max-width: 820px) {
+  html.menu-open { overflow: hidden; }
+  body::after {
+    content: ""; position: fixed; inset: 0; z-index: 49; pointer-events: none;
+    background: rgba(20, 20, 24, .45);
+    -webkit-backdrop-filter: blur(16px) saturate(1.1); backdrop-filter: blur(16px) saturate(1.1);
+    opacity: 0; transition: opacity .3s;
+  }
+  html.menu-open body::after { opacity: 1; pointer-events: auto; }
+  html.menu-open .topbar { background: var(--bg); -webkit-backdrop-filter: none; backdrop-filter: none; }
+  .nav {
+    position: fixed; top: 72px; left: 0; right: 0; bottom: 0;
+    justify-content: center; align-items: center; gap: .4rem; padding: 0 var(--gutter) 15vh;
+    background: transparent; border: 0;
+  }
+  .nav a { color: #fff; border: 0; text-align: center; padding: .4rem 1rem; font-size: 2.6rem; }
+  .nav a:hover, .nav a[aria-current="page"] { color: var(--y); }
+}
+
+/* La web empieza en blanco y cada apartado cambia de fondo (como Monos):
+   cabecera blanca → cinta amarilla → proyectos oscuro → aporto crema → recomendaciones blanco → herramientas crema → contacto oscuro */
+:root { --topbar-bg: rgba(255, 255, 255, .9); }
+.hero { position: relative; isolation: isolate; }
+.hero::before { content: ""; position: absolute; top: -90px; bottom: 0; left: calc(50% - 50vw); right: calc(50% - 50vw); background: #fff; z-index: -1; }
+.status, .seg, .cv-card { background: #fff; }
+
+/* todas las carpetas igual de altas (si no, la de atrás asoma por debajo al apilarse) */
+#proyectos .projects { grid-auto-rows: 1fr; }
+#proyectos .card-meta { flex: 1; align-content: start; }
+/* subrayado del email en amarillo limpio sobre el fondo oscuro */
+.contact .mail { background: linear-gradient(transparent 86%, var(--y) 86%, var(--y) 98%, transparent 98%); }
+@media (max-width: 600px) {
+  .cv-card .cv-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; }
+  .cv-card .cv-btn { justify-content: center; gap: .4rem; padding: .7rem .4rem; font-size: .72rem; letter-spacing: .04em; }
+}
+
+/* ===== v3 · Más pasteles para resaltar, como hace Monos (amarillo, azul, melocotón; rosa en lo pequeño) ===== */
+/* portada */
+.hero-top .mono.muted { background: var(--blue); }
+.status i { background: var(--pink); }
+.cv-card .cv-btn:nth-child(1) .code { background: var(--blue); }
+.cv-card .cv-btn:nth-child(2) .code { background: var(--peach); }
+.cv-card .cv-btn:nth-child(1):hover { background: var(--blue); }
+.cv-card .cv-btn:nth-child(2):hover { background: var(--peach); }
+.btn-ghost:hover { background: var(--blue); }
+.seg button[aria-pressed="true"] { background: var(--blue); }
+
+/* proyectos (oscuro): cada carpeta con su color en el título y la pastilla */
+.proy-side .stat-card { background: var(--blue); }
+#proyectos .h2 sup { color: var(--y); }
+#proyectos .card:nth-child(3n+1) h3, #proyectos .card:nth-child(3n+1) .pill { color: var(--y); }
+#proyectos .card:nth-child(3n+2) h3 { color: var(--blue); }
+#proyectos .card:nth-child(3n) h3 { color: var(--peach); }
+#proyectos .card:nth-child(3n+1) .pill { background: var(--y); color: var(--ink); }
+#proyectos .card:nth-child(3n+2) .pill { background: var(--blue); color: var(--ink); }
+#proyectos .card:nth-child(3n) .pill { background: var(--peach); color: var(--ink); }
+#proyectos .card:hover h3 { color: #fff; }
+#proyectos .card:hover .pill { background: #fff; }
+
+/* recomendaciones: las tres en color con sombra dura (amarillo, azul, melocotón) */
+.quote:nth-child(3n) { background: var(--peach); border: 1px solid var(--ink) !important; border-bottom-width: 6px !important; }
+.quote:nth-child(3n+1) .quote-av { background: var(--blue); }
+.quote:nth-child(3n+2) .quote-av { background: var(--y); }
+.quote:nth-child(3n) .quote-av { background: var(--y); }
+.quotes-bar i { background: var(--pink); }
+
+/* herramientas: cuadradito de color en cada grupo y chips que se iluminan en su color */
+.skill-row .slash { display: inline-flex; align-items: center; gap: .55rem; }
+.skill-row .slash::before { content: ""; width: 14px; height: 14px; border-radius: 4px; border: 1px solid var(--ink); background: var(--y); }
+.skills .skill-row:nth-child(4n+2) .slash::before { background: var(--blue); }
+.skills .skill-row:nth-child(4n+3) .slash::before { background: var(--peach); }
+.skills .skill-row:nth-child(4n) .slash::before { background: var(--pink); }
+.skills .skill-row:nth-child(4n+2) .chip:hover { background: var(--blue); }
+.skills .skill-row:nth-child(4n+3) .chip:hover { background: var(--peach); }
+.skills .skill-row:nth-child(4n) .chip:hover { background: var(--pink); }
+
+/* contacto (oscuro): titular en amarillo como el «Empecemos.» de Monos */
+.contact .contact-big { color: var(--y); }
+.contact .contact-big .sq { background: var(--pink); }
+.contact .contact-links .btn-ghost { border-color: transparent; color: var(--ink); }
+.contact .contact-links .btn-ghost:nth-child(1) { background: var(--blue); }
+.contact .contact-links .btn-ghost:nth-child(2) { background: var(--peach); }
+.contact .contact-links .btn-ghost:hover { background: var(--y); }
+
+/* páginas de proyecto y Sobre mí */
+.case-stats .case-stat:nth-child(3n+1) { background: var(--y); }
+.case-stats .case-stat:nth-child(3n+2) { background: var(--blue); }
+.case-stats .case-stat:nth-child(3n) { background: var(--peach); }
+.about-title strong { background: var(--blue); }
+.bullets li::before { background: var(--peach); }
+.about-quote { border-left-color: var(--pink); }
+.cv-banner .cv-btn:nth-child(1) .code { background: var(--blue); }
+.cv-banner .cv-btn:nth-child(2) .code { background: var(--peach); }
+@media (max-width: 820px) {
+  .nav a:nth-child(1):hover { color: var(--y); } .nav a:nth-child(2):hover { color: var(--blue); } .nav a:nth-child(3):hover { color: var(--peach); }
+}
+/* aire arriba en los apartados que empiezan justo después de un cambio de fondo */
+#aporto, #recomendaciones + .section { padding-top: clamp(3.5rem, 8vw, 6.5rem) !important; }
+
+/* ===== v4 · Paleta de Monos tal cual: amarillo, lila, rosa, coral y lima ===== */
+:root {
+  --y: #FFF480;
+  --y-soft: #FFF9B8;
+  --lav: #A5A1FF;
+  --pink: #FAADD6;
+  --coral: #FFACAA;
+  --lime: #DBFF9C;
+  --blue: var(--lav);      /* donde antes iba el azul, ahora lila */
+  --peach: var(--coral);   /* donde antes iba el melocotón, ahora coral */
+  --glow: rgba(165, 161, 255, .35);
+}
+::selection { background: var(--lav); }
+
+/* portada */
+.hero-top .mono.muted { background: var(--lav); }
+.cv-card .cv-btn:nth-child(2) .code { background: var(--lime); }
+.cv-card .cv-btn:nth-child(2):hover { background: var(--lime); }
+.seg button[aria-pressed="true"] { background: var(--y); }
+.btn-ghost:hover { background: var(--lime); }
+.tape-track span:nth-child(5n+1)::after { background: var(--lav); }
+.tape-track span:nth-child(5n+2)::after { background: var(--pink); }
+.tape-track span:nth-child(5n+3)::after { background: var(--lime); }
+.tape-track span:nth-child(5n+4)::after { background: var(--coral); }
+.tape-track span::after { width: .3em; height: .3em; border: 1.5px solid var(--ink); }
+
+/* proyectos: «+6 años» en lila y cada carpeta en un color (amarillo, lila, coral, lima, rosa) */
+.proy-side .stat-card { background: var(--lav); }
+#proyectos .h2 sup { color: var(--lime); }
+#proyectos .card:nth-child(n) h3 { color: var(--y); }
+#proyectos .card:nth-child(5n+2) h3 { color: var(--lav); }
+#proyectos .card:nth-child(5n+3) h3 { color: var(--coral); }
+#proyectos .card:nth-child(5n+4) h3 { color: var(--lime); }
+#proyectos .card:nth-child(5n) h3 { color: var(--pink); }
+#proyectos .card:nth-child(n) .pill { background: var(--y); color: var(--ink); }
+#proyectos .card:nth-child(5n+2) .pill { background: var(--lav); }
+#proyectos .card:nth-child(5n+3) .pill { background: var(--coral); }
+#proyectos .card:nth-child(5n+4) .pill { background: var(--lime); }
+#proyectos .card:nth-child(5n) .pill { background: var(--pink); }
+#proyectos .card:hover h3 { color: #fff; }
+#proyectos .card:hover .pill { background: #fff; }
+
+/* lo que aporto: iconos en amarillo, lila, rosa y lima (como los de «Qué incluye tu web») */
+.strengths .strength:nth-child(4n+1) .slash::before { background: var(--y); }
+.strengths .strength:nth-child(4n+2) .slash::before { background: var(--lav); }
+.strengths .strength:nth-child(4n+3) .slash::before { background: var(--pink); }
+.strengths .strength:nth-child(4n) .slash::before { background: var(--lime); }
+
+/* recomendaciones: amarillo, lila y rosa */
+.quote:nth-child(3n+1) { background: var(--y); }
+.quote:nth-child(3n+2) { background: var(--lav); }
+.quote:nth-child(3n) { background: var(--pink); }
+.quote .quote-av, .quote:nth-child(n) .quote-av { background: #fff; }
+.quote-role, .quote-rel { color: #3A3A40; }
+.quotes-bar i { background: var(--lav); }
+
+/* herramientas: un color por grupo */
+.skills .skill-row:nth-child(5n+1) .slash::before { background: var(--y); }
+.skills .skill-row:nth-child(5n+2) .slash::before { background: var(--lav); }
+.skills .skill-row:nth-child(5n+3) .slash::before { background: var(--coral); }
+.skills .skill-row:nth-child(5n+4) .slash::before { background: var(--lime); }
+.skills .skill-row:nth-child(5n) .slash::before { background: var(--pink); }
+.skills .skill-row:nth-child(5n+1) .chip:hover { background: var(--y); }
+.skills .skill-row:nth-child(5n+2) .chip:hover { background: var(--lav); }
+.skills .skill-row:nth-child(5n+3) .chip:hover { background: var(--coral); }
+.skills .skill-row:nth-child(5n+4) .chip:hover { background: var(--lime); }
+.skills .skill-row:nth-child(5n) .chip:hover { background: var(--pink); }
+
+/* contacto */
+.contact .contact-big .sq { background: var(--pink); }
+.contact .contact-links .btn-ghost:nth-child(1) { background: var(--lav); }
+.contact .contact-links .btn-ghost:nth-child(2) { background: var(--lime); }
+
+/* páginas de proyecto y Sobre mí */
+.case-stats .case-stat:nth-child(3n+1) { background: var(--y); }
+.case-stats .case-stat:nth-child(3n+2) { background: var(--lav); }
+.case-stats .case-stat:nth-child(3n) { background: var(--lime); }
+.about-title strong { background: var(--lav); }
+.bullets li::before { background: var(--coral); }
+.cv-banner .cv-btn:nth-child(2) .code { background: var(--lime); }
+.webview-toggle button[aria-pressed="true"] { background: var(--y); color: var(--ink); }
+@media (max-width: 820px) {
+  .nav a:nth-child(1):hover { color: var(--y); } .nav a:nth-child(2):hover { color: var(--lav); } .nav a:nth-child(3):hover { color: var(--lime); }
+}
+
+/* ===== v5 · Logo nuevo: «Ael» con la tipografía del titular, en negro, y el punto en amarillo pastel ===== */
+.brand .logo-word {
+  display: inline-flex; align-items: flex-end; gap: .05em;
+  font-family: var(--serif); font-weight: 400; color: var(--ink);
+  font-size: 2.35rem; line-height: .8; letter-spacing: -.01em; padding-bottom: .02em;
+  transition: transform .45s var(--ease); transform-origin: left center;
+}
+.brand .logo-word i {
+  display: block; width: .2em; height: .2em; margin-bottom: .04em;
+  background: var(--y); box-shadow: 0 0 0 1.5px var(--ink) inset;   /* el mismo punto que el de «Ana Soria Ael.» */
+}
+.brand:hover .logo-word, .brand:focus-visible .logo-word { transform: scale(1.08); }
+@media (max-width: 380px) { .brand .logo-word { font-size: 2rem; } }
+
+/* ===== v6 · Menos amarillo junto: el amarillo queda en el punto del logo, «Ver proyectos» y poco más;
+   el resto se reparte entre lila, rosa, coral y lima ===== */
+.seg button[aria-pressed="true"] { background: var(--pink); }
+.status i { background: var(--lime); }
+.hero-name .sq { background: var(--coral); }
+.role mark { background: var(--lime); }
+.nav a[aria-current="page"]::after { background: var(--coral); }
+.cv-card .cv-btn:nth-child(1) .code { background: var(--lav); }
+.cv-card .cv-btn:nth-child(2) .code { background: var(--coral); }
+.cv-card .cv-btn:nth-child(1):hover { background: var(--lav); }
+.cv-card .cv-btn:nth-child(2):hover { background: var(--coral); }
+.btn-ghost:hover { background: var(--lav); }
+
+/* la cinta pasa a rosa, con puntitos de colores */
+.tape { background: var(--pink); }
+.tape-track span:nth-child(5n+1)::after { background: var(--y); }
+.tape-track span:nth-child(5n+2)::after { background: var(--lav); }
+.tape-track span:nth-child(5n+3)::after { background: var(--lime); }
+.tape-track span:nth-child(5n+4)::after { background: var(--coral); }
+.tape-track span:nth-child(5n)::after { background: #fff; }
+
+/* contacto: subrayado del email en lima */
+.contact .mail { background: linear-gradient(transparent 86%, var(--lime) 86%, var(--lime) 98%, transparent 98%); }
+
+/* recomendaciones: lima, lila y rosa (la amarilla pasa a lima) */
+.quote:nth-child(3n+1) { background: var(--lime); }
+
+/* páginas de proyecto: la primera cifra en coral */
+.case-stats .case-stat:nth-child(3n+1) { background: var(--coral); }
+.webview-toggle button[aria-pressed="true"] { background: var(--lav); }
+.compare-knob { background: var(--lime); }
+.cursor-ring.view { background: var(--lav); border-color: var(--ink); }
+
+/* «creative» en Sobre mí: rotulador lila en la mitad de abajo (un bloque entero tapaba la línea de arriba) */
+.about-title strong { background: linear-gradient(transparent 52%, var(--lav) 52%, var(--lav) 88%, transparent 88%); padding: 0 .06em; border-radius: 0; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
