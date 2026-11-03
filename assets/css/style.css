@@ -1028,3 +1028,7 @@ html[lang="en"] #app[data-prerender] { visibility: hidden; }
 
 /* «creative» en Sobre mí: rotulador lila en la mitad de abajo (un bloque entero tapaba la línea de arriba) */
 .about-title strong { background: linear-gradient(transparent 52%, var(--lav) 52%, var(--lav) 88%, transparent 88%); padding: 0 .06em; border-radius: 0; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+
+/* al seleccionar texto sobre fondo lila (recomendación de Dani y «+6 años») el subrayado va en amarillo,
+   porque el lila de siempre no se distingue del fondo */
+.quote:nth-child(3n+2) *::selection, .proy-side .stat-card *::selection { background: var(--y); color: var(--ink); }
