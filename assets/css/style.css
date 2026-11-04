@@ -1032,3 +1032,27 @@ html[lang="en"] #app[data-prerender] { visibility: hidden; }
 /* al seleccionar texto sobre fondo lila (recomendación de Dani y «+6 años») el subrayado va en amarillo,
    porque el lila de siempre no se distingue del fondo */
 .quote:nth-child(3n+2) *::selection, .proy-side .stat-card *::selection { background: var(--y); color: var(--ink); }
+
+/* ---------- Juego del pie de página: «Pixel run» ---------- */
+.contact-grid { grid-template-areas: "title mail" "text links" "game game"; }
+.ael-game { grid-area: game; margin-top: clamp(1.8rem, 4vw, 2.6rem); min-width: 0; }
+.ael-game-box { position: relative; border: 1px solid #34343B; border-radius: 22px; background: #26262B; overflow: hidden; }
+.ael-game canvas { display: block; width: 100%; height: 200px; cursor: pointer; touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+.ael-game canvas:focus-visible { outline: 2px solid var(--lav); outline-offset: -4px; border-radius: 22px; }
+.ael-game-cap { margin-top: .7rem; font-family: var(--mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; color: #A9AAB0; }
+.ael-game-over { position: absolute; inset: 0; display: grid; place-items: center; padding: 1rem; background: rgba(27, 27, 31, .74); }
+.ael-game-over[hidden] { display: none; }
+.ael-game-card { display: grid; justify-items: center; gap: .55rem; text-align: center; max-width: 32rem; }
+.ael-game-title { font-family: var(--serif); font-size: clamp(1.3rem, 3.2vw, 2rem); line-height: 1.08; color: #F4F3EF; text-wrap: balance; }
+.ael-game-sub { font-family: var(--mono); font-size: .76rem; letter-spacing: .06em; text-transform: uppercase; color: #A9AAB0; }
+.ael-game-row { display: flex; flex-wrap: wrap; justify-content: center; gap: .5rem; margin-top: .35rem; }
+.ael-game .ael-game-team { background: var(--lav); color: var(--ink); border: 1px solid var(--ink); }
+.ael-game .ael-game-team:hover { background: var(--y); color: var(--ink); }
+@media (max-width: 1000px) {
+  .contact-grid { grid-template-areas: "title" "text" "game" "mail" "links"; }
+}
+@media (max-width: 560px) {
+  .ael-game canvas { height: 240px; }
+  .ael-game-over { padding: .6rem; }
+  .ael-game-card { gap: .4rem; }
+}

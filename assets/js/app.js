@@ -135,11 +135,238 @@
         '<div class="mail-row"><a class="mail" href="mailto:' + esc(SITE.email) + '">' + esc(SITE.email) + '</a>' +
           '<button type="button" class="copy-btn" id="copy-mail" data-copy="' + esc(SITE.email) + '">' + esc(ui('copy')) + '</button></div>' +
         '<p class="contact-text">' + esc(ui('contact_text')) + '</p>' +
+        gameMarkup() +
         '<div class="contact-links">' +
           '<a class="btn btn-ghost btn-sm" href="' + esc(SITE.linkedin) + '" target="_blank" rel="noopener">LinkedIn <span class="arr">↗</span></a>' +
           '<a class="btn btn-ghost btn-sm" href="' + esc(SITE.cv[lang]) + '" download>CV · ' + lang.toUpperCase() + ' <span class="arr">↓</span></a>' +
         '</div>' +
       '</div></div></section>';
+  }
+
+  /* ---------- juego del pie de página: «Pixel run» ----------
+     Empieza con «Ael» y el punto amarillo; al jugar, el punto se suelta y sale corriendo.
+     Se salta con un toque o con la barra espaciadora (o la flecha arriba). */
+  var GAME_TXT = {
+    es: {
+      aria: 'Juego Pixel run: toca o pulsa espacio para saltar',
+      cap: 'Toca o pulsa espacio para saltar · Recoge los píxeles de colores',
+      hint: 'TOCA O PULSA ESPACIO PARA JUGAR →', hintShort: 'TOCA PARA JUGAR →',
+      again: 'Otra vez', team: '¿Jugamos en el mismo equipo?', ups: '¡Ups! ', best: 'RÉCORD', bestLow: 'récord',
+      obst: [
+        { t: 'Comic Sans', comic: true, msg: 'Te ha pillado la Comic Sans' },
+        { t: 'Lorem ipsum', msg: 'Te has quedado en el Lorem ipsum' },
+        { t: 'final_v3.pdf', msg: 'Llega el final_v4.pdf' },
+        { t: '¿Más grande?', msg: 'Querían el logo más grande' },
+        { t: 'Para ayer', msg: 'Lo querían para ayer' },
+        { t: '1 px', msg: 'Un píxel descuadrado' },
+        { t: 'Cambios', msg: 'Cambio de última hora' }
+      ]
+    },
+    en: {
+      aria: 'Pixel run game: tap or press space to jump',
+      cap: 'Tap or press space to jump · Collect the coloured pixels',
+      hint: 'TAP OR PRESS SPACE TO PLAY →', hintShort: 'TAP TO PLAY →',
+      again: 'Play again', team: 'Shall we be on the same team?', ups: 'Oops! ', best: 'BEST', bestLow: 'best',
+      obst: [
+        { t: 'Comic Sans', comic: true, msg: 'Comic Sans got you' },
+        { t: 'Lorem ipsum', msg: 'Stuck on Lorem ipsum' },
+        { t: 'final_v3.pdf', msg: 'Here comes final_v4.pdf' },
+        { t: 'Bigger?', msg: 'They wanted the logo bigger' },
+        { t: 'Due today', msg: 'They wanted it yesterday' },
+        { t: '1 px', msg: 'One pixel off' },
+        { t: 'Changes', msg: 'Last-minute changes' }
+      ]
+    }
+  };
+  function gameMarkup() {
+    var T = GAME_TXT[lang];
+    return '<div class="ael-game">' +
+      '<div class="ael-game-box">' +
+        '<canvas tabindex="0" aria-label="' + esc(T.aria) + '"></canvas>' +
+        '<div class="ael-game-over" hidden><div class="ael-game-card">' +
+          '<p class="ael-game-title"></p><p class="ael-game-sub"></p>' +
+          '<div class="ael-game-row"><button type="button" class="btn btn-primary btn-sm ael-game-again">' + esc(T.again) + '</button>' +
+          '<a class="btn btn-sm ael-game-team" href="mailto:' + esc(SITE.email) + '">' + esc(T.team) + '</a></div>' +
+        '</div></div>' +
+      '</div>' +
+      '<p class="ael-game-cap">' + esc(T.cap) + '</p>' +
+    '</div>';
+  }
+
+  var game = null;   // el juego que está en pantalla (se vuelve a montar cuando cambia la página o el idioma)
+  function mountGame() {
+    var el = document.querySelector('#app .ael-game');
+    if (game && game.el === el) return;
+    if (game) { game.destroy(); game = null; }
+    if (el) game = Runner(el, GAME_TXT[lang]);
+  }
+  window.addEventListener('keydown', function (e) {
+    if (!game || (e.code !== 'Space' && e.code !== 'ArrowUp')) return;
+    if (e.target.closest && e.target.closest('input, textarea, button, a') && !e.target.closest('.ael-game-box')) return;
+    if (game.wantsKeys() && game.press()) e.preventDefault();
+  });
+
+  function Runner(el, T) {
+    var C = { ink: '#1B1B1F', line: '#3A3A42', text: '#F4F3EF', muted: '#A9AAB0', y: '#FFF480', lav: '#A5A1FF', pink: '#FAADD6', coral: '#FFACAA', lime: '#DBFF9C' };
+    var PASTEL = [C.y, C.lav, C.pink, C.coral, C.lime], OBST_C = [C.pink, C.lav, C.coral, C.y, C.lime, C.lav, C.coral];
+    var MONO = '"DM Mono", ui-monospace, Menlo, monospace', SERIF = '"DM Serif Display", Georgia, serif';
+    var canvas = el.querySelector('canvas'), ctx = canvas.getContext('2d');
+    var over = el.querySelector('.ael-game-over'), title = el.querySelector('.ael-game-title'), sub = el.querySelector('.ael-game-sub');
+    var BEST = 'ael-run-best', best = 0;
+    try { best = +localStorage.getItem(BEST) || 0; } catch (e) {}
+    var W = 300, H = 200, small = false;
+    var state = 'intro', speed, dist, bonus, obs, items, parts, floats, toNext, logoX, logoFs, overAt = 0, t = 0, buffer = 0, coyote = 0;
+    var P = { x: 0, y: 0, vy: 0, rot: 0, size: 13, ground: true };
+    function rand(a, b) { return a + Math.random() * (b - a); }
+    function pad(n) { n = String(Math.floor(n)); while (n.length < 5) n = '0' + n; return n; }
+    function rrect(x, y, w, h, r) { ctx.beginPath(); if (ctx.roundRect) ctx.roundRect(x, y, w, h, r); else ctx.rect(x, y, w, h); }
+    function groundY() { return H - 42; }
+    function resize() {
+      var dpr = Math.min(2, window.devicePixelRatio || 1);
+      W = canvas.clientWidth || 300; small = W < 560; H = small ? 240 : 200;
+      canvas.style.height = H + 'px';
+      canvas.width = Math.round(W * dpr); canvas.height = Math.round(H * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      if (state === 'intro') reset();
+      draw();
+    }
+    function reset() {
+      speed = 290; dist = 0; bonus = 0; obs = []; items = []; parts = []; floats = []; buffer = 0; coyote = 0;
+      logoFs = small ? 56 : 66; logoX = small ? 18 : 30;
+      ctx.font = '400 ' + logoFs + 'px ' + SERIF;
+      P.size = small ? 11 : 13; P.x = logoX + ctx.measureText('Ael').width + 5; P.y = groundY() - P.size; P.vy = 0; P.rot = 0; P.ground = true;
+      toNext = Math.max(300, W - P.x - 20);
+    }
+    function start() { state = 'run'; over.hidden = true; P.vy = -430; P.ground = false; }   // saltito para soltarse de la «l»
+    function jump() { P.vy = -640; P.ground = false; coyote = 0; buffer = 0; }
+    function die(o) {
+      state = 'over'; overAt = performance.now();
+      var sc = Math.floor(dist / 10 + bonus);
+      if (sc > best) { best = sc; try { localStorage.setItem(BEST, String(best)); } catch (e) {} }
+      title.textContent = T.ups + o.msg + '.';
+      sub.textContent = sc + ' px · ' + T.bestLow + ' ' + best + ' px';
+      over.hidden = false;
+      for (var i = 0; i < 14; i++) parts.push({ x: P.x + P.size / 2, y: P.y + P.size / 2, vx: rand(-160, 160), vy: rand(-260, -40), life: 1, c: C.y, s: rand(2, 5) });
+    }
+    function press() {
+      if (state === 'intro') { start(); return true; }
+      if (state === 'run') { if (P.ground || coyote > 0) jump(); else buffer = .14; return true; }   // si tocas justo antes de caer, salta al aterrizar
+      if (state === 'over' && performance.now() - overAt > 350) { reset(); start(); return true; }
+      return state === 'over';
+    }
+    function spawn() {
+      var i = Math.floor(Math.random() * T.obst.length), o = T.obst[i];
+      ctx.font = o.comic ? '12px "Comic Sans MS", "Comic Sans", "Chalkboard SE", "Comic Neue", cursive' : '500 11px ' + MONO;
+      var w = Math.ceil(ctx.measureText(o.t).width) + 16;
+      obs.push({ x: W + 10, w: w, h: 22, o: o, c: OBST_C[i % OBST_C.length] });
+      var gap = Math.max(330, speed * .95);
+      toNext = rand(gap, gap + speed * .8);
+      if (Math.random() < .65) items.push({ x: W + 10 + w + toNext * rand(.35, .6), y: groundY() - rand(55, 95), c: PASTEL[Math.floor(Math.random() * 5)] });
+    }
+    function hit(a, b) { return a.x < b.x + b.w && a.x + a.w > b.x && a.y < b.y + b.h && a.y + a.h > b.y; }
+    function update(dt) {
+      t += dt;
+      parts.forEach(function (p) { p.x += p.vx * dt; p.y += p.vy * dt; p.vy += 900 * dt; p.life -= dt * 1.4; });
+      parts = parts.filter(function (p) { return p.life > 0; });
+      floats.forEach(function (f) { f.y -= 40 * dt; f.life -= dt; });
+      floats = floats.filter(function (f) { return f.life > 0; });
+      if (state !== 'run') return;
+      speed = Math.min(560, speed + 6 * dt);
+      var dx = speed * dt;
+      dist += dx; logoX -= dx; toNext -= dx;
+      if (toNext <= 0) spawn();
+      buffer = Math.max(0, buffer - dt); coyote = Math.max(0, coyote - dt);
+      P.vy += 1750 * dt; P.y += P.vy * dt;
+      if (!P.ground) P.rot += dt * 8;
+      var gy = groundY() - P.size;
+      if (P.y >= gy) {
+        if (!P.ground) for (var k = 0; k < 5; k++) parts.push({ x: P.x + rand(0, P.size), y: groundY(), vx: rand(-60, 20), vy: rand(-120, -30), life: .5, c: C.muted, s: 2 });
+        P.y = gy; P.vy = 0; P.rot = Math.round(P.rot / (Math.PI / 2)) * (Math.PI / 2);
+        if (!P.ground) coyote = .08;
+        P.ground = true;
+        if (buffer > 0) jump();
+      }
+      var box = { x: P.x + 2, y: P.y + 2, w: P.size - 4, h: P.size - 4 };
+      obs.forEach(function (o) { o.x -= dx; });
+      obs = obs.filter(function (o) { return o.x + o.w > -20; });
+      items.forEach(function (it) { it.x -= dx; });
+      items = items.filter(function (it) { return it.x > -20 && !it.got; });
+      items.forEach(function (it) {
+        if (!it.got && hit(box, { x: it.x - 3, y: it.y - 3, w: 16, h: 16 })) {
+          it.got = true; bonus += 25;
+          floats.push({ x: it.x, y: it.y - 6, t: '+25 px', c: it.c, life: .8 });
+          for (var j = 0; j < 8; j++) parts.push({ x: it.x + 5, y: it.y + 5, vx: rand(-140, 140), vy: rand(-180, 40), life: .7, c: it.c, s: rand(2, 4) });
+        }
+      });
+      for (var n = 0; n < obs.length; n++) {
+        var ob = obs[n];
+        if (hit(box, { x: ob.x + 5, y: groundY() - ob.h + 3, w: ob.w - 10, h: ob.h })) { die(ob.o); break; }
+      }
+    }
+    function draw() {
+      var gy = groundY();
+      ctx.clearRect(0, 0, W, H);
+      ctx.fillStyle = C.line; ctx.fillRect(0, gy, W, 1);
+      var off = (dist || 0) % 46;
+      for (var x = -off; x < W; x += 46) ctx.fillRect(x, gy + 8, 10, 1);
+      if (logoX > -220) { ctx.font = '400 ' + logoFs + 'px ' + SERIF; ctx.fillStyle = C.text; ctx.textBaseline = 'alphabetic'; ctx.textAlign = 'left'; ctx.fillText('Ael', logoX, gy); }
+      items.forEach(function (it) { if (!it.got) { ctx.fillStyle = it.c; ctx.fillRect(it.x, it.y + Math.sin(t * 5 + it.x * .02) * 3, 10, 10); } });
+      obs.forEach(function (ob) {
+        var y = gy - ob.h;
+        rrect(ob.x, y, ob.w, ob.h, 7); ctx.fillStyle = C.ink; ctx.fill(); ctx.lineWidth = 1.5; ctx.strokeStyle = ob.c; ctx.stroke();
+        ctx.fillStyle = ob.c; ctx.textBaseline = 'middle'; ctx.textAlign = 'center';
+        ctx.font = ob.o.comic ? '12px "Comic Sans MS", "Comic Sans", "Chalkboard SE", "Comic Neue", cursive' : '500 11px ' + MONO;
+        ctx.fillText(ob.o.t, ob.x + ob.w / 2, y + ob.h / 2 + 1); ctx.textAlign = 'left';
+      });
+      if (state !== 'over') {
+        var br = state === 'intro' && !reduceMotion ? 1 + Math.sin(t * 3) * .06 : 1;
+        ctx.save(); ctx.translate(P.x + P.size / 2, P.y + P.size / 2); ctx.rotate(P.rot); ctx.scale(br, br);
+        ctx.fillStyle = C.y; ctx.fillRect(-P.size / 2, -P.size / 2, P.size, P.size); ctx.restore();
+      }
+      parts.forEach(function (p) { ctx.globalAlpha = Math.max(0, p.life); ctx.fillStyle = p.c; ctx.fillRect(p.x, p.y, p.s, p.s); });
+      floats.forEach(function (f) { ctx.globalAlpha = Math.max(0, f.life / .8); ctx.fillStyle = f.c; ctx.font = '500 12px ' + MONO; ctx.textBaseline = 'alphabetic'; ctx.fillText(f.t, f.x, f.y); });
+      ctx.globalAlpha = 1;
+      ctx.font = '500 12px ' + MONO; ctx.textBaseline = 'top'; ctx.textAlign = 'right'; ctx.fillStyle = C.muted;
+      ctx.fillText((best ? T.best + ' ' + pad(best) + '   ' : '') + pad((dist || 0) / 10 + (bonus || 0)) + ' PX', W - 18, 16);
+      ctx.textAlign = 'left';
+      if (state === 'intro') {
+        ctx.font = '500 12px ' + MONO; ctx.textBaseline = 'middle'; ctx.fillStyle = C.muted;
+        var hint = small ? T.hintShort : T.hint, hw = ctx.measureText(hint).width;
+        ctx.fillText(hint, Math.max(P.x + 40, W - hw - 18), gy - 28);
+      }
+    }
+
+    // solo se mueve mientras se ve en pantalla
+    var inView = false, raf = 0, last = 0, alive = true;
+    function frame(now) {
+      raf = 0;
+      if (!alive || !canvas.isConnected) { destroy(); return; }
+      var dt = Math.min(.033, (now - last) / 1000); last = now;
+      update(dt); draw();
+      if (inView && document.visibilityState === 'visible') raf = requestAnimationFrame(frame);
+    }
+    function wake() { if (!raf && alive && inView && document.visibilityState === 'visible') { last = performance.now(); raf = requestAnimationFrame(frame); } }
+    var io = window.IntersectionObserver ? new IntersectionObserver(function (es) { inView = es[0].isIntersecting; wake(); }, { threshold: .1 }) : null;
+    if (io) io.observe(canvas); else { inView = true; }
+    var ro = window.ResizeObserver ? new ResizeObserver(resize) : null;
+    if (ro) ro.observe(canvas); else window.addEventListener('resize', resize);
+    document.addEventListener('visibilitychange', wake);
+    function onDown(e) { e.preventDefault(); try { canvas.focus({ preventScroll: true }); } catch (err) {} press(); wake(); }
+    canvas.addEventListener('pointerdown', onDown);
+    el.querySelector('.ael-game-again').addEventListener('click', function () { reset(); start(); try { canvas.focus({ preventScroll: true }); } catch (err) {} wake(); });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { if (state === 'intro') { reset(); draw(); } });
+    function destroy() {
+      alive = false; if (raf) cancelAnimationFrame(raf); raf = 0;
+      if (io) io.disconnect(); if (ro) ro.disconnect();
+      document.removeEventListener('visibilitychange', wake);
+    }
+    resize(); wake();
+    return {
+      el: el,
+      destroy: destroy,
+      press: function () { if (!inView) return false; var r = press(); wake(); return r; },
+      wantsKeys: function () { return inView && (state === 'run' || el.contains(document.activeElement)); }
+    };
   }
 
   /* ---------- vistas ---------- */
@@ -429,6 +656,7 @@
     renderFooter();
     applyI18nStatic();
     updateAllQuotes();
+    mountGame();
 
     // navegación activa
     document.querySelectorAll('.nav a').forEach(function (a) {
