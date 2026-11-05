@@ -247,6 +247,25 @@
       }
     },
     {
+      "name": "Alfredo Sánchez",
+      "role": {
+        "es": "Dirección creativa",
+        "en": "Creative direction"
+      },
+      "relation": {
+        "es": "Otro equipo · Grupo Herme",
+        "en": "Different team · Grupo Herme"
+      },
+      "text": {
+        "es": [
+          "Ana y yo no estábamos en el mismo departamento, pero acabamos hablando mucho de procesos, de cómo organizar el trabajo y, sobre todo, de inteligencia artificial. Lo que más me sorprendió de ella es lo rápido que pasa de la curiosidad a la práctica. Lo que comentábamos un día, a los pocos días ya lo tenía aplicado con criterio propio. Da gusto compartir lo que sabes con alguien que lo aprovecha así. Para cualquier equipo que esté integrando la IA en su forma de diseñar, Ana suma desde el primer día."
+        ],
+        "en": [
+          "Ana and I weren't in the same department, but we ended up talking a lot about processes, how to organise work and, above all, artificial intelligence. What surprised me most about her is how quickly she goes from curiosity to practice. Whatever we discussed one day, a few days later she had already applied it with her own judgement. It's a pleasure to share what you know with someone who makes such good use of it. For any team integrating AI into the way it designs, Ana adds value from day one."
+        ]
+      }
+    },
+    {
       "name": "Laura Martín Corrales",
       "role": {
         "es": "Administración y contabilidad",
