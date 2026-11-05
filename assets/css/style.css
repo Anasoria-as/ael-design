@@ -1059,3 +1059,6 @@ html[lang="en"] #app[data-prerender] { visibility: hidden; }
 
 /* email del pie: el mismo subrayado de rotulador que «Diseñadora web & UX/UI» de la portada */
 .contact .mail { background: var(--lime); color: var(--ink); padding: .02em .22em .06em; border-radius: 4px; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+
+/* subrayados de rotulador con esquinas rectas: «Diseñadora web & UX/UI» y el email del pie */
+.role mark, .contact .mail { border-radius: 0; }
