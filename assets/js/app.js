@@ -152,14 +152,18 @@
       cap: 'Toca o pulsa espacio para saltar · Recoge los píxeles de colores',
       hint: 'TOCA O PULSA ESPACIO PARA JUGAR →', hintShort: 'TOCA PARA JUGAR →',
       again: 'Otra vez', team: '¿Jugamos en el mismo equipo?', ups: '¡Ups! ', best: 'RÉCORD', bestLow: 'récord',
-      obst: [
-        { t: 'Comic Sans', comic: true, msg: 'Te ha pillado la Comic Sans' },
-        { t: 'Lorem ipsum', msg: 'Te has quedado en el Lorem ipsum' },
-        { t: 'final_v3.pdf', msg: 'Llega el final_v4.pdf' },
-        { t: '¿Más grande?', msg: 'Querían el logo más grande' },
-        { t: 'Para ayer', msg: 'Lo querían para ayer' },
-        { t: '1 px', msg: 'Un píxel descuadrado' },
-        { t: 'Cambios', msg: 'Cambio de última hora' }
+      obst: [   // cada frase en dos líneas, dentro de un cuadrado
+        { t: ['Comic', 'Sans'], comic: true, msg: 'Te ha pillado la Comic Sans' },
+        { t: ['Lorem', 'ipsum'], msg: 'Te has quedado en el Lorem ipsum' },
+        { t: ['final', 'v3.pdf'], msg: 'Llega el final_v4.pdf' },
+        { t: ['Para', 'ayer'], msg: 'Lo querían para ayer' },
+        { t: ['1 px', 'fuera'], msg: 'Un píxel descuadrado' },
+        { t: ['Sin', 'guardar'], msg: 'Se te olvidó guardar' },
+        { t: ['Sin', 'capas'], msg: 'El archivo venía sin capas' },
+        { t: ['JPG a', '72 ppp'], msg: 'Un JPG a 72 ppp para imprenta' },
+        { t: ['Word', 'Art'], msg: 'Te ha atrapado el WordArt' },
+        { t: ['Ctrl', '+ Z'], msg: 'Ni Ctrl + Z te salva' },
+        { t: ['Fuente', 'perdida'], msg: 'Falta una fuente' }
       ]
     },
     en: {
@@ -168,13 +172,17 @@
       hint: 'TAP OR PRESS SPACE TO PLAY →', hintShort: 'TAP TO PLAY →',
       again: 'Play again', team: 'Shall we be on the same team?', ups: 'Oops! ', best: 'BEST', bestLow: 'best',
       obst: [
-        { t: 'Comic Sans', comic: true, msg: 'Comic Sans got you' },
-        { t: 'Lorem ipsum', msg: 'Stuck on Lorem ipsum' },
-        { t: 'final_v3.pdf', msg: 'Here comes final_v4.pdf' },
-        { t: 'Bigger?', msg: 'They wanted the logo bigger' },
-        { t: 'Due today', msg: 'They wanted it yesterday' },
-        { t: '1 px', msg: 'One pixel off' },
-        { t: 'Changes', msg: 'Last-minute changes' }
+        { t: ['Comic', 'Sans'], comic: true, msg: 'Comic Sans got you' },
+        { t: ['Lorem', 'ipsum'], msg: 'Stuck on Lorem ipsum' },
+        { t: ['final', 'v3.pdf'], msg: 'Here comes final_v4.pdf' },
+        { t: ['Due', 'today'], msg: 'They wanted it yesterday' },
+        { t: ['1 px', 'off'], msg: 'One pixel off' },
+        { t: ['Not', 'saved'], msg: 'You forgot to save' },
+        { t: ['No', 'layers'], msg: 'The file had no layers' },
+        { t: ['72 dpi', 'JPG'], msg: 'A 72 dpi JPG for print' },
+        { t: ['Word', 'Art'], msg: 'WordArt got you' },
+        { t: ['Ctrl', '+ Z'], msg: 'Not even Ctrl + Z can save you' },
+        { t: ['Missing', 'font'], msg: 'A font is missing' }
       ]
     }
   };
@@ -254,11 +262,22 @@
       if (state === 'over' && performance.now() - overAt > 350) { reset(); start(); return true; }
       return state === 'over';
     }
+    // las frases salen en orden aleatorio y no se repite ninguna hasta que han salido todas
+    var bag = [];
+    function nextObst() {
+      if (!bag.length) { bag = T.obst.map(function (o, i) { return i; }); for (var k = bag.length - 1; k > 0; k--) { var j = Math.floor(Math.random() * (k + 1)), tmp = bag[k]; bag[k] = bag[j]; bag[j] = tmp; } }
+      return bag.pop();
+    }
+    var SQ = 48;   // lado del cuadrado
+    function obstFont(o, size) { return o.comic ? size + 1 + 'px "Comic Sans MS", "Comic Sans", "Chalkboard SE", "Comic Neue", cursive' : '500 ' + size + 'px ' + MONO; }
     function spawn() {
-      var i = Math.floor(Math.random() * T.obst.length), o = T.obst[i];
-      ctx.font = o.comic ? '12px "Comic Sans MS", "Comic Sans", "Chalkboard SE", "Comic Neue", cursive' : '500 11px ' + MONO;
-      var w = Math.ceil(ctx.measureText(o.t).width) + 16;
-      obs.push({ x: W + 10, w: w, h: 22, o: o, c: OBST_C[i % OBST_C.length] });
+      var i = nextObst(), o = T.obst[i];
+      // letra de 10 px; si una línea no cabe en el cuadrado, se hace un poco más pequeña
+      var fs = 10;
+      ctx.font = obstFont(o, fs);
+      while (fs > 7 && Math.max.apply(null, o.t.map(function (l) { return ctx.measureText(l).width; })) > SQ - 8) { fs -= .5; ctx.font = obstFont(o, fs); }
+      obs.push({ x: W + 10, w: SQ, h: SQ, o: o, fs: fs, c: OBST_C[i % OBST_C.length] });
+      var w = SQ;
       var gap = Math.max(330, speed * .95);
       toNext = rand(gap, gap + speed * .8);
       if (Math.random() < .65) items.push({ x: W + 10 + w + toNext * rand(.35, .6), y: groundY() - rand(55, 95), c: PASTEL[Math.floor(Math.random() * 5)] });
@@ -300,7 +319,7 @@
       });
       for (var n = 0; n < obs.length; n++) {
         var ob = obs[n];
-        if (hit(box, { x: ob.x + 5, y: groundY() - ob.h + 3, w: ob.w - 10, h: ob.h })) { die(ob.o); break; }
+        if (hit(box, { x: ob.x + 5, y: groundY() - ob.h + 5, w: ob.w - 10, h: ob.h })) { die(ob.o); break; }
       }
     }
     function draw() {
@@ -313,10 +332,11 @@
       items.forEach(function (it) { if (!it.got) { ctx.fillStyle = it.c; ctx.fillRect(it.x, it.y + Math.sin(t * 5 + it.x * .02) * 3, 10, 10); } });
       obs.forEach(function (ob) {
         var y = gy - ob.h;
-        rrect(ob.x, y, ob.w, ob.h, 7); ctx.fillStyle = C.ink; ctx.fill(); ctx.lineWidth = 1.5; ctx.strokeStyle = ob.c; ctx.stroke();
-        ctx.fillStyle = ob.c; ctx.textBaseline = 'middle'; ctx.textAlign = 'center';
-        ctx.font = ob.o.comic ? '12px "Comic Sans MS", "Comic Sans", "Chalkboard SE", "Comic Neue", cursive' : '500 11px ' + MONO;
-        ctx.fillText(ob.o.t, ob.x + ob.w / 2, y + ob.h / 2 + 1); ctx.textAlign = 'left';
+        rrect(ob.x, y, ob.w, ob.h, 9); ctx.fillStyle = C.ink; ctx.fill(); ctx.lineWidth = 1.5; ctx.strokeStyle = ob.c; ctx.stroke();
+        ctx.fillStyle = ob.c; ctx.textBaseline = 'middle'; ctx.textAlign = 'center'; ctx.font = obstFont(ob.o, ob.fs);
+        var lh = ob.fs * 1.25, y0 = y + ob.h / 2 - (ob.o.t.length - 1) * lh / 2 + 1;
+        ob.o.t.forEach(function (l, k) { ctx.fillText(l, ob.x + ob.w / 2, y0 + k * lh); });
+        ctx.textAlign = 'left';
       });
       if (state !== 'over') {
         var br = state === 'intro' && !reduceMotion ? 1 + Math.sin(t * 3) * .06 : 1;
