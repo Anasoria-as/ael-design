@@ -1062,3 +1062,11 @@ html[lang="en"] #app[data-prerender] { visibility: hidden; }
 
 /* subrayados de rotulador con esquinas rectas: «Diseñadora web & UX/UI» y el email del pie */
 .role mark, .contact .mail { border-radius: 0; }
+
+/* Sobre mí sin foto: el texto a la izquierda y la caja del CV a la derecha, acompañando al leer
+   (en móvil sigue como siempre: primero el texto y debajo el CV) */
+@media (min-width: 821px) {
+  .about-body.no-photo { grid-template-columns: minmax(0, 1.3fr) minmax(0, .7fr); align-items: start; }
+  .no-photo .about-text { order: 1; }
+  .no-photo .portrait { order: 2; justify-self: end; position: sticky; top: 104px; }
+}

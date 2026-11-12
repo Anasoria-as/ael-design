@@ -628,7 +628,7 @@ singletons:
       required: false
       media_folder: /assets/img
       public_folder: /assets/img
-      hint: Sale redonda en Sobre mí. Si la dejas vacía, sale el logo.
+      hint: Sale redonda en Sobre mí. Si la dejas vacía, no sale ninguna foto.
     - name: title
       label: Titular de la página
       widget: object

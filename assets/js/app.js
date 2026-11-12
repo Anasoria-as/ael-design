@@ -479,10 +479,8 @@
 
   function viewAbout() {
     var a = SITE.about;
-    var logo = document.querySelector('.brand .logo-word');   // mismo logo de la cabecera
-    var photo = a.photo
-      ? '<img src="' + esc(a.photo) + '" alt="Ana Soria Ael">'
-      : '<div class="portrait-logo">' + (logo ? logo.outerHTML : '') + '</div>';
+    // sin foto en el CMS no sale nada: el texto ocupa la columna principal y la caja del CV va al lado
+    var photo = a.photo ? '<img src="' + esc(a.photo) + '" alt="Ana Soria Ael">' : '';
     return '' +
       // cabecera: «// Sobre mí» pequeño y la frase como titular grande (la palabra entre ** va en rosa y cursiva)
       (t(a.title)
@@ -494,7 +492,7 @@
             '<h1 class="page-title">' + esc(ui('about_title')) + '<span class="sq" aria-hidden="true"></span></h1>' +
           '</section>') +
       '<section class="section wrap about-main">' +
-        '<div class="about-body">' +
+        '<div class="about-body' + (photo ? '' : ' no-photo') + '">' +
           // columna izquierda: foto y, debajo, la caja para descargar el CV
           '<div class="portrait">' + photo +
             '<div class="cv-banner"><div><h2>' + esc(ui('cv_title')) + '</h2><p>' + esc(ui('cv_note')) + '</p></div>' + cvButtons() + '</div>' +
