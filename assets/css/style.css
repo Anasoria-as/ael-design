@@ -1062,11 +1062,23 @@ html[lang="en"] #app[data-prerender] { visibility: hidden; }
   .ael-game-card { gap: .4rem; }
 }
 
-/* email del pie: el mismo subrayado de rotulador que «Diseñadora web & UX/UI» de la portada */
-.contact .mail { background: var(--lime); color: var(--ink); padding: .02em .22em .06em; border-radius: 4px; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
-
-/* subrayados de rotulador con esquinas rectas: «Diseñadora web & UX/UI» y el email del pie */
-.role mark, .contact .mail { border-radius: 0; }
+/* Subrayado «hecho a mano», como el de la primera versión: una franja gruesa en la mitad de abajo
+   del texto que asoma un poco por los lados. Mismo verde lima en «Diseñadora web & UX/UI» y en el email del pie
+   (el email va dentro de dos <span>: el enlace es un bloque dentro de una fila flex y la franja tiene que medirse sobre la línea de texto) */
+.contact .mail { background: none; padding: 0; color: #fff; }
+.role mark, .contact .mail > span {
+  background: linear-gradient(transparent 55%, var(--lime) 55%, var(--lime) 92%, transparent 92%);
+  padding: 0 .15em; border-radius: 0;
+  -webkit-box-decoration-break: clone; box-decoration-break: clone;
+}
+.role mark { color: inherit; }
+/* en el pie el fondo es oscuro: la parte de las letras que pisa la franja va en negro para que se siga leyendo */
+.contact .mail > span > span {
+  background: linear-gradient(#fff 55%, var(--ink) 55%, var(--ink) 92%, #fff 92%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  -webkit-box-decoration-break: clone; box-decoration-break: clone;
+}
+.contact .mail span::selection { color: var(--ink); }
 
 /* Sobre mí sin foto: el texto a la izquierda y la caja del CV a la derecha, acompañando al leer
    (en móvil sigue como siempre: primero el texto y debajo el CV) */

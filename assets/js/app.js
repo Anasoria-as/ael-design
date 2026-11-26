@@ -132,7 +132,7 @@
     return '<section class="section contact" id="contacto"><div class="wrap">' +
       '<div class="contact-grid">' +
         '<h2 class="contact-big">' + esc(ui('contact_kicker')) + '<span class="sq" aria-hidden="true"></span></h2>' +
-        '<div class="mail-row"><a class="mail" href="mailto:' + esc(SITE.email) + '">' + esc(SITE.email) + '</a>' +
+        '<div class="mail-row"><a class="mail" href="mailto:' + esc(SITE.email) + '"><span><span>' + esc(SITE.email) + '</span></span></a>' +
           '<button type="button" class="copy-btn" id="copy-mail" data-copy="' + esc(SITE.email) + '">' + esc(ui('copy')) + '</button></div>' +
         '<p class="contact-text">' + esc(ui('contact_text')) + '</p>' +
         gameMarkup() +
