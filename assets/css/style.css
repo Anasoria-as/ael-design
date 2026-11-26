@@ -998,6 +998,9 @@ html[lang="en"] #app[data-prerender] { visibility: hidden; }
 .seg button[aria-pressed="true"] { background: var(--pink); }
 .status i { background: var(--lime); }
 .hero-name .sq { background: var(--y); }   /* el punto de «Ael» siempre en el amarillo claro (el de «Ver proyectos») */
+/* el punto apoyado en la línea base de «Ael», a la altura de la base de las letras (antes quedaba un poco más abajo) */
+.hero-name .l2 { align-items: baseline; }
+.hero-name .sq { margin-bottom: 0; }
 .role mark { background: var(--lime); }
 .nav a[aria-current="page"]::after { background: var(--coral); }
 .cv-card .cv-btn:nth-child(1) .code { background: var(--lav); }
