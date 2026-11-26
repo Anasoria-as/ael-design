@@ -677,7 +677,7 @@ html[lang="en"] #app[data-prerender] { visibility: hidden; }
 .bullets li::before { background: var(--y); box-shadow: 0 0 0 1.5px var(--ink) inset; }
 .about-quote { border-left: 4px solid var(--y); }
 .nav a[aria-current="page"]::after { background: var(--y); height: 4px; border-radius: 2px; }
-.hero-top .mono.muted { background: var(--y); color: var(--ink); border: 1px solid var(--ink); border-radius: 999px; padding: .3rem .8rem; transform: rotate(-3deg); }
+.hero-top .mono.muted { background: var(--y); color: var(--ink); border: 1px solid var(--ink); border-radius: 999px; padding: .3rem .8rem; }
 
 /* botones: el principal con pegatina; los demás solo con borde fino */
 .btn-primary { background: var(--y); color: var(--ink); padding-block: 1rem .8rem; }
@@ -1031,7 +1031,12 @@ html[lang="en"] #app[data-prerender] { visibility: hidden; }
 
 /* al seleccionar texto sobre fondo lila (recomendación de Dani y «+6 años») el subrayado va en amarillo,
    porque el lila de siempre no se distingue del fondo */
-.quote:nth-child(3n+2) *::selection, .proy-side .stat-card *::selection { background: var(--y); color: var(--ink); }
+/* Sobre fondo lila la selección (que también es lila) no se veía: ahí va en amarillo */
+.quote:nth-child(3n+2) *::selection, .proy-side .stat-card *::selection,
+.hero-top .mono.muted::selection,
+.case-stats .case-stat:nth-child(3n+2)::selection, .case-stats .case-stat:nth-child(3n+2) *::selection,
+.contact .contact-links .btn-ghost:nth-child(1)::selection, .contact .contact-links .btn-ghost:nth-child(1) *::selection,
+.ael-game .ael-game-team::selection, .ael-game .ael-game-team *::selection { background: var(--y); color: var(--ink); }
 
 /* ---------- Juego del pie de página: «Pixel run» ---------- */
 .contact-grid { grid-template-areas: "title mail" "text links" "game game"; }
