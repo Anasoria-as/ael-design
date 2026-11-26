@@ -671,7 +671,7 @@ html[lang="en"] #app[data-prerender] { visibility: hidden; }
 .role mark { background: var(--y); padding: .02em .22em .06em; border-radius: 4px; }
 .about-title strong { color: var(--ink); background: var(--y); padding: 0 .08em; border-radius: 6px; }
 .mail { background: linear-gradient(transparent 58%, var(--y) 58%, var(--y) 96%, transparent 96%); }
-.sq { background: var(--y); box-shadow: 0 0 0 2px var(--ink) inset; }
+.sq { background: var(--y); box-shadow: 0 0 0 max(1px, .012em) var(--ink) inset; }   /* contorno proporcional al tamaño: 2 px en ordenador, 1 px en móvil */
 .status { background: #fff; }
 .status i { background: var(--y); box-shadow: 0 0 0 1.5px var(--ink) inset; }
 .bullets li::before { background: var(--y); box-shadow: 0 0 0 1.5px var(--ink) inset; }
@@ -1001,6 +1001,8 @@ html[lang="en"] #app[data-prerender] { visibility: hidden; }
 /* el punto apoyado en la línea base de «Ael», a la altura de la base de las letras (antes quedaba un poco más abajo) */
 .hero-name .l2 { align-items: baseline; }
 .hero-name .sq { margin-bottom: 0; }
+/* lo mismo en «human.» (Sobre mí) y «¿Hablamos?.» (pie): el punto apoyado en la línea base, no flotando por encima */
+.about-title .sq, .contact-big .sq { margin-bottom: 0; }
 .role mark { background: var(--lime); }
 .nav a[aria-current="page"]::after { background: var(--coral); }
 .cv-card .cv-btn:nth-child(1) .code { background: var(--lav); }
