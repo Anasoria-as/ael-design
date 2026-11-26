@@ -187,10 +187,12 @@ a { color: inherit; text-decoration: none; }
 .main { padding: 34px 42px 30px 38px; display: flex; flex-direction: column; }
 .name { font-family: var(--serif); font-weight: 400; font-size: 46px; line-height: .95; letter-spacing: -.01em; }
 .name span { display: flex; align-items: flex-end; gap: 3px; }
-.name i { display: block; width: 8px; height: 8px; background: var(--y); box-shadow: inset 0 0 0 1.5px var(--ink); margin-bottom: 5px; }
+.name i { display: block; width: 8px; height: 8px; background: var(--y); box-shadow: inset 0 0 0 1px var(--ink); margin-bottom: 5px; }
 .headline { display: flex; align-items: center; gap: 10px; margin-top: 12px; padding-bottom: 14px; border-bottom: 1px solid var(--ink); }
 /* rotulador lima detrás del rol, con esquinas rectas como en la web (bloque sólido: se ve igual en cualquier visor de PDF) */
-.role { font-size: 15.4px; font-weight: 600; letter-spacing: -.02em; background: var(--lime); padding: 1px 6px 2px; }
+.role { font-size: 15.4px; font-weight: 600; letter-spacing: -.02em; }
+/* subrayado «hecho a mano» como en la web: franja lima en la mitad de abajo del texto que asoma por los lados */
+.role span { background: linear-gradient(transparent 55%, var(--lime) 55%, var(--lime) 92%, transparent 92%); padding: 0 .15em; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
 .badge { font-family: var(--mono); font-size: 9.2px; letter-spacing: .06em; text-transform: uppercase; background: var(--lav); color: var(--ink); border: 1px solid var(--ink); border-radius: 999px; padding: 4px 10px 3px; transform: rotate(-3deg); }
 .sec { margin-top: 21px; }
 .sec-h { display: flex; align-items: center; gap: 8px; margin-bottom: 7px; }
@@ -262,7 +264,7 @@ def build(lang, photo=None):
 </aside>
 <main class="main">
   <h1 class="name"><span>Ana Soria</span><span>Ael<i></i></span></h1>
-  <div class="headline"><span class="role">{e(c['role'])}</span><span class="badge">{e(c['chip'])}</span></div>
+  <div class="headline"><span class="role"><span>{e(c['role'])}</span></span><span class="badge">{e(c['chip'])}</span></div>
   <section class="sec"><div class="sec-h"><span class="sq" style="background:var(--y)"></span><h2>{e(h['profile'])}</h2></div><p class="profile">{tx(c['profile'])}</p></section>
   <section class="sec"><div class="sec-h"><span class="sq" style="background:var(--lav)"></span><h2>{e(h['experience'])}</h2></div>{jobs}</section>
   <section class="sec"><div class="sec-h"><span class="sq" style="background:var(--pink)"></span><h2>{e(h['projects'])}</h2></div><div class="cards">{cards}</div></section>
