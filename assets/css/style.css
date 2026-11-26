@@ -1068,21 +1068,17 @@ html[lang="en"] #app[data-prerender] { visibility: hidden; }
 }
 
 /* Subrayado «hecho a mano», como el de la primera versión: una franja gruesa en la mitad de abajo
-   del texto que asoma un poco por los lados. Mismo verde lima en «Diseñadora web & UX/UI» y en el email del pie
+   del texto que asoma un poco por los lados. Verde lima en «Diseñadora web & UX/UI»;
+   en el email del pie (fondo oscuro) la franja va en rosa y las letras en blanco.
    (el email va dentro de dos <span>: el enlace es un bloque dentro de una fila flex y la franja tiene que medirse sobre la línea de texto) */
 .contact .mail { background: none; padding: 0; color: #fff; }
 .role mark, .contact .mail > span {
-  background: linear-gradient(transparent 55%, var(--lime) 55%, var(--lime) 92%, transparent 92%);
+  background: linear-gradient(transparent 55%, var(--hl) 55%, var(--hl) 92%, transparent 92%);
   padding: 0 .15em; border-radius: 0;
   -webkit-box-decoration-break: clone; box-decoration-break: clone;
 }
-.role mark { color: inherit; }
-/* en el pie el fondo es oscuro: la parte de las letras que pisa la franja va en negro para que se siga leyendo */
-.contact .mail > span > span {
-  background: linear-gradient(#fff 55%, var(--ink) 55%, var(--ink) 92%, #fff 92%);
-  -webkit-background-clip: text; background-clip: text; color: transparent;
-  -webkit-box-decoration-break: clone; box-decoration-break: clone;
-}
+.role mark { --hl: var(--lime); color: inherit; }
+.contact .mail > span { --hl: var(--pink); }
 .contact .mail span::selection { color: var(--ink); }
 
 /* Sobre mí sin foto: el texto a la izquierda y la caja del CV a la derecha, acompañando al leer
