@@ -187,7 +187,7 @@ a { color: inherit; text-decoration: none; }
 .main { padding: 34px 42px 30px 38px; display: flex; flex-direction: column; }
 .name { font-family: var(--serif); font-weight: 400; font-size: 46px; line-height: .95; letter-spacing: -.01em; }
 .name span { display: flex; align-items: flex-end; gap: 3px; }
-.name i { display: block; width: 8px; height: 8px; background: var(--coral); box-shadow: inset 0 0 0 1.5px var(--ink); margin-bottom: 5px; }
+.name i { display: block; width: 8px; height: 8px; background: var(--y); box-shadow: inset 0 0 0 1.5px var(--ink); margin-bottom: 5px; }
 .headline { display: flex; align-items: center; gap: 10px; margin-top: 12px; padding-bottom: 14px; border-bottom: 1px solid var(--ink); }
 /* rotulador lima detrás del rol, con esquinas rectas como en la web (bloque sólido: se ve igual en cualquier visor de PDF) */
 .role { font-size: 15.4px; font-weight: 600; letter-spacing: -.02em; background: var(--lime); padding: 1px 6px 2px; }

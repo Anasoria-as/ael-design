@@ -988,7 +988,7 @@ html[lang="en"] #app[data-prerender] { visibility: hidden; }
 }
 .brand .logo-word i {
   display: block; width: .2em; height: .2em; margin-bottom: .04em;
-  background: var(--y); box-shadow: 0 0 0 1.5px var(--ink) inset;   /* el mismo punto que el de «Ana Soria Ael.» */
+  background: var(--y); box-shadow: 0 0 0 1px var(--ink) inset;   /* el mismo amarillo que el de «Ana Soria Ael.»; contorno de 1 px en el logo pequeño */
 }
 .brand:hover .logo-word, .brand:focus-visible .logo-word { transform: scale(1.08); }
 @media (max-width: 380px) { .brand .logo-word { font-size: 2rem; } }
@@ -997,7 +997,7 @@ html[lang="en"] #app[data-prerender] { visibility: hidden; }
    el resto se reparte entre lila, rosa, coral y lima ===== */
 .seg button[aria-pressed="true"] { background: var(--pink); }
 .status i { background: var(--lime); }
-.hero-name .sq { background: var(--coral); }
+.hero-name .sq { background: var(--y); }   /* el punto de «Ael» siempre en el amarillo claro (el de «Ver proyectos») */
 .role mark { background: var(--lime); }
 .nav a[aria-current="page"]::after { background: var(--coral); }
 .cv-card .cv-btn:nth-child(1) .code { background: var(--lav); }
