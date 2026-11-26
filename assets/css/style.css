@@ -964,7 +964,7 @@ html[lang="en"] #app[data-prerender] { visibility: hidden; }
 
 /* contacto */
 .contact .contact-big .sq { background: var(--pink); }
-.contact .contact-links .btn-ghost:nth-child(1) { background: var(--lav); }
+.contact .contact-links .btn-ghost:nth-child(1) { background: var(--pink); }   /* LinkedIn en rosa: el lila ya va en el subrayado del email */
 .contact .contact-links .btn-ghost:nth-child(2) { background: var(--lime); }
 
 /* páginas de proyecto y Sobre mí */
